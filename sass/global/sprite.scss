@@ -1,0 +1,228 @@
+%svg-common {
+	background: url("../image/sprite.svg") no-repeat;
+}
+
+%about_header {
+	@extend %svg-common;
+	background-position: 0 0;
+	width: 498.161px;
+	height: 175.44px;
+}
+
+%arrow_down {
+	@extend %svg-common;
+	background-position: 0 6.5189144822129945%;
+	width: 25.18px;
+	height: 16.164px;
+}
+
+%blog_header {
+	@extend %svg-common;
+	background-position: 0 7.695411620789255%;
+	width: 302.193px;
+	height: 208.012px;
+}
+
+%check {
+	@extend %svg-common;
+	background-position: 0 14.877438771197575%;
+	width: 18.164px;
+	height: 13.922px;
+}
+
+%envelope {
+	@extend %svg-common;
+	background-position: 0 15.414800802607177%;
+	width: 22.012px;
+	height: 17.295px;
+}
+
+%envelope2 {
+	@extend %svg-common;
+	background-position: 0 16.076402175277977%;
+	width: 23px;
+	height: 16.391px;
+}
+
+%envelope_n {
+	@extend %svg-common;
+	background-position: 0 16.885061774616247%;
+	width: 45px;
+	height: 45px;
+}
+
+%github {
+	@extend %svg-common;
+	background-position: 0 18.411284335560506%;
+	width: 26px;
+	height: 22px;
+}
+
+%github_round {
+	@extend %svg-common;
+	background-position: 0 19.42985746436609%;
+	width: 50px;
+	height: 50px;
+}
+
+%hamburger {
+	@extend %svg-common;
+	background-position: 0 21.186124580380454%;
+	width: 40px;
+	height: 35px;
+}
+
+%in {
+	@extend %svg-common;
+	background-position: 0 22.39086957522701%;
+	width: 24px;
+	height: 22.938px;
+}
+
+%in_round {
+	@extend %svg-common;
+	background-position: 0 23.48087021755439%;
+	width: 50px;
+	height: 50px;
+}
+
+%link {
+	@extend %svg-common;
+	background-position: 0 25.066048667439166%;
+	width: 19.125px;
+	height: 19.125px;
+}
+
+%login {
+	@extend %svg-common;
+	background-position: 0 25.772260604951978%;
+	width: 14.137px;
+	height: 15.422px;
+}
+
+%map_marker {
+	@extend %svg-common;
+	background-position: 0 26.42570775987939%;
+	width: 15.151px;
+	height: 21.654px;
+}
+
+%map_n {
+	@extend %svg-common;
+	background-position: 0 27.480344440284536%;
+	width: 45px;
+	height: 45px;
+}
+
+%password {
+	@extend %svg-common;
+	background-position: 0 28.851680878928125%;
+	width: 16.897px;
+	height: 15.984px;
+}
+
+%phone {
+	@extend %svg-common;
+	background-position: 0 29.475699602949348%;
+	width: 18.864px;
+	height: 18.863px;
+}
+
+%phone2 {
+	@extend %svg-common;
+	background-position: 0 30.20348764940801%;
+	width: 16.492px;
+	height: 20.947px;
+}
+
+%phone_n {
+	@extend %svg-common;
+	background-position: 0 31.26169973792587%;
+	width: 45px;
+	height: 45px;
+}
+
+%portf_arrow_down {
+	@extend %svg-common;
+	background-position: 0 32.73121535094%;
+	width: 42.736px;
+	height: 27.435px;
+}
+
+%portf_arrow_up {
+	@extend %svg-common;
+	background-position: 0 33.77266311210627%;
+	width: 42.736px;
+	height: 27.435px;
+}
+
+%portfolio_header {
+	@extend %svg-common;
+	background-position: 0 38.966894375986406%;
+	width: 1175.495px;
+	height: 313.961px;
+}
+
+%skype {
+	@extend %svg-common;
+	background-position: 0 46.43387815750371%;
+	width: 24px;
+	height: 24px;
+}
+
+%skype_n {
+	@extend %svg-common;
+	background-position: 0 60.20793950850662%;
+	width: 600px;
+	height: 600px;
+}
+
+%stars1 {
+	@extend %svg-common;
+	background-position: 0 71.93764073712666%;
+	width: 186.861px;
+	height: 110.966px;
+}
+
+%stars2 {
+	@extend %svg-common;
+	background-position: 0 76.83375266111864%;
+	width: 171.5px;
+	height: 132.5px;
+}
+
+%stars3 {
+	@extend %svg-common;
+	background-position: 0 81.71390872579545%;
+	width: 103.03px;
+	height: 124.03px;
+}
+
+%telegram_logo {
+	@extend %svg-common;
+	background-position: 0 90.54914036852652%;
+	width: 238.892px;
+	height: 238.892px;
+}
+
+%vk {
+	@extend %svg-common;
+	background-position: 0 91.96417621106853%;
+	width: 30.011px;
+	height: 17.123px;
+}
+
+%vk_round {
+	@extend %svg-common;
+	background-position: 0 93.7734433608402%;
+	width: 50px;
+	height: 50px;
+}
+
+%works_header {
+	@extend %svg-common;
+	background-position: 0 99.96221036439557%;
+	width: 505.101px;
+	height: 165.036px;
+}
+

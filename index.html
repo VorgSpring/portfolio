@@ -1,10 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>Мой сайт</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Личный сайт</title>
 </head>
+
 <body>
-    <h1>Ура все получилось!!!</h1>
+	<div class="authorization">
+		<h1 class="authorization__title">Авторизуйтесь</h1>
+		<form class="authorization__form" method="POST" action="#">
+			<fieldset class="authorization__enter">
+				<input class="authorization__login" type="text" name="login" placeholder="Логин">
+				<input class="authorization__password" type="password" name="password" placeholder="Пароль">
+			</fieldset>
+			<fieldset class="authorization__check authorization__checkout">
+				<input type="checkbox" name="login" id="human">
+				<label class="authorization__label authorization__label--check" for="human">Я человек</label>
+			</fieldset>
+			<fieldset class="authorization__check authorization__checkout">
+				<legend class="authorization__legend">Вы точно не робот?</legend>
+				<input type="radio" name="answer" id="radio-yes" value="yes">
+				<label class="authorization__label authorization__label--radio" for="radio-yes">Да</label>
+				<input type="radio" name="answer" id="radio-no" value="no">
+				<label class="authorization__label authorization__label--radio" for="radio-no">Не уверен</label>
+			</fieldset>
+			<div class="authorization__buttons">
+				<button class="btn" type="button">На главную</button>
+				<button class="btn" type="submit">Войти</button>
+			</div>
+		</form>
+	</div>
+	<div class="welcome">
+		<div class="welcome__image">
+			<img src="/image/avatar.jpg">
+		</div>
+		<div class="welcome__info">
+			<p class="welcome__name">Владимир Астахов</p>
+			<p class="welcome__discription">Личный сайт веб разработчика</p>
+		</div>
+		<div class="welcome__social">
+			<div class="social-buttons">
+				<svg>
+					<use xlink:href="image/sprite.svg#vk"></use>
+				</svg>
+				<svg>
+					<use xlink:href="image/sprite.svg#github"></use>
+				</svg>
+				<svg>
+					<use xlink:href="image/sprite.svg#in"></use>
+				</svg>
+			</div>
+		</div>
+		<div class="welcome__buttons">
+			<a class="welcome__button welcome__button--works" href="#">Мои работы</a>
+			<a class="welcome__button welcome__button--about" href="#">Обо мне</a>
+			<a class="welcome__button welcome__button--blog" href="#">Блог</a>
+		</div>
+	</div>
 </body>
+
 </html>

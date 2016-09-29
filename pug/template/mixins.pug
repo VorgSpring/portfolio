@@ -1,0 +1,14 @@
+mixin icon(name)
+    svg: use(xlink:href="image/sprite.svg#" + name)
+
+mixin checkRadioButton(item)
+    if item.value
+        input(type='radio' name=item.name id=item.id value=item.value)
+        label(for=item.id class=`${item.class} ${item.class}--radio`)=item.text
+    else
+        input(type='checkbox' name=item.name id=item.id)
+        label(for=item.id class=`${item.class} ${item.class}--check`)=item.text
+
+mixin button(item)
+    = '\n'
+    +icon(item.name)

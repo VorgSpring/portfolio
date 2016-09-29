@@ -1,0 +1,24 @@
+include ../template/mixins.pug
+
+-
+    var social = [
+        {
+            href: 'vk.com',
+            name: 'vk',
+            class: 'social-button social-button--'
+        },
+        {
+            href: 'github.com',
+            name: 'github',
+            class: 'social-button social-button--'
+        },
+        {
+            href: 'linkedin.com',
+            name: 'in',
+            class: 'social-button social-button--'
+        }
+    ]
+
+.social-buttons
+    each item in social
+        +button(item)
