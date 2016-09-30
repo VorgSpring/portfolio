@@ -1,7 +1,12 @@
 extends template/layout.pug
+include template/mixins.pug
 
 block title
     title Личный сайт
+block header
+    button.page-header__authorization Авторизоваться
 block content
     include blocks/authorization.pug
     include blocks/welcome.pug
+block footer
+    +authorName('index')

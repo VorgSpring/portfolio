@@ -125,22 +125,12 @@ gulp.task('sprite:svg', () => {
         .pipe(replace('&gt;', '>'))
         .pipe(svgSprite({
             mode: {
-                css: {
-                    dest:       '.',
-                    bust:       false,
-                    sprite:     '../image/sprite.svg',
-                    layout:     'vertical',
-                    prefix:     '%%',
-                    dimensions: true,
-                    render:     {
-                        scss: {
-                            dest: 'sprite.scss'
-                        }
-                    }
+                symbol: {
+                    sprite: "../sprite.svg"
                 }
             }
         }))
-        .pipe(gulpIf('*.scss', gulp.dest('sass/global'), gulp.dest('image')));
+        .pipe(gulp.dest('image'));
 });
 
 // Собирает PNG спрайт
@@ -154,7 +144,7 @@ gulp.task('sprite:png', () => {
         }))
         .pipe(spritesmith({
             imgName: 'sprite.png',
-            cssName: 'spritePNG.scss',
+            cssName: 'sprite.scss',
             algorithm: 'top-down',
             imgPath: '../image/sprite.png',
             padding: 20

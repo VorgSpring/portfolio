@@ -11,4 +11,12 @@ mixin checkRadioButton(item)
 
 mixin button(item)
     = '\n'
-    +icon(item.name)
+    a(href=item.href class=item.class + item.name)
+        +icon(item.name)
+
+mixin authorName(mode)
+    - var text = '© Владимир Астахов | создано с любовью в LoftSchool | 2016'
+    if mode
+        p(class='page-footer__author--' + mode).page-footer__author=text
+    else
+        p.page-footer=text

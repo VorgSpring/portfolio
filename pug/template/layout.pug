@@ -6,4 +6,11 @@ html
         link(rel="stylesheet" href="css/style.css")
         block title
     body
-        block content
+        header.page-header
+            block header
+
+        main.page-main
+            block content
+
+        footer.page-footer
+            block footer
