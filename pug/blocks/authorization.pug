@@ -1,42 +1,23 @@
 include ../template/mixins.pug
-    
--
-    var checbox = {
-        name: 'login',
-        id: 'human',
-        text: 'Я человек',
-        class: 'authorization__label'
-    }
 
-    var radio = [
-        {
-            name: 'answer',
-            id: 'radio-yes',
-            value: 'yes',
-            text: 'Да',
-            class: 'authorization__label'
-        },
-        {
-            name: 'answer',
-            id: 'radio-no',
-            value: 'no',
-            text: 'Не уверен',
-            class: 'authorization__label'
-        }
-    ]
-
-.authorization
-    h1.authorization__title Авторизуйтесь
-    form(method='POST' action='#').authorization__form
-        fieldset.authorization__enter
-            input(type='text' name='login' placeholder='Логин').authorization__login
-            input(type='password' name='password' placeholder='Пароль').authorization__password
-        fieldset.authorization__check.authorization__checkout
-            +checkRadioButton(checbox)
-        fieldset.authorization__check.authorization__checkout
-            legend.authorization__legend Вы точно не робот?
-            each item in radio
-                +checkRadioButton(item)
-        .authorization__buttons
-            button(type='button').btn На главную
-            button(type='submit').btn Войти
+mixin authorization(flag)
+    - flag = flag || false
+    include ../template/variables.pug
+    .authorization
+        h1.authorization__title Авторизуйтесь
+        form(method='POST' action='#').authorization__form
+            fieldset.authorization__enter
+                input(type='text' name='login' placeholder='Логин').authorization__login
+                input(type='password' name='password' placeholder='Пароль').authorization__password
+            fieldset.authorization__checkout
+                +checkRadioButton(checbox)
+            fieldset.authorization__checkout
+                legend.authorization__legend Вы точно не робот?
+                each item in radio
+                    +checkRadioButton(item)
+            .authorization__buttons
+                if flag
+                    a(href='index.html').button На главную
+                else
+                    button(type='button').button На главную
+                button(type='submit').button Войти

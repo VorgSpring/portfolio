@@ -1,0 +1,26 @@
+.page-header {
+  flex: 0 0 auto;
+  background: #243833 url('../image/water.jpg') no-repeat center;
+  background-size: 100% auto;
+  padding: 15px 30px 217px;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+  }
+
+  &::before {
+    @include doubleTriangle(100px, $palette-background-primary);
+  }
+
+  &::after {
+    @include arrow(18px, 5px, -45deg, rgba(#fff, .6), 73px)
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 84px;
+  }
+}

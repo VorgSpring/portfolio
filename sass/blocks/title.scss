@@ -1,0 +1,73 @@
+.title {
+  font-family: 'Sansus Webissimo', 'Arial', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 89px;
+    height: 3px;
+  }
+
+  &--big {
+    @include fonts(63px, 400, 56px, $palette-font-primary);
+
+    &::after {
+      background-color: $palette-font-primary;
+    }
+  }
+
+  &--small {
+    @include fonts(35px, 400, 41px, #566358);
+
+    &::after {
+      background-color: #566358;
+    }
+  }
+
+  &--works {
+    background: $palette-background-primary url('../image/works_header.svg') no-repeat center 0 / 505px 165px;
+    padding: 65px 0;
+
+    &::after {
+      bottom: 35px;
+      margin-left: -2px;
+    }
+  }
+
+  &--slider {
+    margin-bottom: 48px;
+
+    &::after {
+      bottom: -25px;
+      margin-left: -1px;
+    }
+  }
+
+  &--say {
+    background: url('../image/about_header.svg') no-repeat center 26px / 498px 175px;
+    line-height: 66px;
+    margin: 0 auto 42px;
+    padding: 58px 0 20px;
+    width: 500px;
+
+    &::after {
+      bottom: -13px;
+      margin-left: -2px;
+    }
+  }
+
+  &--contact-me {
+    margin-bottom: 55px;
+
+    &::after {
+      bottom: -24px;
+      margin-left: 1px;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+include ../template/variables.pug
+
+section.what-say
+    h2.title.title--big.title--say Что обо мне говорят
+    .what-say__items
+        each item in say
+            article.what-say__item
+                img(src=item.avatar alt=item.name width=77 height=77).what-say__avatar
+                blockquote.what-say__quote= item.say
+                = '\n'
+                cite.what-say__who-say
+                    span.what-say__name= item.name
+                    span.what-say__who= item.whoIs
+    include contact-me.pug

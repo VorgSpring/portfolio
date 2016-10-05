@@ -1,0 +1,24 @@
+-
+    var contacts = [
+        {
+            name: 'skype',
+            content: 'skype_kdn'
+        },
+        {
+            name: 'email',
+            content: 'astahov@gmail.com'
+        },
+        {
+            name: 'tel',
+            content: '+7 931 200 93 24'
+        },
+        {
+            name: 'address',
+            content: 'Новосибирск, ул. Инская, д.14'
+        }
+    ]
+
+.contacts
+    h3.title--small Контакты
+    each item in contacts
+        p(class='contacts__item--' + item.name).contacts__item=item.content

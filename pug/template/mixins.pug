@@ -1,6 +1,3 @@
-mixin icon(name)
-    svg: use(xlink:href="image/sprite.svg#" + name)
-
 mixin checkRadioButton(item)
     if item.value
         input(type='radio' name=item.name id=item.id value=item.value)
@@ -12,11 +9,25 @@ mixin checkRadioButton(item)
 mixin button(item)
     = '\n'
     a(href=item.href class=item.class + item.name)
-        +icon(item.name)
+        = '\n'
+        span= item.content
+        svg(width=item.width height=item.height)
+            use(xlink:href="image/sprite.svg#" + item.name)
 
 mixin authorName(mode)
-    - var text = '© Владимир Астахов | создано с любовью в LoftSchool | 2016'
+    - var content = '© Владимир Астахов | создано с любовью в LoftSchool | 2016'
     if mode
-        p(class='page-footer__author--' + mode).page-footer__author=text
+        p(class='page-footer__author page-footer__author--' + mode)
+            = '\n' + content + '\n'
     else
-        p.page-footer=text
+        p.page-footer__author=content
+
+mixin technologies(item)
+    .technologies
+        h4.technologies__title= item.name
+        div(class='technologies__items technologies__items--' + item.mode)
+            each technology in item.technologies
+                div(class='technologies__item technologies__item--' + technology.mode)
+                    span.technologies__name= technology.name
+                    .technologies__semicircle.technologies__semicircle--static
+                    .technologies__semicircle.technologies__semicircle--mobile

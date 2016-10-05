@@ -1,0 +1,28 @@
+.btn {
+  border-radius: 0 0 5px 5px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+
+  &__item {
+    @include fonts(16px, 500, 36px, #fff);
+    background-color: $palette-secondary;
+    flex-grow: 1;
+    padding: 2px 0 6px;
+
+    &--about {
+      border: 2px solid rgba(255, 255, 255, .5);
+      border-top-width: 0;
+      border-bottom-width: 0;
+      padding-right: 1px;
+    }
+
+    &--blog {
+      padding-right: 2px;
+    }
+
+    &:hover {
+      background-color: $palette-primary;
+    }
+  }
+}

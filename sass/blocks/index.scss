@@ -1,0 +1,37 @@
+.index {
+  &__wrapper {
+    height: 100%;
+    min-height: 700px;
+    background: #243833 url('../image/water.jpg') no-repeat center;
+    background-size: auto 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__header {
+    flex: 0 0 auto;
+    padding-top: 20px;
+    align-self: flex-end;
+    margin-bottom: 55px;
+  }
+
+  &__authorization {
+    @include fonts(16px, 500, 37px, #fff);
+    display: block;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    margin-right: 19px;
+    padding: 1px 27px 5px;
+
+    &:hover {
+      border-color: #729e19;
+      background-color: #4e8839;
+    }
+  }
+
+  &__footer {
+
+  }
+}

@@ -1,7 +1,22 @@
+$x-color-light-green: #608d53;
+$x-color-green: #497f39;
+$x-color-dark-green: #122620;
+$x-color-light-grey: #f8f9f5;
+$x-color-dark-grey: #373e42;
+
+$palette-primary: $x-color-green;
+$palette-secondary: $x-color-light-green;
+
+$palette-background-welcome: rgba($x-color-dark-green, .6);
+$palette-background-primary: $x-color-light-grey;
+
+
+$palette-font-primary: $x-color-dark-grey;
+
 @mixin clearfix() {
   &::after,
   &::before{
-    content: "";
+    content: '';
     display: table;
   }
 
@@ -15,4 +30,64 @@
   font-weight: $weight;
   line-height: $height;
   color: $color;
+}
+
+@mixin doubleTriangle($height, $color) {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: $height;
+    width: 100%;
+    background: linear-gradient(to right top, $color 50%, transparent 50%) no-repeat 0 0,
+                linear-gradient(to left top, $color 50%, transparent 50%) no-repeat 100% 0;
+    background-size: 50% 100%;
+    z-index: 10;
+}
+
+@mixin arrow($width, $widthBorder, $rotate, $color, $bottom) {
+  position: absolute;
+  left: 50%;
+  bottom: $bottom;
+  width: $width;
+  height: $width;
+  border: $widthBorder solid $color;
+  border-top-width: 0;
+  border-right-width: 0;
+  transform: translateX(-50%) rotate($rotate);
+  cursor: pointer;
+  z-index: 10;
+}
+
+@keyframes showPref {
+  to {
+    top: 0;
+  }
+
+  from {
+    top: -100%;
+  }
+}
+
+@keyframes showNext {
+  to {
+    top: 0;
+  }
+
+  from {
+    top: 100%;
+  }
+}
+
+@mixin showPref(){
+  animation-name: showPref;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+@mixin showNext(){
+  animation-name: showNext;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
 }

@@ -1,0 +1,29 @@
+include ../template/variables.pug
+
+section.slider
+    each item, index in works
+        input(type='radio' name='switcher' id='switcher' + index checked=item.checked).slider__switcher
+    .slider__descriptions
+        each item, index in works
+            div(class='slider__description slider__description--work' + index)
+                h4.title.title--small.title--slider= item.title
+                ul.slider__technologies
+                    each technologies in item.technologies
+                        li.slider__technologies-item= technologies
+                = '\n'
+                a(href=item.link).slider__btn Посмотреть сайт
+    .slider__images
+        each item, index in works
+            = '\n'
+            img(src=item.image.src class='slider__image slider__image--work' + index width=item.image.width height=item.image.height)
+    .slider__controls
+        .slider__control.slider__control--pref
+            each item, index in works
+                = '\n'
+                label(for='switcher' + index).slider__control-item
+                div(class='slider__control-image slider__control-image--work' + index)
+        .slider__control.slider__control--next
+            each item, index in works
+                = '\n'
+                label(for='switcher' + index).slider__control-item
+                div(class='slider__control-image slider__control-image--work' + index)

@@ -1,0 +1,37 @@
+.contact-me {
+  width: 380px;
+  background-color: rgba(#fff, .6);
+  border-radius: 4px;
+  margin: 0 auto;
+  padding-top: 30px;
+
+  &__form {
+    margin: 0 20px;
+  }
+
+  &__name {
+    border-radius: 50px;
+  }
+
+  &__email {
+
+    border-radius: 50px;
+  }
+
+  &__message {
+
+    border-radius: 50px;
+  }
+
+  &__buttons {
+
+  }
+
+  &__submit {
+
+  }
+
+  &__reset {
+
+  }
+}

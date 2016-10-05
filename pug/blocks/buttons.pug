@@ -1,0 +1,6 @@
+mixin btn(items)
+    .btn
+        each item in items
+            if !item.notSocial
+                = '\n'
+                a(href=item.href class='btn__item btn__item--' + item.name)= item.content

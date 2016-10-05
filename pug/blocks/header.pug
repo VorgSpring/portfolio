@@ -1,0 +1,15 @@
+include ../template/mixins.pug
+include info.pug
+include social-buttons.pug
+
+mixin header(flag)
+    - flag = flag || true
+    .page-header
+        .page-header__menu
+            +social
+            include burger.pug
+        +info(flag)
+        if !flag
+            h1.title--big-white Блог
+            p.page-header__description.
+                Статьи, которые я написал

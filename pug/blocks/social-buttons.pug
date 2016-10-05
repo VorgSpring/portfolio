@@ -1,24 +1,12 @@
 include ../template/mixins.pug
 
--
-    var social = [
-        {
-            href: 'vk.com',
-            name: 'vk',
-            class: 'social-button social-button--'
-        },
-        {
-            href: 'github.com',
-            name: 'github',
-            class: 'social-button social-button--'
-        },
-        {
-            href: 'linkedin.com',
-            name: 'in',
-            class: 'social-button social-button--'
-        }
-    ]
-
-.social-buttons
-    each item in social
-        +button(item)
+mixin social(mod)
+    include ../template/variables.pug
+    if mod
+        div(class='social-buttons social-buttons--' + mod)
+            each item in social
+                +button(item)
+    else
+        .social-buttons
+            each item in social
+                +button(item)

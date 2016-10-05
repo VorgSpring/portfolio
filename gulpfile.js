@@ -33,7 +33,7 @@ gulp.task('style', () => {
                 message: err.message
             }))
         }))
-        .pipe(sourcemaps.init())
+        //.pipe(sourcemaps.init())
         .pipe(sass({
             includePaths: require('node-normalize-scss').includePaths,
             outputStyle: 'expanded'
@@ -42,8 +42,9 @@ gulp.task('style', () => {
             browsers: ['last 3 version', '> 1%', 'ie 8', 'ie 9', 'Opera 12.1'],
             cascade: false
         }))
-        .pipe(sourcemaps.write('.'))
+        //.pipe(sourcemaps.write('.'))
         .pipe(gulp.dest("css"))
+        .pipe(server.reload({stream: true}));
 });
 
 // Собирает pug в html
@@ -61,28 +62,28 @@ gulp.task('pug', () => {
 });
 
 // Собирает js модули, в каждом модуле автоматически переписывает весь код в ES5
-gulp.task('webpack', () => {
-    return gulp.src('js/src/*.js')
-        .pipe(plumber({
-            errorHandler: notify.onError(err => ({
-                title: 'Webpack',
-                message: err.message
-            }))
-        }))
-        .pipe(named())
-        .pipe(webpack({
-            watch:   false,
-            devtool: 'source-map',
-            module:  {
-                loaders: [{
-                    test:    /\.js$/,
-                    include: path.join(__dirname, './'),
-                    loader:  'babel?presets[]=es2015'
-                }]
-            }
-        }))
-        .pipe(gulp.dest('js'));
-});
+// gulp.task('webpack', () => {
+//     return gulp.src('js/src/*.js')
+//         .pipe(plumber({
+//             errorHandler: notify.onError(err => ({
+//                 title: 'Webpack',
+//                 message: err.message
+//             }))
+//         }))
+//         .pipe(named())
+//         .pipe(webpack({
+//             watch:   false,
+//             devtool: 'source-map',
+//             module:  {
+//                 loaders: [{
+//                     test:    /\.js$/,
+//                     include: path.join(__dirname, './'),
+//                     loader:  'babel?presets[]=es2015'
+//                 }]
+//             }
+//         }))
+//         .pipe(gulp.dest('js'));
+// });
 
 // Запускает локальный сервер
 gulp.task('serve', () => {
@@ -202,11 +203,11 @@ gulp.task('images', () => {
 gulp.task('watch', () => {
     gulp.watch('sass/**/*.{sass,scss}', gulp.series('style'));
     gulp.watch('pug/**/*.pug', gulp.series('pug'));
-    gulp.watch('js/src/*.js', gulp.series('webpack'));
+    // gulp.watch('js/src/*.js', gulp.series('webpack'));
 });
 
-// Сборка development версии проекта
-gulp.task('build', gulp.parallel('pug', 'style', 'webpack'));
+// Сборка development версии проекта , 'webpack'
+gulp.task('build', gulp.parallel('pug', 'style'));
 
 // Запуск сервера, сборки development и отслеживание
 gulp.task('start', gulp.series('build', gulp.parallel('serve', 'watch')));

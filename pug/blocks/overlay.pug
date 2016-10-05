@@ -1,0 +1,7 @@
+include ../template/variables.pug
+
+.overlay
+    .overlay__links
+    each link in links
+        = '\n'
+        a(href=link.href).overlay__link= link.content

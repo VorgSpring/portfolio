@@ -1,0 +1,14 @@
+include mixins.pug
+
+doctype html
+html
+    include head.pug
+        title Личный сайт
+    body
+        .index__wrapper
+            block header
+
+            block content
+
+            footer.index__footer.page-footer
+                +authorName('index')

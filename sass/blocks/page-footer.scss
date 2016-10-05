@@ -1,0 +1,14 @@
+.page-footer {
+  flex: 0 0 auto;
+
+  &__author {
+    @include fonts(16px, 200, 24px, #fff);
+
+    &--index {
+      font-weight: 400;
+      line-height: 68px;
+      word-spacing: -.7px;
+      text-indent: -3px;
+    }
+  }
+}

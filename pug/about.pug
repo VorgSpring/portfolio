@@ -1,6 +1,20 @@
 extends template/layout.pug
+include blocks/header.pug
 
 block title
     title Обо мне
 
 block header
+    +header
+
+block content
+    main.page-main
+        section.resume
+            include blocks/about-me.pug
+            include blocks/usefulness.pug
+        section.map
+        include blocks/contacts.pug
+        include blocks/overlay.pug
+
+block footer
+    include blocks/footer.pug

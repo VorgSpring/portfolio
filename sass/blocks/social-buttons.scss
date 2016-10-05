@@ -1,0 +1,31 @@
+.social{
+  &-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 140px;
+    font-size: 0;
+
+    &--index {
+      margin: 0 auto 42px;
+    }
+  }
+
+  &-button {
+    fill: #fff;
+    opacity: .5;
+
+    &--git {
+      margin: 0 0 -2px -3px;
+    }
+
+    &--in {
+      margin-right: 1px;
+    }
+
+    &:hover {
+      fill: $palette-primary;
+      opacity: 1;
+    }
+  }
+}

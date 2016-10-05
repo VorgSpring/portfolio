@@ -1,16 +1,10 @@
 doctype html
 html
-    head
-        meta(charset="utf-8")
-        meta(name="viewport" content="width=device-width, initial-scale=1")
-        link(rel="stylesheet" href="css/style.css")
+    include head.pug
         block title
     body
-        header.page-header
-            block header
+        block header
 
-        main.page-main
-            block content
+        block content
 
-        footer.page-footer
-            block footer
+        block footer

@@ -1,0 +1,16 @@
+extends template/layout.pug
+include blocks/header.pug
+
+block title
+    title Мои работы
+
+block header
+    +header
+
+block content
+    h1.title.title--big.title--works Мои работы
+    include blocks/slider.pug
+    include blocks/what-say.pug
+
+block footer
+    include blocks/footer.pug

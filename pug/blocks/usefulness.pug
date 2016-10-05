@@ -1,0 +1,73 @@
+-
+    var directions = [
+        {
+            name: 'Frontend',
+            mode: 'front',
+            technologies: [
+                {
+                    name: 'HTML5',
+                    mode: 'html'
+                },
+                {
+                    name: 'CSS3',
+                    mode: 'css'
+                },
+                {
+                    name: 'JavaScript& jQuery',
+                    mode: 'script'
+                }
+            ]
+        },
+        {
+            name: 'Backend',
+            mode: 'back',
+            technologies: [
+                {
+                    name: 'PHP',
+                    mode: 'php'
+                },
+                {
+                    name: 'mySQL',
+                    mode: 'sql'
+                },
+                {
+                    name: 'Node.js& npm',
+                    mode: 'node'
+                },
+                {
+                    name: 'Mongo.db',
+                    mode: 'mongo'
+                }
+            ]
+        },
+        {
+            name: 'WorkFlow',
+            mode: 'flow',
+            technologies: [
+                {
+                    name: 'Git',
+                    mode: 'git'
+                },
+                {
+                    name: 'Gulp',
+                    mode: 'gulp'
+                },
+                {
+                    name: 'Bower',
+                    mode: 'bower'
+                }
+            ]
+        }
+    ]
+
+include ../template/mixins.pug
+
+section.usefulness
+    .usefulness__wrapper
+        h3.title--small Чем я могу быть вам полезен
+        p.usefulness__description.
+            Больше всего меня привлекет Frontend разработка, но я также знаком
+            и могу решать не сложные задачи на Backend. Но давайте по порядку.
+        .usefulness__items
+            each item in directions
+                +technologies(item)
