@@ -33,13 +33,27 @@ li {
   list-style: none;
 }
 
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
 input:focus,
 textarea:focus {
   outline: none;
 }
 
+input:invalid,
+textarea:invalid {
+  outline: none;
+  box-shadow: none;
+}
+
 ::placeholder {
   font-family: 'Roboto', 'Arial', sans-serif;
+  @include fonts(16px, 400, 20px, #5d5a55);
 }
 
 :focus::placeholder {

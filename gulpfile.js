@@ -118,7 +118,7 @@ gulp.task('sprite:svg', () => {
         }))
         .pipe(cheerio({
             run: ($) => {
-                $('[fill]').removeAttr('fill');
+                $('[fill][fill!="none"]').removeAttr('fill');
                 $('[style]').removeAttr('style');
             },
             parserOptions: { xmlMode: true }

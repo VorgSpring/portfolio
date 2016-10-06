@@ -11,31 +11,43 @@
 <body>
 	<div class="index__wrapper">
 		<main class="page-main">
-			<div class="authorization">
-				<h1 class="authorization__title">Авторизуйтесь</h1>
+			<div class="authorization authorization--login">
+				<h1 class="title title--small title--login">Авторизуйтесь</h1>
 				<form class="authorization__form" method="POST" action="#">
 					<fieldset class="authorization__enter">
-						<input class="authorization__login" type="text" name="login" placeholder="Логин" />
-						<input class="authorization__password" type="password" name="password" placeholder="Пароль" />
+						<input class="authorization__login" type="text" name="login" placeholder="Логин" id="name" required="required" />
+						<label class="authorization__label authorization__label--enter" for="name">
+							<svg width="14" height="16">
+								<use xlink:href="image/sprite.svg#login"></use>
+							</svg>
+						</label>
+					</fieldset>
+					<fieldset class="authorization__enter authorization__enter--last">
+						<input class="authorization__password" type="password" name="password" placeholder="Пароль" id="password" required="required" />
+						<label class="authorization__label authorization__label--enter" for="password">
+							<svg width="17" height="16">
+								<use xlink:href="image/sprite.svg#password"></use>
+							</svg>
+						</label>
 					</fieldset>
 					<fieldset class="authorization__checkout">
 						<input type="checkbox" name="login" id="human" />
 						<label class="authorization__label authorization__label--check" for="human">Я человек</label>
 					</fieldset>
-					<fieldset class="authorization__checkout">
+					<fieldset class="authorization__checkout authorization__checkout--last">
 						<legend class="authorization__legend">Вы точно не робот?</legend>
 						<input type="radio" name="answer" id="radio-yes" value="yes" />
 						<label class="authorization__label authorization__label--radio" for="radio-yes">Да</label>
 						<input type="radio" name="answer" id="radio-no" value="no" />
 						<label class="authorization__label authorization__label--radio" for="radio-no">Не уверен</label>
 					</fieldset>
-					<div class="authorization__buttons"><a class="button" href="index.html">На главную</a>
-						<button class="button" type="submit">Войти</button>
+					<div class="btn"><a class="btn__item btn__item--index" href="index.html">На главную</a>
+						<button class="btn__item btn__item--enter" type="submit">Войти</button>
 					</div>
 				</form>
 			</div>
 		</main>
-		<footer class="index__footer page-footer">
+		<footer class="page-footer page-footer--index">
 			<p class="page-footer__author page-footer__author--index">
 				© Владимир Астахов | создано с любовью в LoftSchool | 2016
 			</p>

@@ -1,17 +1,18 @@
 include ../template/mixins.pug
 include ../template/variables.pug
+include social-buttons.pug
 
 footer.page-footer
     .page-footer__wrapper
         p.page-footer__description.
             Этот сайт я сделал в рамках обучения
-            в Школе онлайн образования LoftSchool.
+            в&nbsp;Школе онлайн образования LoftSchool.
         .page-footer__links-content
-            .pade-footer__links
+            .page-footer__links
                 each link in links
                     = '\n'
-                    a(href=link.href).pade-footer__link= link.content
-            include social-buttons.pug
+                    a(href=link.href).page-footer__link= link.content
+            +social('footer')
         .page-footer__quote
              blockquote.page-footer__quote-content.
                  Всегда пишите код так, будто сопровождать
@@ -19,5 +20,5 @@ footer.page-footer
                  который знает, где вы живете.
              = '\n'
              cite.page-footer__quote-author.
-                 — Martin Golding
+                 &ndash; Martin Golding
     +authorName

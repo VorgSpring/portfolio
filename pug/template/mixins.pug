@@ -1,3 +1,7 @@
+mixin icon(name, width, height)
+    svg(width=width height=height)
+        use(xlink:href="image/sprite.svg#" + name)
+
 mixin checkRadioButton(item)
     if item.value
         input(type='radio' name=item.name id=item.id value=item.value)
@@ -8,11 +12,10 @@ mixin checkRadioButton(item)
 
 mixin button(item)
     = '\n'
-    a(href=item.href class=item.class + item.name)
+    a(href='http://' + item.href class=item.class + item.name target='_blank')
         = '\n'
         span= item.content
-        svg(width=item.width height=item.height)
-            use(xlink:href="image/sprite.svg#" + item.name)
+        +icon(item.name, item.width, item.height)
 
 mixin authorName(mode)
     - var content = '© Владимир Астахов | создано с любовью в LoftSchool | 2016'

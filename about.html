@@ -8,23 +8,23 @@
 	<title>Обо мне</title>
 </head>
 
-<body>
+<body class="wrapper">
 	<div class="page-header">
 		<div class="page-header__menu">
 			<div class="social-buttons">
-				<a class="social-button social-button--vk" href="vk.com">
+				<a class="social-button social-button--vk" href="http://vk.com" target="_blank">
 					<span>vkontakte</span>
 					<svg width="32" height="18">
 						<use xlink:href="image/sprite.svg#vk"></use>
 					</svg>
 				</a>
-				<a class="social-button social-button--git" href="github.com">
+				<a class="social-button social-button--git" href="http://github.com" target="_blank">
 					<span>github</span>
 					<svg width="26" height="22">
 						<use xlink:href="image/sprite.svg#git"></use>
 					</svg>
 				</a>
-				<a class="social-button social-button--in" href="linkedin.com">
+				<a class="social-button social-button--in" href="http://linkedin.com" target="_blank">
 					<span>linkedin</span>
 					<svg width="25" height="22">
 						<use xlink:href="image/sprite.svg#in"></use>
@@ -44,114 +44,136 @@
 		</div>
 	</div>
 	<main class="page-main">
-		<section class="resume">
-			<section class="about-me">
-				<div class="about-me__wrapper">
-					<h1 class="title--big">Обо мне</h1>
-					<picture class="about-me__avatar">
-						<img src="image/avatar-1200.jpg" alt="Это я!">
-					</picture>
-					<article class="about-me__description">
-						<h3 class="title--small">Кто я</h3>
-						<p class="about-me__definition">Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.</p>
-						<p class="about-me__definition">Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите,как тут всё классно и красиво!</p>
-					</article>
-				</div>
-			</section>
-			<section class="usefulness">
-				<div class="usefulness__wrapper">
-					<h3 class="title--small">Чем я могу быть вам полезен</h3>
-					<p class="usefulness__description">Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.</p>
-					<div class="usefulness__items">
-						<div class="technologies">
-							<h4 class="technologies__title">Frontend</h4>
-							<div class="technologies__items technologies__items--front">
-								<div class="technologies__item technologies__item--html"><span class="technologies__name">HTML5</span>
-									<div class="technologies__semicircle technologies__semicircle--static"></div>
-									<div class="technologies__semicircle technologies__semicircle--mobile"></div>
-								</div>
-								<div class="technologies__item technologies__item--css"><span class="technologies__name">CSS3</span>
-									<div class="technologies__semicircle technologies__semicircle--static"></div>
-									<div class="technologies__semicircle technologies__semicircle--mobile"></div>
-								</div>
-								<div class="technologies__item technologies__item--script"><span class="technologies__name">JavaScript&amp; jQuery</span>
-									<div class="technologies__semicircle technologies__semicircle--static"></div>
-									<div class="technologies__semicircle technologies__semicircle--mobile"></div>
-								</div>
-							</div>
-						</div>
-						<div class="technologies">
-							<h4 class="technologies__title">Backend</h4>
-							<div class="technologies__items technologies__items--back">
-								<div class="technologies__item technologies__item--php"><span class="technologies__name">PHP</span>
-									<div class="technologies__semicircle technologies__semicircle--static"></div>
-									<div class="technologies__semicircle technologies__semicircle--mobile"></div>
-								</div>
-								<div class="technologies__item technologies__item--sql"><span class="technologies__name">mySQL</span>
-									<div class="technologies__semicircle technologies__semicircle--static"></div>
-									<div class="technologies__semicircle technologies__semicircle--mobile"></div>
-								</div>
-								<div class="technologies__item technologies__item--node"><span class="technologies__name">Node.js&amp; npm</span>
-									<div class="technologies__semicircle technologies__semicircle--static"></div>
-									<div class="technologies__semicircle technologies__semicircle--mobile"></div>
-								</div>
-								<div class="technologies__item technologies__item--mongo"><span class="technologies__name">Mongo.db</span>
-									<div class="technologies__semicircle technologies__semicircle--static"></div>
-									<div class="technologies__semicircle technologies__semicircle--mobile"></div>
+		<main class="page-main">
+			<section class="resume">
+				<section class="about-me">
+					<div class="about-me__wrapper">
+						<h1 class="title--big">Обо мне</h1>
+						<picture class="about-me__avatar">
+							<img src="image/avatar-1200.jpg" alt="Это я!">
+						</picture>
+						<article class="about-me__description">
+							<h3 class="title--small">Кто я</h3>
+							<p class="about-me__definition">Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.</p>
+							<p class="about-me__definition">Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите,как тут всё классно и красиво!</p>
+						</article>
+					</div>
+				</section>
+				<section class="usefulness">
+					<div class="usefulness__wrapper">
+						<h3 class="title--small">Чем я могу быть вам полезен</h3>
+						<p class="usefulness__description">Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.</p>
+						<div class="usefulness__items">
+							<div class="technologies">
+								<h4 class="technologies__title">Frontend</h4>
+								<div class="technologies__items technologies__items--front">
+									<div class="technologies__item technologies__item--html"><span class="technologies__name">HTML5</span>
+										<div class="technologies__semicircle technologies__semicircle--static"></div>
+										<div class="technologies__semicircle technologies__semicircle--mobile"></div>
+									</div>
+									<div class="technologies__item technologies__item--css"><span class="technologies__name">CSS3</span>
+										<div class="technologies__semicircle technologies__semicircle--static"></div>
+										<div class="technologies__semicircle technologies__semicircle--mobile"></div>
+									</div>
+									<div class="technologies__item technologies__item--script"><span class="technologies__name">JavaScript&amp; jQuery</span>
+										<div class="technologies__semicircle technologies__semicircle--static"></div>
+										<div class="technologies__semicircle technologies__semicircle--mobile"></div>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="technologies">
-							<h4 class="technologies__title">WorkFlow</h4>
-							<div class="technologies__items technologies__items--flow">
-								<div class="technologies__item technologies__item--git"><span class="technologies__name">Git</span>
-									<div class="technologies__semicircle technologies__semicircle--static"></div>
-									<div class="technologies__semicircle technologies__semicircle--mobile"></div>
+							<div class="technologies">
+								<h4 class="technologies__title">Backend</h4>
+								<div class="technologies__items technologies__items--back">
+									<div class="technologies__item technologies__item--php"><span class="technologies__name">PHP</span>
+										<div class="technologies__semicircle technologies__semicircle--static"></div>
+										<div class="technologies__semicircle technologies__semicircle--mobile"></div>
+									</div>
+									<div class="technologies__item technologies__item--sql"><span class="technologies__name">mySQL</span>
+										<div class="technologies__semicircle technologies__semicircle--static"></div>
+										<div class="technologies__semicircle technologies__semicircle--mobile"></div>
+									</div>
+									<div class="technologies__item technologies__item--node"><span class="technologies__name">Node.js&amp; npm</span>
+										<div class="technologies__semicircle technologies__semicircle--static"></div>
+										<div class="technologies__semicircle technologies__semicircle--mobile"></div>
+									</div>
+									<div class="technologies__item technologies__item--mongo"><span class="technologies__name">Mongo.db</span>
+										<div class="technologies__semicircle technologies__semicircle--static"></div>
+										<div class="technologies__semicircle technologies__semicircle--mobile"></div>
+									</div>
 								</div>
-								<div class="technologies__item technologies__item--gulp"><span class="technologies__name">Gulp</span>
-									<div class="technologies__semicircle technologies__semicircle--static"></div>
-									<div class="technologies__semicircle technologies__semicircle--mobile"></div>
-								</div>
-								<div class="technologies__item technologies__item--bower"><span class="technologies__name">Bower</span>
-									<div class="technologies__semicircle technologies__semicircle--static"></div>
-									<div class="technologies__semicircle technologies__semicircle--mobile"></div>
+							</div>
+							<div class="technologies">
+								<h4 class="technologies__title">WorkFlow</h4>
+								<div class="technologies__items technologies__items--flow">
+									<div class="technologies__item technologies__item--git"><span class="technologies__name">Git</span>
+										<div class="technologies__semicircle technologies__semicircle--static"></div>
+										<div class="technologies__semicircle technologies__semicircle--mobile"></div>
+									</div>
+									<div class="technologies__item technologies__item--gulp"><span class="technologies__name">Gulp</span>
+										<div class="technologies__semicircle technologies__semicircle--static"></div>
+										<div class="technologies__semicircle technologies__semicircle--mobile"></div>
+									</div>
+									<div class="technologies__item technologies__item--bower"><span class="technologies__name">Bower</span>
+										<div class="technologies__semicircle technologies__semicircle--static"></div>
+										<div class="technologies__semicircle technologies__semicircle--mobile"></div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</section>
 			</section>
-		</section>
-		<section class="map"></section>
-		<div class="contacts">
-			<h3 class="title--small">Контакты</h3>
-			<p class="contacts__item--skype contacts__item">skype_kdn</p>
-			<p class="contacts__item--email contacts__item">astahov@gmail.com</p>
-			<p class="contacts__item--tel contacts__item">+7 931 200 93 24</p>
-			<p class="contacts__item--address contacts__item">Новосибирск, ул. Инская, д.14</p>
-		</div>
-		<div class="overlay">
-			<div class="overlay__links"></div>
-			<a class="overlay__link" href="works.html">Мои работы</a>
-			<a class="overlay__link" href="about.html">Обо мне</a>
-			<a class="overlay__link" href="blog.html">Блог</a>
-			<a class="overlay__link" href="index.html">Авторизация</a>
-		</div>
+			<section class="map"></section>
+			<div class="contacts">
+				<h3 class="title--small">Контакты</h3>
+				<p class="contacts__item--skype contacts__item">skype_kdn</p>
+				<p class="contacts__item--email contacts__item">astahov@gmail.com</p>
+				<p class="contacts__item--tel contacts__item">+7 931 200 93 24</p>
+				<p class="contacts__item--address contacts__item">Новосибирск, ул. Инская, д.14</p>
+			</div>
+			<div class="overlay">
+				<div class="overlay__links"></div>
+				<a class="overlay__link" href="works.html">Мои работы</a>
+				<a class="overlay__link" href="about.html">Обо мне</a>
+				<a class="overlay__link" href="blog.html">Блог</a>
+				<a class="overlay__link" href="index.html">Авторизация</a>
+			</div>
+		</main>
 	</main>
 	<footer class="page-footer">
 		<div class="page-footer__wrapper">
-			<p class="page-footer__description">Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.</p>
+			<p class="page-footer__description">Этот сайт я сделал в рамках обучения в&nbsp;Школе онлайн образования LoftSchool.</p>
 			<div class="page-footer__links-content">
-				<div class="pade-footer__links">
-					<a class="pade-footer__link" href="works.html">Мои работы</a>
-					<a class="pade-footer__link" href="about.html">Обо мне</a>
-					<a class="pade-footer__link" href="blog.html">Блог</a>
-					<a class="pade-footer__link" href="index.html">Авторизация</a>
+				<div class="page-footer__links">
+					<a class="page-footer__link" href="works.html">Мои работы</a>
+					<a class="page-footer__link" href="about.html">Обо мне</a>
+					<a class="page-footer__link" href="blog.html">Блог</a>
+					<a class="page-footer__link" href="index.html">Авторизация</a>
+				</div>
+				<div class="social-buttons social-buttons--footer">
+					<a class="social-button social-button--vk" href="http://vk.com" target="_blank">
+						<span>vkontakte</span>
+						<svg width="32" height="18">
+							<use xlink:href="image/sprite.svg#vk"></use>
+						</svg>
+					</a>
+					<a class="social-button social-button--git" href="http://github.com" target="_blank">
+						<span>github</span>
+						<svg width="26" height="22">
+							<use xlink:href="image/sprite.svg#git"></use>
+						</svg>
+					</a>
+					<a class="social-button social-button--in" href="http://linkedin.com" target="_blank">
+						<span>linkedin</span>
+						<svg width="25" height="22">
+							<use xlink:href="image/sprite.svg#in"></use>
+						</svg>
+					</a>
 				</div>
 			</div>
 			<div class="page-footer__quote">
 				<blockquote class="page-footer__quote-content">Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете.</blockquote>
-				<cite class="page-footer__quote-author">— Martin Golding</cite>
+				<cite class="page-footer__quote-author">&ndash; Martin Golding</cite>
 			</div>
 		</div>
 		<p class="page-footer__author">© Владимир Астахов | создано с любовью в LoftSchool | 2016</p>

@@ -1,3 +1,134 @@
 .authorization {
   display: none;
+  padding-top: 33px;
+  text-align: center;
+  width: 380px;
+  background-color: $palette-background-welcome;
+  border-radius: 5px;
+
+  &--login {
+    display: block;
+    margin-top: 120px;
+  }
+
+  &__enter {
+    margin: 0 20px 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+
+    &--last {
+      margin-bottom: 18px;
+    }
+  }
+
+  &__login,
+  &__password {
+    border-radius: 0 25px 25px 0;
+    border: 1px solid #fff;
+    flex-basis: 87%;
+    padding: 12px 19px 13px;
+
+    &:focus {
+      border-color: #4e8839;
+
+      & + label {
+        fill: #4e8839;
+      }
+    }
+
+    &--invalid {
+      border-color: #e44845;
+
+      & + label {
+        fill: #e44845;
+      }
+    }
+  }
+
+  &__label {
+    @include fonts(16px, 400, 24px, #fff);
+    position: relative;
+    cursor: pointer;
+
+    &--enter {
+      fill: #C4CBCD;
+      border-radius: 25px 0 0 25px;
+      flex-basis: 13%;
+      background-color: #f0efe9;
+      padding: 13px 0 0 3px;
+    }
+
+    &--check {
+      padding-left: 31px;
+      &::before{
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border: 1px solid rgba(#fff, .8);
+        background-color: #fff;
+        border-radius: 2px;
+        top: -1px;
+        left: 1px;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        border: solid #fff;
+        border-width: 0 0 3px 3px;
+        width: 10px;
+        height: 7px;
+        transform: rotate(-45deg);
+        top: 4px;
+        left: 7px;
+      }
+    }
+
+    &--radio {
+      margin-right: 17px;
+      padding-left: 49px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        border: 6px solid #fff;
+        border-radius: 50%;
+        background-color: #fff;
+        width: 20px;
+        height: 20px;
+        top: 1px;
+        left: 20px;
+      }
+    }
+
+  }
+
+  &__checkout {
+    margin-bottom: 11px;
+
+    &--last {
+      margin-bottom: 38px;
+    }
+
+    input {
+      display: none;
+
+      &:checked + label::before {
+        background-color: #6c9c5a;
+        border-color: #6c9c5a;
+      }
+
+      &:checked + label::after {
+        background-color: #6c9c5a;
+      }
+    }
+  }
+
+  &__legend {
+    @include fonts(16px, 700, 24px, #fff);
+    margin-bottom: 5px;
+    width: 100%;
+  }
 }

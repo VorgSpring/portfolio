@@ -9,6 +9,14 @@
     &--index {
       margin: 0 auto 42px;
     }
+
+    &--footer {
+      margin-left: 2px;
+      a:hover {
+        fill: #fff;
+        opacity: 1;
+      }
+    }
   }
 
   &-button {

@@ -29,6 +29,18 @@
       background-color: #566358;
     }
   }
+  
+  &--login {
+    color: #fff;
+    margin-bottom: 52px;
+    text-indent: 3px;
+
+    &::after {
+      background-color: #fff;
+      bottom: -21px;
+      margin-left: -3px;
+    }
+  }
 
   &--works {
     background: $palette-background-primary url('../image/works_header.svg') no-repeat center 0 / 505px 165px;

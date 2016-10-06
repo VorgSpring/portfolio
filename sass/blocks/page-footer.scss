@@ -1,14 +1,87 @@
 .page-footer {
   flex: 0 0 auto;
+  margin-top: -183px;
+
+  &--index {
+    margin: 0;
+  }
+
+  &__wrapper {
+    @include fonts(16px, 200, 24px, #fff);
+    background-color: rgba(#373e42, .85);
+    min-height: 146px;
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 0 21px;
+    position: relative;
+
+    &::after {
+      content: '';
+      @include arrow(18px, 5px, 135deg, rgba(#fff, .6), 211px)
+    }
+  }
+
+  &__description {
+    flex: 1 1 400px;
+    margin: 0;
+    padding: 2px 30px 0;
+
+  }
+
+  &__links-content {
+    flex: 1 1 400px;
+    margin: 0;
+    padding: 0 20px 0 29px;
+  }
+
+  &__quote {
+    font-style: italic;
+    flex: 1 1 400px;
+    margin: 0;
+    opacity: .5;
+    line-height: 26px;
+    padding: 0 30px;
+  }
 
   &__author {
     @include fonts(16px, 200, 24px, #fff);
+    margin: 0;
+    padding: 5px 0 8px;
+    text-align: center;
+    text-indent: 4px;
+    background-color: rgba(#6c9c5a, .85);
+
 
     &--index {
       font-weight: 400;
       line-height: 68px;
       word-spacing: -.7px;
       text-indent: -3px;
+      margin: 16px 0;
+      padding: 0;
+      background: none;
     }
+  }
+
+  &__links {
+    margin-bottom: 22px;
+  }
+
+  &__link {
+    @include fonts(16px, 500, 24px, #fff);
+    margin-right: 15px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__quote-content {
+    margin: 0 0 -1px;
+  }
+
+  &__quote-author {
+    font-weight: 500;
+    padding-left: 4px;
   }
 }

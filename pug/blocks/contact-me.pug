@@ -1,9 +1,10 @@
 section.contact-me
     h4.title.title--small.title--contact-me Связаться со мной
-    form(action='#' method='POST').contact-me__form
-        input(type='text' name='name' placeholder='Имя').contact-me__name
-        input(type='email' name='email' placeholder='Email').contact-me__email
-        textarea(name='message' placeholder='Ваше сообщение').contact-me__message
-    .contact-me__buttons
-        button(type='submit').contact-me__submit Отправить
-        button(type='reset').contact-me__reset Очистить
+    form(action='#' method='POST' name='contact').contact-me__form
+        .contact-me__input
+            input(type='text' name='name' placeholder='Имя').contact-me__name
+            input(type='email' name='email' placeholder='Email').contact-me__email
+            textarea(name='message' placeholder='Ваше сообщение').contact-me__message
+        .btn
+            button(type='submit').btn__item.btn__item--submit Отправить
+            button(type='reset').btn__item.btn__item--rezet Очистить
