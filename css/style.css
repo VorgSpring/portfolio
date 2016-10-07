@@ -1919,6 +1919,7 @@ textarea:invalid {
   color: rgba(69, 90, 100, 0.8);
   margin: 0 0 20px 35px;
   padding-left: 40px;
+  display: block;
 }
 
 .contacts__item--skype {

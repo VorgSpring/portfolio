@@ -2,23 +2,31 @@
     var contacts = [
         {
             name: 'skype',
-            content: 'skype_kdn'
+            content: 'skype_kdn',
+            href: 'skype:skype_kdn?chat'
         },
         {
             name: 'email',
-            content: 'astahov@gmail.com'
+            content: 'astahov@gmail.com',
+            href: 'mailto:astahov@gmail.com'
         },
         {
             name: 'phone',
-            content: '+7 931 200 93 24'
+            content: '+7 931 200 93 24',
+            href: 'tel:+79312009324'
         },
         {
             name: 'address',
-            content: 'Новосибирск, ул. Инская, д.14'
+            content: 'Новосибирск, ул. Инская, д.14',
+            href: false
         }
     ]
 
 .contacts
     h3.title.title--small.title--contacts Контакты
     each item in contacts
-        p(class='contacts__item--' + item.name).contacts__item=item.content
+        = '\n'
+        if item.href
+            a(href=item.href class='contacts__item contacts__item--' + item.name)= item.content
+        else
+            a(class='contacts__item contacts__item--' + item.name)= item.content

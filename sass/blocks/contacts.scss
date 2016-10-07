@@ -12,6 +12,7 @@
     @include fonts(16px, 500, 24px, rgba(#455a64, .8));
     margin: 0 0 20px 35px;
     padding-left: 40px;
+    display: block;
 
     &--skype {
       background: url('../image/icons/skype.svg') no-repeat 6px center;
