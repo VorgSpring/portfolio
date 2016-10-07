@@ -4,10 +4,13 @@ include ../template/variables.pug
     aside.publication__navigation
         ul.publication__navigation-items
             each item in publication
-                li.publication__navigation-item= item.title
+                if item.active
+                    li.publication__navigation-item.publication__navigation-item--active= item.title
+                else
+                    li.publication__navigation-item= item.title
     section.publication__items
-        .publication__item
-            each item in publication
-                h2.publication__title= item.title
-                p.publication__date= item.date
-                .publication__content!= item.content
+        each item in publication
+                .publication__item
+                    h2.publication__title!= item.title
+                    time.publication__date= item.date
+                    .publication__content!= item.content

@@ -131,4 +131,18 @@
       margin-left: 2px;
     }
   }
+
+  &--blog {
+    color: #fff;
+    letter-spacing: 1.5px;
+    margin-bottom: 55px;
+    padding-top: 1px;
+    letter-spacing: 1.5px;
+
+    &::after {
+      background-color: #fff;
+      bottom: -30px;
+      margin-left: -3px;
+    }
+  }
 }

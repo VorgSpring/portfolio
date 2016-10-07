@@ -19,7 +19,7 @@
     text-indent: 15px;
   }
 
-  &__discription {
+  &__description {
     @include fonts(16px, 400, 24px, #fff);
     opacity: .8;
     width: 450px;
@@ -42,7 +42,7 @@
       width: 100%;
     }
 
-    .info__discription{
+    .info__description {
       width: 100%;
       text-indent: 0;
     }

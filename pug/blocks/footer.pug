@@ -1,25 +1,27 @@
 include ../template/mixins.pug
-include ../template/variables.pug
 include social-buttons.pug
 
-footer.page-footer
-    .page-footer__arrow
-    .page-footer__wrapper
-        p.page-footer__description.
-            Этот сайт я сделал в рамках обучения
-            в&nbsp;Школе онлайн образования LoftSchool.
-        .page-footer__links-content
-            .page-footer__links
-                each link in links
-                    = '\n'
-                    a(href=link.href).page-footer__link= link.content
-            +social('footer')
-        .page-footer__quote
-             blockquote.page-footer__quote-content.
-                 Всегда пишите код так, будто сопровождать
-                 его будет склонный к насилию психопат,
-                 который знает, где вы живете.
-             = '\n'
-             cite.page-footer__quote-author.
-                 &ndash; Martin Golding
-    +authorName
+mixin footer(flag)
+    include ../template/variables.pug
+    footer.page-footer
+        if !flag
+            .page-footer__arrow
+        .page-footer__wrapper
+            p.page-footer__description.
+                Этот сайт я сделал в рамках обучения
+                в&nbsp;Школе онлайн образования LoftSchool.
+            .page-footer__links-content
+                .page-footer__links
+                    each link in links
+                        = '\n'
+                        a(href=link.href).page-footer__link= link.content
+                +social('footer')
+            .page-footer__quote
+                 blockquote.page-footer__quote-content.
+                     Всегда пишите код так, будто сопровождать
+                     его будет склонный к насилию психопат,
+                     который знает, где вы живете.
+                 = '\n'
+                 cite.page-footer__quote-author.
+                     &ndash; Martin Golding
+        +authorName

@@ -1,16 +1,12 @@
-mixin info(flag, mod)
-    - flag = flag || true
-    if mod
-        div(class='info info--' + mod)
-            .info__image
-                img(src='image/avatar.jpg' width='141' height='141' alt='Это я!')
-            if flag
-                h2.info__name Владимир Астахов
-                p.info__discription Личный сайт веб разработчика
-    else
-        .info
-            .info__image
-                img(src='image/avatar.jpg' width='141' height='141' alt='Это я!')
-            if flag
-                h2.info__name Владимир Астахов
-                p.info__discription Личный сайт веб разработчика
+mixin info(mod, flag)
+    - mod = mod || ''
+    div(class= mod).info
+        .info__image
+            img(src='image/avatar.jpg' width='141' height='141' alt='Это я!')
+        if flag
+            h1.title.title--big.title--blog Блог
+            p.info__description.
+                Статьи, которые я написал
+        else
+            h2.info__name Владимир Астахов
+                p.info__description Личный сайт веб разработчика

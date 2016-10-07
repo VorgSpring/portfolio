@@ -1,14 +1,15 @@
 extends template/layout.pug
 include blocks/header.pug
+include blocks/footer.pug
 
 block title
     title Мой блог
 
 block header
-    +header('', false)
+    +header('page-header--blog', true)
 
 block content
     include blocks/publication.pug
 
 block footer
-    include blocks/footer.pug
+    +footer(true)

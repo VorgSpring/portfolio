@@ -1,5 +1,6 @@
 extends template/layout.pug
 include blocks/header.pug
+include blocks/footer.pug
 
 block title
     title Мои работы
@@ -13,4 +14,4 @@ block content
     include blocks/what-say.pug
 
 block footer
-    include blocks/footer.pug
+    +footer
