@@ -9,7 +9,7 @@
             content: 'astahov@gmail.com'
         },
         {
-            name: 'tel',
+            name: 'phone',
             content: '+7 931 200 93 24'
         },
         {
@@ -19,6 +19,6 @@
     ]
 
 .contacts
-    h3.title--small Контакты
+    h3.title.title--small.title--contacts Контакты
     each item in contacts
         p(class='contacts__item--' + item.name).contacts__item=item.content

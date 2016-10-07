@@ -2,9 +2,11 @@ include ../template/mixins.pug
 include info.pug
 include social-buttons.pug
 
-mixin header(flag)
+mixin header(mod, flag)
     - flag = flag || true
-    .page-header
+    - mod = mod || ''
+    header(class='page-header ' + mod)
+        .page-header__arrow
         .page-header__menu
             +social
             include burger.pug

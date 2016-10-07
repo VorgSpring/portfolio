@@ -3,6 +3,7 @@
   flex-flow: column wrap;
   justify-content: space-between;
   height: 750px;
+  overflow: hidden;
 
   &__switcher {
     display: none;
@@ -239,7 +240,7 @@
       background-color: rgba(#b0b7aa, .7);
       label::after {
         content: '';
-        @include arrow(30px, 10px, -45deg, rgba(#fff, .6), 105px)
+        @include arrow(30px, 10px, -45deg, rgba(#fff, .8), 105px)
       }
 
       div {
@@ -251,7 +252,7 @@
       background-color: rgba(#93998d, .7);
       label::after {
         content: '';
-        @include arrow(30px, 10px, 135deg, rgba(#fff, .6), 90px)
+        @include arrow(30px, 10px, 135deg, rgba(#fff, .8), 90px)
       }
 
       div {

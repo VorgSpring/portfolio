@@ -5,8 +5,7 @@
   padding: 15px 30px 217px;
   position: relative;
 
-  &::before,
-  &::after {
+  &::before {
     content: '';
   }
 
@@ -14,8 +13,21 @@
     @include doubleTriangle(100px, $palette-background-primary);
   }
 
-  &::after {
-    @include arrow(18px, 5px, -45deg, rgba(#fff, .6), 73px)
+  &--about {
+    &::before {
+      background: linear-gradient(to right top, #ebefe2 50%, transparent 50%) no-repeat 0 0,
+                  linear-gradient(to left top, #f4f5f0 50%, transparent 50%) no-repeat 100% 0;
+      background-size: 50% 100%;
+    }
+  }
+
+  &__arrow {
+    @include arrow(18px, 5px, -45deg, #fff, 73px);
+    opacity: .6;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   &__menu {

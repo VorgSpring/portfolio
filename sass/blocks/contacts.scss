@@ -1,0 +1,32 @@
+.contacts {
+  position: absolute;
+  bottom: 433px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 380px;
+  height: 314px;
+  background-color: rgba(#f4f5f0, .85);
+  border-radius: 5px;
+
+  &__item {
+    @include fonts(16px, 500, 24px, rgba(#455a64, .8));
+    margin: 0 0 20px 35px;
+    padding-left: 40px;
+
+    &--skype {
+      background: url('../image/icons/skype.svg') no-repeat 6px center;
+    }
+
+    &--email {
+      background: url('../image/icons/envelope.svg') no-repeat 6px 6px;
+    }
+
+    &--phone {
+      background: url('../image/icons/phone.svg') no-repeat 10px center;
+    }
+
+    &--address {
+      background: url('../image/icons/marker.svg') no-repeat 11px center;
+    }
+  }
+}

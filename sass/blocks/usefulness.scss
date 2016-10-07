@@ -1,0 +1,19 @@
+.usefulness {
+  width: 50%;
+  background-color: #f4f5f0;
+
+  &__wrapper {
+    width: 580px;
+    margin: 0 auto;
+  }
+
+  &__description {
+    @include fonts(16px, 400, 24px, #566358);
+    margin: 0 5px 48px 30px;
+  }
+
+  &__items {
+    margin-left: 30px;
+  }
+
+}

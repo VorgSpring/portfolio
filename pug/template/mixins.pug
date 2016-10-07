@@ -30,7 +30,13 @@ mixin technologies(item)
         h4.technologies__title= item.name
         div(class='technologies__items technologies__items--' + item.mode)
             each technology in item.technologies
-                div(class='technologies__item technologies__item--' + technology.mode)
-                    span.technologies__name= technology.name
-                    .technologies__semicircle.technologies__semicircle--static
-                    .technologies__semicircle.technologies__semicircle--mobile
+                .technologies__item
+                    = '\n'
+                    div.technologies__name
+                        = '\n'
+                        span!= technology.name
+                    .technologies__semicircle
+                    if technology.flag
+                        div(class='technologies__semicircle technologies__semicircle--less technologies__semicircle--' + technology.mode)
+                    else
+                        div(class='technologies__semicircle technologies__semicircle--' + technology.mode)

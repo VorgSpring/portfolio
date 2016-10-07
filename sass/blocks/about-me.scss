@@ -1,0 +1,29 @@
+.about-me {
+  width: 50%;
+  background-color: #ebefe2;
+
+  &__wrapper {
+    width: 580px;
+    margin: -32px auto 0;
+    padding-bottom: 30px;
+  }
+
+  &__avatar {
+    display: block;
+    margin-bottom: 13px;
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  &__description {
+    padding: 0 70px;
+  }
+
+  &__definition {
+    @include fonts(16px, 400, 24px, #566358);
+    margin: 0 0 10px;
+  }
+}

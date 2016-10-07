@@ -82,4 +82,53 @@
       margin-left: 1px;
     }
   }
+
+  &--about {
+    background: url("../image/about_header.svg") no-repeat center -6px;
+    background-size: 367px auto;
+    line-height: 66px;
+    margin-bottom: 40px;
+    padding: 40px 0 10px;
+    position: relative;
+    word-spacing: 6px;
+    z-index: 20;
+
+    &::after {
+      bottom: -5px;
+    }
+  }
+
+  &--me {
+    padding: 20px 0 12px;
+    text-indent: -10px;
+    margin-bottom: 14px;
+
+    &::after {
+      bottom: -1px;
+      margin-left: -6px;
+    }
+  }
+
+  &--usefulness {
+    margin: 0 auto 38px;
+    padding: 12px 0;
+    text-indent: -2px;
+    width: 300px;
+
+    &::after {
+      bottom: -3px;
+      margin-left: -1px;
+    }
+  }
+
+  &--contacts {
+    padding: 30px 0 12px;
+    text-indent: 4px;
+    margin-bottom: 42px;
+
+    &::after {
+      bottom: -12px;
+      margin-left: 2px;
+    }
+  }
 }

@@ -5,16 +5,15 @@ block title
     title Обо мне
 
 block header
-    +header
+    +header('page-header--about')
 
 block content
-    main.page-main
-        section.resume
-            include blocks/about-me.pug
-            include blocks/usefulness.pug
-        section.map
-        include blocks/contacts.pug
-        include blocks/overlay.pug
+    section.resume
+        include blocks/about-me.pug
+        include blocks/usefulness.pug
+    section.map
+    include blocks/contacts.pug
+    include blocks/overlay.pug
 
 block footer
     include blocks/footer.pug
