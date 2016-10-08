@@ -1,24 +1,34 @@
+include ../template/mixins.pug
+
 -
     var contacts = [
         {
             name: 'skype',
             content: 'skype_kdn',
-            href: 'skype:skype_kdn?chat'
+            href: 'skype:skype_kdn?chat',
+            width: 24,
+            height: 24
         },
         {
             name: 'email',
             content: 'astahov@gmail.com',
-            href: 'mailto:astahov@gmail.com'
+            href: 'mailto:astahov@gmail.com',
+            width: 23,
+            height: 16
         },
         {
             name: 'phone',
             content: '+7 931 200 93 24',
-            href: 'tel:+79312009324'
+            href: 'tel:+79312009324',
+            width: 17,
+            height: 21
         },
         {
             name: 'address',
             content: 'Новосибирск, ул. Инская, д.14',
-            href: false
+            href: false,
+            width: 15,
+            height: 22
         }
     ]
 
@@ -27,6 +37,11 @@
     each item in contacts
         = '\n'
         if item.href
-            a(href=item.href class='contacts__item contacts__item--' + item.name)= item.content
+            a(href=item.href class='contacts__item contacts__item--' + item.name)
+                +icon(item.name, item.width, item.height)
+                span= item.content
+
         else
-            a(class='contacts__item contacts__item--' + item.name)= item.content
+            a(class='contacts__item contacts__item--' + item.name)
+                +icon('marker', item.width, item.height)
+                span= item.content

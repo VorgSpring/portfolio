@@ -78,7 +78,7 @@ $palette-font-primary: $x-color-dark-grey;
   }
 }
 
-@mixin showPref(){
+@mixin showPrev(){
   animation-name: showPref;
   animation-duration: .5s;
   animation-fill-mode: forwards;

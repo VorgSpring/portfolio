@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
 	<meta charset="utf-8">
@@ -40,7 +40,8 @@
 			<div class="info__image">
 				<img src="image/avatar.jpg" width="141" height="141" alt="Это я!" />
 			</div>
-			<h2 class="info__name">Владимир Астахов<p class="info__description">Личный сайт веб разработчика</p></h2>
+			<h2 class="info__name">Владимир Астахов</h2>
+			<p class="info__description">Личный сайт веб разработчика</p>
 		</div>
 	</header>
 	<main class="page-main">
@@ -67,23 +68,17 @@
 							<h4 class="technologies__title">Frontend</h4>
 							<div class="technologies__items technologies__items--front">
 								<div class="technologies__item">
-									<div class="technologies__name">
-										<span>HTML5</span>
-									</div>
+									<span class="technologies__name">HTML5</span>
 									<div class="technologies__semicircle"></div>
 									<div class="technologies__semicircle technologies__semicircle--html"></div>
 								</div>
 								<div class="technologies__item">
-									<div class="technologies__name">
-										<span>CSS3</span>
-									</div>
+									<span class="technologies__name">CSS3</span>
 									<div class="technologies__semicircle"></div>
 									<div class="technologies__semicircle technologies__semicircle--css"></div>
 								</div>
 								<div class="technologies__item">
-									<div class="technologies__name">
-										<span>JavaScript &&nbsp;jQuery</span>
-									</div>
+									<span class="technologies__name">JavaScript &&nbsp;jQuery</span>
 									<div class="technologies__semicircle"></div>
 									<div class="technologies__semicircle technologies__semicircle--script"></div>
 								</div>
@@ -93,30 +88,22 @@
 							<h4 class="technologies__title">Backend</h4>
 							<div class="technologies__items technologies__items--back">
 								<div class="technologies__item">
-									<div class="technologies__name">
-										<span>PHP</span>
-									</div>
+									<span class="technologies__name">PHP</span>
 									<div class="technologies__semicircle"></div>
 									<div class="technologies__semicircle technologies__semicircle--less technologies__semicircle--php"></div>
 								</div>
 								<div class="technologies__item">
-									<div class="technologies__name">
-										<span>mySQL</span>
-									</div>
+									<span class="technologies__name">mySQL</span>
 									<div class="technologies__semicircle"></div>
 									<div class="technologies__semicircle technologies__semicircle--sql"></div>
 								</div>
 								<div class="technologies__item">
-									<div class="technologies__name">
-										<span>Node.js &&nbsp;npm</span>
-									</div>
+									<span class="technologies__name">Node.js &&nbsp;npm</span>
 									<div class="technologies__semicircle"></div>
 									<div class="technologies__semicircle technologies__semicircle--less technologies__semicircle--node"></div>
 								</div>
 								<div class="technologies__item">
-									<div class="technologies__name">
-										<span>Mongo.db</span>
-									</div>
+									<span class="technologies__name">Mongo.db</span>
 									<div class="technologies__semicircle"></div>
 									<div class="technologies__semicircle technologies__semicircle--mongo"></div>
 								</div>
@@ -126,23 +113,17 @@
 							<h4 class="technologies__title">WorkFlow</h4>
 							<div class="technologies__items technologies__items--flow">
 								<div class="technologies__item">
-									<div class="technologies__name">
-										<span>Git</span>
-									</div>
+									<span class="technologies__name">Git</span>
 									<div class="technologies__semicircle"></div>
 									<div class="technologies__semicircle technologies__semicircle--git"></div>
 								</div>
 								<div class="technologies__item">
-									<div class="technologies__name">
-										<span>Gulp</span>
-									</div>
+									<span class="technologies__name">Gulp</span>
 									<div class="technologies__semicircle"></div>
 									<div class="technologies__semicircle technologies__semicircle--gulp"></div>
 								</div>
 								<div class="technologies__item">
-									<div class="technologies__name">
-										<span>Bower</span>
-									</div>
+									<span class="technologies__name">Bower</span>
 									<div class="technologies__semicircle"></div>
 									<div class="technologies__semicircle technologies__semicircle--bower"></div>
 								</div>
@@ -155,10 +136,26 @@
 		<section class="map"></section>
 		<div class="contacts">
 			<h3 class="title title--small title--contacts">Контакты</h3>
-			<a class="contacts__item contacts__item--skype" href="skype:skype_kdn?chat">skype_kdn</a>
-			<a class="contacts__item contacts__item--email" href="mailto:astahov@gmail.com">astahov@gmail.com</a>
-			<a class="contacts__item contacts__item--phone" href="tel:+79312009324">+7 931 200 93 24</a>
-			<a class="contacts__item contacts__item--address">Новосибирск, ул. Инская, д.14</a>
+			<a class="contacts__item contacts__item--skype" href="skype:skype_kdn?chat">
+				<svg width="24" height="24">
+					<use xlink:href="image/sprite.svg#skype"></use>
+				</svg><span>skype_kdn</span>
+			</a>
+			<a class="contacts__item contacts__item--email" href="mailto:astahov@gmail.com">
+				<svg width="23" height="16">
+					<use xlink:href="image/sprite.svg#email"></use>
+				</svg><span>astahov@gmail.com</span>
+			</a>
+			<a class="contacts__item contacts__item--phone" href="tel:+79312009324">
+				<svg width="17" height="21">
+					<use xlink:href="image/sprite.svg#phone"></use>
+				</svg><span>+7 931 200 93 24</span>
+			</a>
+			<a class="contacts__item contacts__item--address">
+				<svg width="15" height="22">
+					<use xlink:href="image/sprite.svg#marker"></use>
+				</svg><span>Новосибирск, ул. Инская, д.14</span>
+			</a>
 		</div>
 		<div class="overlay">
 			<div class="overlay__links">

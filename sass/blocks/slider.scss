@@ -21,13 +21,14 @@
     }
     &[id$='1']:checked ~ .slider__controls {
       .slider__control {
-        &--pref {
+        &--prev {
           label[for$='4']{
             display: block;
           }
 
           .slider__control-image--work4 {
-            @include showPref();
+            @include showPrev();
+            top: 0;
           }
         }
 
@@ -38,6 +39,7 @@
 
           .slider__control-image--work2 {
             @include showNext();
+            top: 0;
           }
         }
       }
@@ -56,13 +58,15 @@
     }
     &[id$='2']:checked ~ .slider__controls {
       .slider__control {
-        &--pref {
+        &--prev {
           label[for$='1']{
             display: block;
           }
 
           .slider__control-image--work1 {
-            @include showPref();
+            @include showPrev();
+            top: 0;
+
           }
         }
 
@@ -73,6 +77,7 @@
 
           .slider__control-image--work3 {
             @include showNext();
+            top: 0;
           }
         }
       }
@@ -91,13 +96,15 @@
     }
     &[id$='3']:checked ~ .slider__controls {
       .slider__control {
-        &--pref {
+        &--prev {
           label[for$='2']{
             display: block;
           }
 
           .slider__control-image--work2 {
-            @include showPref();
+            @include showPrev();
+            top: 0;
+
           }
         }
 
@@ -108,6 +115,7 @@
 
           .slider__control-image--work4 {
             @include showNext();
+            top: 0;
           }
         }
       }
@@ -126,13 +134,14 @@
     }
     &[id$='4']:checked ~ .slider__controls {
       .slider__control {
-        &--pref {
+        &--prev {
           label[for$='3']{
             display: block;
           }
 
           .slider__control-image--work3 {
-            @include showPref();
+            @include showPrev();
+            top: 0;
           }
         }
 
@@ -143,6 +152,7 @@
 
           .slider__control-image--work1 {
             @include showNext();
+            top: 0;
            }
         }
       }
@@ -218,6 +228,10 @@
     margin: 0 auto;
     padding: 2px 0 5px 49px;
     width: 200px;
+
+    &:hover {
+     background-color: #4e8839;
+    }
   }
 
   &__image {
@@ -236,7 +250,7 @@
     position: relative;
     overflow: hidden;
 
-    &--pref {
+    &--prev {
       background-color: rgba(#b0b7aa, .7);
       label::after {
         content: '';

@@ -15,9 +15,9 @@ section.slider
     .slider__images
         each item, index in works
             = '\n'
-            img(src=item.image.src class='slider__image slider__image--work' + index width=item.image.width height=item.image.height)
+            img(src=item.image.src class='slider__image slider__image--work' + index width=item.image.width height=item.image.height alt=item.title)
     .slider__controls
-        .slider__control.slider__control--pref
+        .slider__control.slider__control--prev
             each item, index in works
                 = '\n'
                 label(for='switcher' + index).slider__control-item

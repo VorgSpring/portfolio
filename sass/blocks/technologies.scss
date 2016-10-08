@@ -19,31 +19,34 @@
     position: relative;
     background-color: #dfdcd5;
     margin-right: 37px;
+    overflow: hidden;
 
     &:last-child {
       margin-right: 0;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f4f5f0;
+      width: 63%;
+      height: 63%;
+      z-index: 20;
     }
   }
 
   &__name {
     @include fonts(13px, 500, 15px, #4e8839);
     position: absolute;
-    border-radius: 50%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background-color: #f4f5f0;
-    width: 63%;
-    height: 63%;
+    text-align: center;
     z-index: 30;
-
-    span {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
   }
 
   &__semicircle {

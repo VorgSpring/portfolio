@@ -10,24 +10,48 @@
 
   &__item {
     @include fonts(16px, 500, 24px, rgba(#455a64, .8));
-    margin: 0 0 20px 35px;
-    padding-left: 40px;
+    margin: 0 0 15px 35px;
+    padding-left: 5px;
     display: block;
+    fill: #6c9c5a;
 
-    &--skype {
-      background: url('../image/icons/skype.svg') no-repeat 6px center;
+    &:hover {
+      fill: #4e8839;
+      color: #455a64;
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: top;
+      padding-left: 10px;
     }
 
     &--email {
-      background: url('../image/icons/envelope.svg') no-repeat 6px 6px;
+      margin-bottom: 16px;
+
+      svg {
+        margin-top: 5px;
+      }
     }
 
     &--phone {
-      background: url('../image/icons/phone.svg') no-repeat 10px center;
+      padding-left: 9px;
+
+      svg {
+        margin-top: 2px;
+      }
+
+      span {
+        padding-left: 13px;
+      }
     }
 
     &--address {
-      background: url('../image/icons/marker.svg') no-repeat 11px center;
+      padding-left: 10px;
+
+      span {
+        padding-left: 14px;
+      }
     }
   }
 }
