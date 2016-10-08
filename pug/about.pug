@@ -9,12 +9,13 @@ block header
     +header('page-header--about')
 
 block content
-    section.resume
-        include blocks/about-me.pug
-        include blocks/usefulness.pug
-    section.map
-    include blocks/contacts.pug
-    include blocks/overlay.pug
+    main.page-main
+        section.resume
+            include blocks/about-me.pug
+            include blocks/usefulness.pug
+        section.map
+        include blocks/contacts.pug
+        include blocks/overlay.pug
 
 block footer
     +footer(true)

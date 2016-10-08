@@ -1100,6 +1100,10 @@ textarea:invalid {
   position: relative;
 }
 
+.page-main--blog {
+  background-color: #f8f9f5;
+}
+
 .welcome {
   padding-top: 40px;
   text-align: center;
@@ -1962,14 +1966,16 @@ textarea:invalid {
 }
 
 .publication {
-  background-color: #f8f9f5;
   padding: 50px 10px 183px;
   font-size: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .publication__navigation {
-  display: inline-block;
-  vertical-align: top;
   width: 300px;
   margin-top: 22px;
 }
@@ -1997,8 +2003,6 @@ textarea:invalid {
 }
 
 .publication__items {
-  display: inline-block;
-  vertical-align: top;
   width: 720px;
   padding: 0 20px;
   margin: 0 80px;
@@ -2045,6 +2049,7 @@ textarea:invalid {
 
 .publication__content img {
   margin-top: 2px;
+  width: 100%;
 }
 
 .page-footer {

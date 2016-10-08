@@ -1,11 +1,11 @@
 .publication {
-  background-color: $palette-background-primary;
   padding: 50px 10px 183px;
   font-size: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
 
   &__navigation {
-    display: inline-block;
-    vertical-align: top;
     width: 300px;
     margin-top: 22px;
 
@@ -30,8 +30,6 @@
   }
 
   &__items {
-    display: inline-block;
-    vertical-align: top;
     width: 720px;
     padding: 0 20px;
     margin: 0 80px;
@@ -68,6 +66,7 @@
 
     img {
       margin-top: 2px;
+      width: 100%;
     }
   }
 }
