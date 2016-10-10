@@ -25,28 +25,135 @@
       margin-right: 0;
     }
 
+    &::before,
     &::after {
       content: '';
       position: absolute;
+      width: 110px;
+      height: 110px;
+      left: 0;
+      top: 0;
+      background-color: #77a266;
       border-radius: 50%;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #f4f5f0;
-      width: 63%;
-      height: 63%;
-      z-index: 20;
+      z-index: 10;
+      clip: rect(0, 110px, 110px, 55px);
+    }
+
+    &--less {
+      &::after {
+        background-color: #dfdcd5;
+        clip: rect(0, 55px, 110px, 0);
+      }
+    }
+
+    &--html {
+      text-transform: uppercase;
+
+      &::after {
+        transform: rotate(150deg);
+      }
+    }
+
+    &--css {
+      text-transform: uppercase;
+
+      &::after {
+        transform: rotate(130deg);
+      }
+    }
+
+    &--script {
+      span {
+        padding-top: 19px;
+      }
+
+      &::after {
+        transform: rotate(130deg);
+      }
+    }
+
+    &--php {
+      text-transform: uppercase;
+
+      &::after {
+        transform: rotate(-32deg);
+      }
+    }
+
+    &--sql {
+      span {
+        padding-top: 26px;
+      }
+
+      &::after {
+        transform: rotate(12deg);
+      }
+    }
+
+    &--node {
+      span {
+        padding-top: 19px;
+      }
+
+      &::after {
+        transform: rotate(-43deg);
+      }
+    }
+
+    &--mongo {
+      span {
+        padding-top: 26px;
+      }
+
+      &::after {
+        transform: rotate(46deg);
+      }
+    }
+
+    &--git {
+      span {
+        padding-top: 29px;
+      }
+
+      &::after {
+        transform: rotate(125deg);
+      }
+    }
+
+    &--gulp {
+      span {
+        padding-top: 29px;
+      }
+
+      &::after {
+        transform: rotate(76deg);
+      }
+    }
+
+    &--bower {
+      span {
+        padding-top: 29px;
+      }
+
+      &::after {
+        transform: rotate(49deg);
+      }
     }
   }
 
   &__name {
     @include fonts(13px, 500, 15px, #4e8839);
     position: absolute;
+    border-radius: 50%;
+    background-color: #f4f5f0;
+    width: 63%;
+    height: 63%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     z-index: 30;
+    padding-top: 28px;
   }
 
   &__semicircle {
@@ -58,49 +165,17 @@
     z-index: 10;
     clip: rect(0, 110px, 110px, 55px);
 
-    &--less {
-      background-color: #dfdcd5;
-      clip: rect(0, 55px, 110px, 0);
-    }
-
-    &--html {
-      transform: rotate(150deg);
-    }
-
-    &--css {
-      transform: rotate(130deg);
-    }
-
-    &--script {
-      transform: rotate(130deg);
-    }
-
-    &--php {
-      transform: rotate(-32deg);
-    }
-
-    &--sql {
-      transform: rotate(12deg);
-    }
-
-    &--node {
-      transform: rotate(-43deg);
-    }
-
-    &--mongo {
-      transform: rotate(46deg);
-    }
-
-    &--git {
-      transform: rotate(125deg);
-    }
-
-    &--gulp {
-      transform: rotate(76deg);
-    }
-
-    &--bower {
-      transform: rotate(49deg);
+    &::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f4f5f0;
+      width: 63%;
+      height: 63%;
+      z-index: 20;
     }
   }
 }

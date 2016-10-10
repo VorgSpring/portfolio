@@ -1,4 +1,42 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+
+  &__switcher {
+    display: none;
+
+    &:checked ~ .overlay {
+      display: block;
+    }
+
+    &:checked ~ .page-header {
+      .burger {
+        position: fixed;
+        right: 30px;
+        top: 15px;
+        z-index: 30;
+
+        &__component {
+          background-color: transparent;
+
+          &::after,
+          &::before {
+            width: 50px;
+          }
+
+          &::after {
+            left: -11px;
+            top: 19px;
+            transform: rotate(45deg);
+          }
+
+          &::before {
+            left: -14px;
+            top: -17px;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+  }
 }

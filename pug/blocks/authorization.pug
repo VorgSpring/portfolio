@@ -6,20 +6,20 @@ mixin authorization(mod)
     div(class='authorization ' + mod)
         h1.title.title--small.title--login Авторизуйтесь
         form(method='POST' action='#').authorization__form
-            fieldset.authorization__enter
+            .authorization__enter
                 input(type='text' name='login' placeholder='Логин' id='name' required).authorization__login
                 label(for='name').authorization__label.authorization__label--enter
                     +icon('login', 14, 16)
-            fieldset.authorization__enter.authorization__enter--last
+            .authorization__enter.authorization__enter--last
                 input(type='password' name='password' placeholder='Пароль' id='password' required).authorization__password
                 label(for='password').authorization__label.authorization__label--enter
                     +icon('password', 17, 16)
             fieldset.authorization__checkout
-                +checkRadioButton(checbox)
+                +checkRadioButton(checkbox)
             fieldset.authorization__checkout.authorization__checkout--last
                 legend.authorization__legend Вы точно не робот?
                 each item in radio
                     +checkRadioButton(item)
             .btn
-                a(href='index.html').btn__item.btn__item--index На главную
+                label(for='switcher-index').btn__item.btn__item--index На главную
                 button(type='submit').btn__item.btn__item--enter Войти

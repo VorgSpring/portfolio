@@ -4,4 +4,4 @@ include ../template/variables.pug
     .overlay__links
         each link in links
             = '\n'
-            a(href=link.href).overlay__link= link.content
+            a(href=link.href class='overlay__link overlay__link--' + link.name)= link.content

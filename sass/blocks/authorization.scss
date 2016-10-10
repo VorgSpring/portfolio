@@ -1,10 +1,19 @@
 .authorization {
-  display: none;
   padding-top: 33px;
   text-align: center;
   width: 380px;
   background-color: $palette-background-welcome;
   border-radius: 5px;
+
+  backface-visibility: hidden;
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  transform: rotateY(-180deg);
+
 
   &--login {
     display: block;
@@ -130,5 +139,6 @@
     @include fonts(16px, 700, 24px, #fff);
     margin-bottom: 5px;
     width: 100%;
+    text-align: center;
   }
 }

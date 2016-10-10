@@ -3,8 +3,10 @@ html(lang="ru")
     include head.pug
         block title
     body.wrapper
+        input(type='checkbox' name='switcher-overlay' id='switcher-overlay').wrapper__switcher
         block header
 
         block content
 
+        include ../blocks/overlay.pug
         block footer

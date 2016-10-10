@@ -10,77 +10,83 @@
 
 <body>
 	<div class="index__wrapper">
+		<input class="index__switcher" type="checkbox" name="switcher-index" id="switcher-index">
 		<header class="index__header">
-			<a class="index__authorization" href="login.html">Авторизоваться</a>
+			<label class="index__authorization" for="switcher-index">Авторизоваться</label>
 		</header>
 		<main class="page-main">
-			<div class="authorization ">
-				<h1 class="title title--small title--login">Авторизуйтесь</h1>
-				<form class="authorization__form" method="POST" action="#">
-					<fieldset class="authorization__enter">
-						<input class="authorization__login" type="text" name="login" placeholder="Логин" id="name" required="required" />
-						<label class="authorization__label authorization__label--enter" for="name">
-							<svg width="14" height="16">
-								<use xlink:href="image/sprite.svg#login"></use>
-							</svg>
-						</label>
-					</fieldset>
-					<fieldset class="authorization__enter authorization__enter--last">
-						<input class="authorization__password" type="password" name="password" placeholder="Пароль" id="password" required="required" />
-						<label class="authorization__label authorization__label--enter" for="password">
-							<svg width="17" height="16">
-								<use xlink:href="image/sprite.svg#password"></use>
-							</svg>
-						</label>
-					</fieldset>
-					<fieldset class="authorization__checkout">
-						<input type="checkbox" name="login" id="human" />
-						<label class="authorization__label authorization__label--check" for="human">Я человек</label>
-					</fieldset>
-					<fieldset class="authorization__checkout authorization__checkout--last">
-						<legend class="authorization__legend">Вы точно не робот?</legend>
-						<input type="radio" name="answer" id="radio-yes" value="yes" />
-						<label class="authorization__label authorization__label--radio" for="radio-yes">Да</label>
-						<input type="radio" name="answer" id="radio-no" value="no" />
-						<label class="authorization__label authorization__label--radio" for="radio-no">Не уверен</label>
-					</fieldset>
-					<div class="btn"><a class="btn__item btn__item--index" href="index.html">На главную</a>
-						<button class="btn__item btn__item--enter" type="submit">Войти</button>
+			<div class="flipper">
+				<div class="flipper__container">
+					<div class="authorization ">
+						<h1 class="title title--small title--login">Авторизуйтесь</h1>
+						<form class="authorization__form" method="POST" action="#">
+							<div class="authorization__enter">
+								<input class="authorization__login" type="text" name="login" placeholder="Логин" id="name" required="required" />
+								<label class="authorization__label authorization__label--enter" for="name">
+									<svg width="14" height="16">
+										<use xlink:href="image/sprite.svg#login"></use>
+									</svg>
+								</label>
+							</div>
+							<div class="authorization__enter authorization__enter--last">
+								<input class="authorization__password" type="password" name="password" placeholder="Пароль" id="password" required="required" />
+								<label class="authorization__label authorization__label--enter" for="password">
+									<svg width="17" height="16">
+										<use xlink:href="image/sprite.svg#password"></use>
+									</svg>
+								</label>
+							</div>
+							<fieldset class="authorization__checkout">
+								<input type="checkbox" name="login" id="human" />
+								<label class="authorization__label authorization__label--check" for="human">Я человек</label>
+							</fieldset>
+							<fieldset class="authorization__checkout authorization__checkout--last">
+								<legend class="authorization__legend">Вы точно не робот?</legend>
+								<input type="radio" name="answer" id="radio-yes" value="yes" />
+								<label class="authorization__label authorization__label--radio" for="radio-yes">Да</label>
+								<input type="radio" name="answer" id="radio-no" value="no" />
+								<label class="authorization__label authorization__label--radio" for="radio-no">Не уверен</label>
+							</fieldset>
+							<div class="btn">
+								<label class="btn__item btn__item--index" for="switcher-index">На главную</label>
+								<button class="btn__item btn__item--enter" type="submit">Войти</button>
+							</div>
+						</form>
 					</div>
-				</form>
-			</div>
-			<div class="welcome">
-				<div class="info--index info">
-					<div class="info__image">
-						<img src="image/avatar.jpg" width="141" height="141" alt="Это я!">
+					<div class="welcome">
+						<div class="info--index info">
+							<div class="info__image">
+								<img src="image/avatar.jpg" width="141" height="141" alt="Это я!">
+							</div>
+							<h2 class="info__name">Владимир Астахов</h2>
+							<p class="info__description">Личный сайт веб разработчика</p>
+						</div>
+						<div class="social-buttons social-buttons--index">
+							<a class="social-button social-button--vk" href="http://vk.com" target="_blank">
+								<span>vkontakte</span>
+								<svg width="32" height="18">
+									<use xlink:href="image/sprite.svg#vk"></use>
+								</svg>
+							</a>
+							<a class="social-button social-button--git" href="http://github.com" target="_blank">
+								<span>github</span>
+								<svg width="26" height="22">
+									<use xlink:href="image/sprite.svg#git"></use>
+								</svg>
+							</a>
+							<a class="social-button social-button--in" href="http://linkedin.com" target="_blank">
+								<span>linkedin</span>
+								<svg width="25" height="22">
+									<use xlink:href="image/sprite.svg#in"></use>
+								</svg>
+							</a>
+						</div>
+						<div class="btn">
+							<a class="btn__item btn__item--works" href="works.html">Мои работы</a>
+							<a class="btn__item btn__item--about" href="about.html">Обо мне</a>
+							<a class="btn__item btn__item--blog" href="blog.html">Блог</a>
+						</div>
 					</div>
-					<h2 class="info__name">Владимир Астахов</h2>
-					<p class="info__description">Личный сайт веб разработчика</p>
-				</div>
-				<div class="social-buttons social-buttons--index">
-					<a class="social-button social-button--vk" href="http://vk.com" target="_blank">
-						<span>vkontakte</span>
-						<svg width="32" height="18">
-							<use xlink:href="image/sprite.svg#vk"></use>
-						</svg>
-					</a>
-					<a class="social-button social-button--git" href="http://github.com" target="_blank">
-						<span>github</span>
-						<svg width="26" height="22">
-							<use xlink:href="image/sprite.svg#git"></use>
-						</svg>
-					</a>
-					<a class="social-button social-button--in" href="http://linkedin.com" target="_blank">
-						<span>linkedin</span>
-						<svg width="25" height="22">
-							<use xlink:href="image/sprite.svg#in"></use>
-						</svg>
-					</a>
-				</div>
-				<div class="btn">
-					<a class="btn__item btn__item--works" href="works.html">Мои работы</a>
-					<a class="btn__item btn__item--about" href="about.html">Обо мне</a>
-					<a class="btn__item btn__item--blog" href="blog.html">Блог</a>
 				</div>
 			</div>
 		</main>

@@ -1,15 +1,40 @@
 .burger {
-  margin: 18px -4px 0 0;
+  margin: 18px -1px 0 0;
   width: 40px;
   height: 36px;
   cursor: pointer;
 
   &__component {
+    font-size: 0;
+    margin-top: 15px;
+    display: block;
+    position: relative;
     height: 5px;
-    border-radius: 2px;
+    border-radius: 10px;
     background-color: #fff;
-    box-shadow: 0 15px 0 0 #fff,
-                0 30px 0 0 #fff;
+    transition: background .1s linear;
+
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 40px;
+      height: 5px;
+      border-radius: 10px;
+      background-color: #fff;
+      transition: transform .4s ease;
+      transform-origin: 100% 0 0;
+    }
+
+    &::after {
+      top: 15px;
+    }
+
+    &::before {
+      top: -15px;
+    }
+
   }
 
 }

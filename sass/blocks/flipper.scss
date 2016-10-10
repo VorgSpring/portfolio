@@ -1,0 +1,13 @@
+.flipper {
+  perspective: 1500;
+  transform: perspective(1500px);
+  transform-style: preserve-3d;
+
+  &__container {
+    position: relative;
+    width: 380px;
+    transform: perspective(1500px);
+    transition: 0.6s;
+    transform-style: preserve-3d;
+  }
+}

@@ -45,10 +45,11 @@
   &--works {
     background: $palette-background-primary url('../image/works_header.svg') no-repeat center 0 / 505px 165px;
     padding: 65px 0;
+    text-indent: -3px;
 
     &::after {
       bottom: 35px;
-      margin-left: -2px;
+      margin-left: -3px;
     }
   }
 
@@ -67,10 +68,11 @@
     margin: 0 auto 42px;
     padding: 58px 0 20px;
     width: 500px;
+    text-indent: -4px;
 
     &::after {
       bottom: -13px;
-      margin-left: -2px;
+      margin-left: -3px;
     }
   }
 

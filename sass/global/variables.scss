@@ -13,6 +13,12 @@ $palette-background-primary: $x-color-light-grey;
 
 $palette-font-primary: $x-color-dark-grey;
 
+$mobile-widths-only: (max-width: 699px);
+$tablet-widths: (min-width: 700px);
+$desktop-widths: (min-width: 1200px);
+$big-desktop-widths: (min-width: 1800px);
+
+
 @mixin clearfix() {
   &::after,
   &::before{
@@ -81,13 +87,11 @@ $palette-font-primary: $x-color-dark-grey;
 @mixin showPrev(){
   animation-name: showPref;
   animation-duration: .5s;
-  animation-fill-mode: forwards;
   animation-timing-function: linear;
 }
 
 @mixin showNext(){
   animation-name: showNext;
   animation-duration: .5s;
-  animation-fill-mode: forwards;
   animation-timing-function: linear;
 }

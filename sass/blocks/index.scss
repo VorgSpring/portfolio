@@ -30,4 +30,25 @@
       background-color: #4e8839;
     }
   }
+
+  &__switcher {
+    display: none;
+
+    &:checked ~ .page-main {
+
+      .welcome {
+        transform: rotateY(180deg);
+      }
+
+      .authorization {
+        transform: rotateY(0deg);
+      }
+    }
+
+    &:checked ~ .index__header {
+      .index__authorization {
+        visibility: hidden;
+      }
+    }
+  }
 }

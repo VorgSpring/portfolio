@@ -9,6 +9,7 @@
 </head>
 
 <body class="wrapper">
+	<input class="wrapper__switcher" type="checkbox" name="switcher-overlay" id="switcher-overlay">
 	<header class="page-header--blog page-header">
 		<div class="page-header__arrow"></div>
 		<div class="page-header__menu">
@@ -32,9 +33,8 @@
 					</svg>
 				</a>
 			</div>
-			<div class="burger">
-				<div class="burger__component"></div>
-			</div>
+			<label class="burger" for="switcher-overlay"><span class="burger__component">гамбургер</span>
+			</label>
 		</div>
 		<div class="info">
 			<div class="info__image">
@@ -103,6 +103,14 @@
 			</section>
 		</div>
 	</main>
+	<div class="overlay">
+		<div class="overlay__links">
+			<a class="overlay__link overlay__link--works" href="works.html">Мои работы</a>
+			<a class="overlay__link overlay__link--about" href="about.html">Обо мне</a>
+			<a class="overlay__link overlay__link--blog" href="blog.html">Блог</a>
+			<a class="overlay__link overlay__link--authorization" href="index.html">Авторизация</a>
+		</div>
+	</div>
 	<footer class="page-footer">
 		<div class="page-footer__wrapper">
 			<p class="page-footer__description">Этот сайт я сделал в рамках обучения в&nbsp;Школе онлайн образования LoftSchool.</p>

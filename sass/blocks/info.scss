@@ -16,7 +16,7 @@
     @include fonts(35px, 500, 41px, #fff);
     width: 500px;
     margin: 0 auto 1px;
-    text-indent: 15px;
+    text-indent: 12px;
   }
 
   &__description {
@@ -24,7 +24,6 @@
     opacity: .8;
     width: 450px;
     margin: 0 auto;
-    text-indent: 2px;
   }
 
   &--index {

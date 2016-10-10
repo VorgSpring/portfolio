@@ -4,9 +4,11 @@ include blocks/authorization.pug
 block header
     header.index__header
         = '\n'
-        a(href='login.html').index__authorization Авторизоваться
+        label(for='switcher-index').index__authorization Авторизоваться
 
 block content
     main.page-main
-        +authorization
-        include blocks/welcome.pug
+        .flipper
+            .flipper__container
+                +authorization
+                include blocks/welcome.pug
