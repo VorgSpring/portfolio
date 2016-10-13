@@ -2276,7 +2276,6 @@ textarea:invalid {
 .slider__control {
   -ms-flex-preferred-size: 50%;
   flex-basis: 50%;
-  height: 100%;
   position: relative;
 }
 
