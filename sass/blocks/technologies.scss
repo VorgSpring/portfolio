@@ -1,15 +1,29 @@
 .technologies {
-  margin-bottom: 35px;
+  margin: 0 auto -4px;
+  max-width: 330px;
+
+  &:nth-child(2n) {
+    .technologies__item {
+      opacity: .6;
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   &__title {
-    @include fonts(28px, 500, 32px, #566358);
+    @include fonts(21px, 500, 28px, $palette-font-secondary);
+    text-align: center;
     margin: 0 0 14px;
+    text-indent: -2px;
   }
 
   &__items {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 3px 0 2px;
   }
 
   &__item {
@@ -18,12 +32,9 @@
     border-radius: 50%;
     position: relative;
     background-color: #dfdcd5;
-    margin-right: 37px;
+    margin: 0 auto 29px;
     overflow: hidden;
-
-    &:last-child {
-      margin-right: 0;
-    }
+    opacity: .9;
 
     &::before,
     &::after {
@@ -33,7 +44,7 @@
       height: 110px;
       left: 0;
       top: 0;
-      background-color: #77a266;
+      background-color: $palette-primary;
       border-radius: 50%;
       z-index: 10;
       clip: rect(0, 110px, 110px, 55px);
@@ -82,7 +93,8 @@
 
     &--sql {
       span {
-        padding-top: 26px;
+        padding-top: 25px;
+        text-indent: -4px;
       }
 
       &::after {
@@ -112,7 +124,7 @@
 
     &--git {
       span {
-        padding-top: 29px;
+        padding-top: 27px;
       }
 
       &::after {
@@ -122,7 +134,7 @@
 
     &--gulp {
       span {
-        padding-top: 29px;
+        padding-top: 27px;
       }
 
       &::after {
@@ -132,7 +144,7 @@
 
     &--bower {
       span {
-        padding-top: 29px;
+        padding-top: 28px;
       }
 
       &::after {
@@ -142,7 +154,7 @@
   }
 
   &__name {
-    @include fonts(13px, 500, 15px, #4e8839);
+    @include fonts(13px, 500, 15px, $palette-secondary);
     position: absolute;
     border-radius: 50%;
     background-color: #f4f5f0;
@@ -156,26 +168,169 @@
     padding-top: 28px;
   }
 
-  &__semicircle {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #77a266;
-    border-radius: 50%;
-    z-index: 10;
-    clip: rect(0, 110px, 110px, 55px);
+  @media only screen and #{$tablet-widths} {
+    max-width: none;
+    margin-bottom: 39px;
 
-    &::after {
-      content: '';
-      position: absolute;
-      border-radius: 50%;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #f4f5f0;
-      width: 63%;
-      height: 63%;
-      z-index: 20;
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &__title {
+      text-indent: 0;
+    }
+
+    &__items {
+      justify-content: center;
+      padding: 0 3px 0 2px;
+    }
+
+    &__item {
+      margin: 0 37px 0 0;
+
+      &:last-child {
+        margin: 0;
+      }
+
+      &--sql {
+        span {
+          padding-top: 25px;
+          text-indent: 2px;
+        }
+      }
+
+      &--node {
+        span {
+          padding-top: 18px;
+        }
+      }
+
+      &--mongo {
+        span {
+          padding-top: 25px;
+        }
+      }
+
+      &--git {
+        span {
+          padding-top: 28px;
+        }
+      }
+
+      &--gulp {
+        span {
+          padding-top: 28px;
+        }
+      }
+    }
+  }
+
+
+  @media only screen and #{$desktop-widths} {
+    margin-bottom: 35px;
+
+    &__title {
+      font-size: 28px;
+      line-height: 32px;
+      margin: 0 0 14px;
+      text-align: start;
+    }
+
+    &__items {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 0;
+    }
+
+    &__item {
+      margin-right: 37px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+
+  @media only screen and #{$big-desktop-widths} {
+
+    &__items {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 0;
+    }
+
+    &__item {
+      margin-right: 40px;
+      width: 120px;
+      height: 120px;
+
+
+      &::before,
+      &::after {
+        width: 120px;
+        height: 120px;
+        clip: rect(0, 120px, 120px, 60px);
+      }
+
+      &--less {
+        &::after {
+          clip: rect(0, 60px, 120px, 0);
+        }
+      }
+
+      &--script {
+        span {
+          padding-top: 24px;
+        }
+      }
+
+      &--sql {
+        span {
+          padding-top: 32px;
+          text-indent: 0;
+        }
+      }
+
+      &--node {
+        span {
+          padding-top: 24px;
+        }
+      }
+
+      &--mongo {
+        span {
+          padding-top: 31px;
+        }
+      }
+
+      &--git {
+        span {
+          padding-top: 35px;
+        }
+      }
+
+      &--gulp {
+        span {
+          padding-top: 35px;
+        }
+      }
+
+      &--bower {
+        span {
+          padding-top: 34px;
+        }
+      }
+    }
+
+    &__name {
+      font-size: 14px;
+      line-height: 16px;
+      width: 66%;
+      height: 66%;
+      padding-top: 34px;
     }
   }
 }

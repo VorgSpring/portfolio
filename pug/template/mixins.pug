@@ -1,5 +1,5 @@
-mixin icon(name, width, height)
-    svg(width=width height=height)
+mixin icon(name)
+    svg
         use(xlink:href="image/sprite.svg#" + name)
 
 mixin checkRadioButton(item)
@@ -15,15 +15,15 @@ mixin button(item)
     a(href='http://' + item.href class=item.class + item.name target='_blank')
         = '\n'
         span= item.content
-        +icon(item.name, item.width, item.height)
+        +icon(item.name)
 
 mixin authorName(mode)
-    - var content = '© Владимир Астахов | создано с любовью в LoftSchool | 2016'
+    - var content = '© Владимир Астахов <b>|</b> Создано&nbsp;с&nbsp;любовью в LoftSchool <b>|</b> 2016'
     if mode
         p(class='page-footer__author page-footer__author--' + mode)
-            = '\n' + content + '\n'
+            != '\n' + content + '\n'
     else
-        p.page-footer__author=content
+        p.page-footer__author!=content
 
 mixin technologies(item)
     .technologies

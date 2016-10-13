@@ -1,204 +1,28 @@
 .slider {
   display: flex;
-  flex-flow: column wrap;
-  justify-content: space-between;
-  height: 750px;
-  overflow: hidden;
-
-  &__switcher {
-    display: none;
-
-    &[id$='1']:checked ~ .slider__descriptions {
-      .slider__description--work1 {
-        z-index: 10;
-      }
-    }
-
-    &[id$='1']:checked ~ .slider__images {
-      .slider__image--work1 {
-        z-index: 10;
-      }
-    }
-    &[id$='1']:checked ~ .slider__controls {
-      .slider__control {
-        &--prev {
-          label[for$='4']{
-            display: block;
-          }
-
-          .slider__control-image--work4 {
-            @include showPrev();
-            top: 0;
-          }
-        }
-
-        &--next {
-          label[for$='2'] {
-            display: block;
-          }
-
-          .slider__control-image--work2 {
-            @include showNext();
-            top: 0;
-          }
-        }
-      }
-    }
-
-    &[id$='2']:checked ~ .slider__descriptions {
-      .slider__description--work2 {
-        z-index: 10;
-      }
-    }
-
-    &[id$='2']:checked ~ .slider__images {
-      .slider__image--work2 {
-        z-index: 10;
-      }
-    }
-    &[id$='2']:checked ~ .slider__controls {
-      .slider__control {
-        &--prev {
-          label[for$='1']{
-            display: block;
-          }
-
-          .slider__control-image--work1 {
-            @include showPrev();
-            top: 0;
-          }
-        }
-
-        &--next {
-          label[for$='3'] {
-            display: block;
-          }
-
-          .slider__control-image--work3 {
-            @include showNext();
-            top: 0;
-          }
-        }
-      }
-    }
-
-    &[id$='3']:checked ~ .slider__descriptions {
-      .slider__description--work3 {
-        z-index: 10;
-      }
-    }
-
-    &[id$='3']:checked ~ .slider__images {
-      .slider__image--work3 {
-        z-index: 10;
-      }
-    }
-    &[id$='3']:checked ~ .slider__controls {
-      .slider__control {
-        &--prev {
-          label[for$='2']{
-            display: block;
-          }
-
-          .slider__control-image--work2 {
-            @include showPrev();
-            top: 0;
-
-          }
-        }
-
-        &--next {
-          label[for$='4'] {
-            display: block;
-          }
-
-          .slider__control-image--work4 {
-            @include showNext();
-            top: 0;
-          }
-        }
-      }
-    }
-
-    &[id$='4']:checked ~ .slider__descriptions {
-      .slider__description--work4 {
-        z-index: 10;
-      }
-    }
-
-    &[id$='4']:checked ~ .slider__images {
-      .slider__image--work4 {
-        z-index: 10;
-      }
-    }
-    &[id$='4']:checked ~ .slider__controls {
-      .slider__control {
-        &--prev {
-          label[for$='3']{
-            display: block;
-          }
-
-          .slider__control-image--work3 {
-            @include showPrev();
-            top: 0;
-          }
-        }
-
-        &--next {
-          label[for$='1'] {
-            display: block;
-          }
-
-          .slider__control-image--work1 {
-            @include showNext();
-            top: 0;
-           }
-        }
-      }
-    }
-  }
+  flex-flow: column nowrap;
+  justify-content: flex-start;
 
   &__descriptions {
-    width: 50%;
-    height: 100%;
+    flex-basis: 220px;
     position: relative;
-    background-color: #ebefe2;
-  }
-
-  &__images {
-    width: 50%;
-    height: 70%;
-    position: relative;
-    background-color: #e1e4d7;
-  }
-
-  &__controls {
-    width: 50%;
-    height: 30%;
-    display: flex;
-    justify-content: space-between;
+    background-color: $palette-background-about;
   }
 
   &__description {
-    position: absolute;
-    margin-top: -5px;
-    right: 50%;
-    top: 50%;
-    transform: translate(50%, -50%);
-    width: 420px;
-    z-index: -10;
+    display: none;
   }
 
   &__technologies {
     font-size: 0;
-    margin-bottom: 58px;
     padding-left: 0;
     text-align: center;
+    margin-bottom: 10px;
 
     &-item {
       display: inline-block;
-      @include fonts(16px, 500, 20px, #4e8839);
-      margin-right: 11px;
+      @include fonts(14px, 500, 24px, $palette-secondary);
+      margin-right: 5px;
       position: relative;
       text-transform: uppercase;
 
@@ -218,40 +42,59 @@
 
   &__btn {
     display: block;
-    @include fonts(16px, 500, 37px, #fff);
-    background: #6c9c5a url('../image/icons/link.svg') no-repeat 18px center / 19px 19px;
+    @include fonts(14px, 500, 36px, #fff);
+    background: $palette-primary url('../image/icons/link.svg') no-repeat 20px center / 21px 20px;
     border-radius: 50px;
     margin: 0 auto;
-    padding: 2px 0 5px 49px;
-    width: 200px;
+    padding: 4px 0 1px 51px;
+    width: 185px;
 
     &:hover {
-     background-color: #4e8839;
+      background-color: $palette-secondary;
     }
   }
 
-  &__image {
-    position: absolute;
-    margin-top: 6px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -10;
 
+  &__images {
+    order: -1;
+    flex-basis: 256px;
+    background-color: #e1e4d7;
+  }
+
+  &__image {
+    display: none;
+    padding-top: 48px;
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  &__controls {
+    flex-basis: 93px;
+    display: flex;
+    flex-flow: row nowrap;
   }
 
   &__control {
-    width: 50%;
+    flex-basis: 50%;
     height: 100%;
     position: relative;
-    overflow: hidden;
 
     &--prev {
       background-color: rgba(#b0b7aa, .7);
 
-      label::after {
-        content: '';
-        @include arrow(30px, 10px, -45deg, rgba(#fff, .8), 105px)
+      label {
+        &::after {
+          content: '';
+          @include arrow(30px, 10px, -45deg, rgba(#fff, .8), 38px);
+          transition: bottom .2s;
+        }
+
+        &:hover::after {
+          bottom: 30px;
+        }
       }
 
       div {
@@ -262,9 +105,16 @@
     &--next {
       background-color: rgba(#93998d, .7);
 
-      label::after {
-        content: '';
-        @include arrow(30px, 10px, 135deg, rgba(#fff, .8), 90px)
+      label {
+        &::after {
+          content: '';
+          @include arrow(30px, 10px, 135deg, rgba(#fff, .8), 24px);
+          transition: bottom .2s;
+        }
+
+        &:hover::after {
+          bottom: 30px;
+        }
       }
 
       div {
@@ -275,7 +125,7 @@
     &-item {
       display: none;
       cursor: pointer;
-      width: 80%;
+      width: 50%;
       height: 100%;
       margin: 0 auto;
     }
@@ -291,19 +141,262 @@
       transition-timing-function: linear;
 
       &--work1 {
-        background: url('../image/work-1.png') no-repeat center / 100%;
+        background: url('../image/slider/work-phone-label-1.png') no-repeat center;
       }
 
       &--work2 {
-        background: url('../image/work-3.png') no-repeat center / 100%;
+        background: url('../image/slider/work-phone-label-2.png') no-repeat center;
       }
 
       &--work3 {
-        background: url('../image/work-1.png') no-repeat center / 100%;
+        background: url('../image/slider/work-phone-label-3.png') no-repeat center;
       }
 
       &--work4 {
-        background: url('../image/work-2.png') no-repeat center / 100%;
+        background: url('../image/slider/work-phone-label-4.png') no-repeat center;
+      }
+    }
+  }
+
+
+  &__switcher {
+    display: none;
+
+    &[id$='1']:checked ~ .slider__descriptions .slider__description--work1,
+    &[id$='1']:checked ~ .slider__images .slider__image--work1,
+    &[id$='1']:checked ~ .slider__controls .slider__control--prev label[for$='4'],
+    &[id$='1']:checked ~ .slider__controls .slider__control--next label[for$='2']{
+      display: block;
+    }
+
+    &[id$='1']:checked ~ .slider__controls .slider__control {
+      &--prev {
+        .slider__control-image--work4 {
+          @include showPrev();
+          top: 0;
+        }
+      }
+
+      &--next {
+        .slider__control-image--work2 {
+          @include showNext();
+          top: 0;
+        }
+      }
+    }
+
+    &[id$='2']:checked ~ .slider__descriptions .slider__description--work2,
+    &[id$='2']:checked ~ .slider__images .slider__image--work2,
+    &[id$='2']:checked ~ .slider__controls .slider__control--prev label[for$='1'],
+    &[id$='2']:checked ~ .slider__controls .slider__control--next label[for$='3']{
+      display: block;
+    }
+
+    &[id$='2']:checked ~ .slider__controls .slider__control {
+      &--prev {
+        .slider__control-image--work1 {
+          @include showPrev();
+          top: 0;
+        }
+      }
+
+      &--next {
+        .slider__control-image--work3 {
+          @include showNext();
+          top: 0;
+        }
+      }
+    }
+
+    &[id$='3']:checked ~ .slider__descriptions .slider__description--work3,
+    &[id$='3']:checked ~ .slider__images .slider__image--work3,
+    &[id$='3']:checked ~ .slider__controls .slider__control--prev label[for$='2'],
+    &[id$='3']:checked ~ .slider__controls .slider__control--next label[for$='4']{
+      display: block;
+    }
+
+    &[id$='3']:checked ~ .slider__controls .slider__control {
+      &--prev {
+        .slider__control-image--work2 {
+          @include showPrev();
+          top: 0;
+
+        }
+      }
+
+      &--next {
+        .slider__control-image--work4 {
+          @include showNext();
+          top: 0;
+        }
+      }
+    }
+
+    &[id$='4']:checked ~ .slider__descriptions .slider__description--work4,
+    &[id$='4']:checked ~ .slider__images .slider__image--work4,
+    &[id$='4']:checked ~ .slider__controls .slider__control--prev label[for$='3'],
+    &[id$='4']:checked ~ .slider__controls .slider__control--next label[for$='1']{
+      display: block;
+    }
+
+    &[id$='4']:checked ~ .slider__controls .slider__control {
+      &--prev {
+        .slider__control-image--work3 {
+          @include showPrev();
+          top: 0;
+        }
+      }
+
+      &--next {
+        .slider__control-image--work1 {
+          @include showNext();
+          top: 0;
+        }
+      }
+    }
+  }
+
+
+  @media only screen and #{$tablet-widths} {
+    &__descriptions {
+      flex-basis: 270px;
+    }
+
+    &__technologies {
+      margin-bottom: 34px;
+
+      &-item {
+        font-size: 16px;
+      }
+    }
+
+    &__btn {
+      font-size: 16px;
+      padding: 4px 0 5px 48px;
+      width: 197px;
+    }
+
+
+    &__images {
+      flex-basis: 529px;
+    }
+
+    &__image {
+      padding-top: 102px;
+    }
+
+    &__controls {
+      flex-basis: 215px;
+    }
+
+    &__control {
+      &--prev {
+        label {
+          &::after {
+            bottom: 105px;
+          }
+
+          &:hover::after {
+            bottom: 95px;
+          }
+        }
+      }
+
+      &--next {
+        label {
+          &::after {
+            bottom: 91px;
+          }
+
+          &:hover::after {
+            bottom: 101px;
+          }
+        }
+      }
+
+      &-image {
+        &--work1 {
+          background: url('../image/slider/work-label-1.png') no-repeat center;
+        }
+
+        &--work2 {
+          background: url('../image/slider/work-label-2.png') no-repeat center;
+        }
+
+        &--work3 {
+          background: url('../image/slider/work-label-3.png') no-repeat center;
+        }
+
+        &--work4 {
+          background: url('../image/slider/work-label-4.png') no-repeat center;
+        }
+      }
+    }
+  }
+
+  @media only screen and #{$desktop-widths} {
+    flex-flow: column wrap;
+    height: 750px;
+
+    &__descriptions {
+      flex-basis: 100%;
+      width: 50%;
+    }
+
+    &__description {
+      padding: 245px 0 0;
+    }
+
+    &__technologies {
+      margin-bottom: 55px;
+    }
+
+    &__btn {
+      width: 200px;
+      background-position: 16px center;
+    }
+
+    &__images {
+      order: 0;
+      width: 50%;
+      flex-basis: 70%;
+    }
+
+    &__image {
+      padding-top: 113px;
+    }
+
+    &__controls {
+      width: 50%;
+      flex-basis: 30%;
+    }
+  }
+
+  @media only screen and #{$big-desktop-widths} {
+    &__btn {
+      padding: 4px 0 5px 50px;
+      background-position: 18px center;
+    }
+
+    &__image {
+      padding-top: 64px;
+    }
+
+    &__control-image {
+      &--work1 {
+        background: url('../image/slider/work-big-label-1.png') no-repeat center;
+      }
+
+      &--work2 {
+        background: url('../image/slider/work-big-label-2.png') no-repeat center;
+      }
+
+      &--work3 {
+        background: url('../image/slider/work-big-label-3.png') no-repeat center;
+      }
+
+      &--work4 {
+        background: url('../image/slider/work-big-label-4.png') no-repeat center;
       }
     }
   }

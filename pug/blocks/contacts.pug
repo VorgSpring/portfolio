@@ -5,30 +5,22 @@ include ../template/mixins.pug
         {
             name: 'skype',
             content: 'skype_kdn',
-            href: 'skype:skype_kdn?chat',
-            width: 24,
-            height: 24
+            href: 'skype:skype_kdn?chat'
         },
         {
             name: 'email',
             content: 'astahov@gmail.com',
-            href: 'mailto:astahov@gmail.com',
-            width: 23,
-            height: 16
+            href: 'mailto:astahov@gmail.com'
         },
         {
             name: 'phone',
             content: '+7 931 200 93 24',
-            href: 'tel:+79312009324',
-            width: 17,
-            height: 21
+            href: 'tel:+79312009324'
         },
         {
             name: 'address',
             content: 'Новосибирск, ул. Инская, д.14',
-            href: false,
-            width: 15,
-            height: 22
+            href: false
         }
     ]
 
@@ -38,10 +30,11 @@ include ../template/mixins.pug
         = '\n'
         if item.href
             a(href=item.href class='contacts__item contacts__item--' + item.name)
-                +icon(item.name, item.width, item.height)
+                +icon(item.name)
+                = '\n'
                 span= item.content
-
         else
             a(class='contacts__item contacts__item--' + item.name)
-                +icon('marker', item.width, item.height)
+                +icon('marker')
+                = '\n'
                 span= item.content

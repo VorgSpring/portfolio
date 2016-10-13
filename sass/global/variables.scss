@@ -1,20 +1,16 @@
-$x-color-light-green: #608d53;
-$x-color-green: #497f39;
-$x-color-dark-green: #122620;
-$x-color-light-grey: #f8f9f5;
-$x-color-dark-grey: #373e42;
+$palette-primary: #6c9c5a;
+$palette-secondary: #4e8839;
 
-$palette-primary: $x-color-green;
-$palette-secondary: $x-color-light-green;
+$palette-background-welcome: rgba(#122620, .6);
+$palette-background-primary: #f8f9f5;
+$palette-background-about: #ebefe2;
+$palette-background-about-secondary: #f4f5f0;
 
-$palette-background-welcome: rgba($x-color-dark-green, .6);
-$palette-background-primary: $x-color-light-grey;
-
-
-$palette-font-primary: $x-color-dark-grey;
+$palette-font-primary: #373e42;
+$palette-font-secondary: #566358;
 
 $mobile-widths-only: (max-width: 699px);
-$tablet-widths: (min-width: 700px);
+$tablet-widths: (min-width: 768px);
 $desktop-widths: (min-width: 1200px);
 $big-desktop-widths: (min-width: 1800px);
 

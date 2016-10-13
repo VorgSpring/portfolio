@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+  min-width: 320px;
 
   &__switcher {
     display: none;
@@ -12,29 +13,61 @@
     &:checked ~ .page-header {
       .burger {
         position: fixed;
-        right: 30px;
-        top: 15px;
-        z-index: 30;
+        right: 10px;
+        top: 9px;
+        z-index: 60;
 
         &__component {
           background-color: transparent;
 
           &::after,
           &::before {
-            width: 50px;
+            width: 35px;
           }
 
           &::after {
-            left: -11px;
-            top: 19px;
+            left: -8px;
+            top: 15px;
             transform: rotate(45deg);
           }
 
           &::before {
-            left: -14px;
-            top: -17px;
+            left: -11px;
+            top: -9px;
             transform: rotate(-45deg);
           }
+        }
+
+        @media only screen and #{$tablet-widths} {
+          right: 30px;
+          top: 30px;
+
+          &__component {
+
+            &::after,
+            &::before {
+              width: 50px;
+            }
+
+            &::after {
+              left: -11px;
+              top: 19px;
+            }
+
+            &::before {
+              left: -14px;
+              top: -17px;
+            }
+        }
+      }
+    }
+  }
+
+
+  @media only screen and #{$tablet-widths} {
+    &:checked ~ .page-header {
+      .burger {
+
         }
       }
     }

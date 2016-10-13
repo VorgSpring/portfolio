@@ -1,16 +1,14 @@
 .about-me {
-  width: 50%;
-  background-color: #ebefe2;
+  background-color: $palette-background-about;
 
   &__wrapper {
-    width: 580px;
-    margin: -32px auto 0;
-    padding-bottom: 30px;
+    max-width: 460px;
+    margin: 0 auto;
   }
 
   &__avatar {
     display: block;
-    margin-bottom: 13px;
+    margin-bottom: 23px;
 
     img {
       display: block;
@@ -19,11 +17,68 @@
   }
 
   &__description {
-    padding: 0 70px;
+    padding: 0 10px 22px;
+    min-height: 283px;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &__definition {
-    @include fonts(16px, 400, 24px, #566358);
+    @include fonts(14px, 400, 24px, $palette-font-secondary);
     margin: 0 0 10px;
   }
+
+  @media only screen and #{$tablet-widths} {
+    &__wrapper {
+      max-width: 474px;
+      margin: 0 auto;
+    }
+
+    &__avatar {
+      margin-bottom: 42px;
+    }
+
+    &__description {
+      padding: 0;
+      min-height: 260px;
+    }
+  }
+
+
+  @media only screen and #{$desktop-widths} {
+    width: 50%;
+    min-height: 854px;
+
+    &__wrapper {
+      margin: -32px auto 0;
+    }
+
+    &__avatar {
+      margin-bottom: 13px;
+    }
+
+    &__description {
+      padding: 0 17px;
+    }
+
+    &__definition {
+      font-size: 16px;
+    }
+  }
+
+
+  @media only screen and #{$big-desktop-widths} {
+    position: relative;
+
+    &__wrapper {
+      margin: 20px 6px 0 auto;
+    }
+
+    &__avatar {
+      margin-bottom: 12px;
+    }
+  }
+
 }

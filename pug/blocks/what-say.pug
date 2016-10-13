@@ -5,7 +5,9 @@ section.what-say
     .what-say__items
         each item in say
             article.what-say__item
-                img(src=item.avatar alt=item.name width=77 height=77).what-say__avatar
+                picture.what-say__avatar
+                    source(media='(min-width:768px)' srcset=item.avatar + '.jpg')
+                    img(src=item.avatar + '-phone.jpg' alt=item.name)
                 blockquote.what-say__quote= item.say
                 = '\n'
                 cite.what-say__who-say

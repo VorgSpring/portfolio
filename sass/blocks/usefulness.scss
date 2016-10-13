@@ -1,18 +1,60 @@
 .usefulness {
-  width: 50%;
-  background-color: #f4f5f0;
+  background-color: $palette-background-about-secondary;
+  min-height: 1176px;
 
   &__wrapper {
-    width: 580px;
+    max-width: 460px;
     margin: 0 auto;
+    padding: 0 10px;
   }
 
   &__description {
-    @include fonts(16px, 400, 24px, #566358);
-    margin: 0 5px 48px 30px;
+    @include fonts(14px, 400, 24px, $palette-font-secondary);
+    margin: 0 0 19px;
+    min-height: 96px;
   }
 
-  &__items {
-    margin-left: 30px;
+  @media only screen and #{$tablet-widths} {
+    min-height: 815px;
+
+    &__wrapper {
+      max-width: 1000px;
+    }
+
+    &__description {
+      margin: 0 auto 38px;
+      width: 476px;
+      min-height: auto;
+    }
+  }
+
+  @media only screen and #{$desktop-widths} {
+    width: 50%;
+
+    &__wrapper {
+      padding: 0 0 0 9px;
+    }
+
+    &__description {
+      font-size: 16px;
+      padding: 0 15px 0 31px;
+      margin: 0 auto 49px;
+      width: auto;
+    }
+
+    &__items {
+      margin-left: 30px;
+      padding: 0;
+    }
+  }
+
+  @media only screen and #{$big-desktop-widths} {
+    &__wrapper {
+      padding: 0 0 0 9px;
+    }
+
+    &__description {
+      padding: 0 60px 0 30px;
+    }
   }
 }

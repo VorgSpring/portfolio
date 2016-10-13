@@ -14,8 +14,11 @@ section.slider
                 a(href=item.link).slider__btn Посмотреть сайт
     .slider__images
         each item, index in works
-            = '\n'
-            img(src=item.image.src class='slider__image slider__image--work' + index width=item.image.width height=item.image.height alt=item.title)
+            picture(class='slider__image slider__image--work' + index)
+                source(media='(min-width:1800px)' srcset='image/slider/big/work-big-' + index + '.png')
+                source(media='(min-width:1200px)' srcset='image/slider/desktop/work-desktop-' + index + '.png')
+                source(media='(min-width:768px)' srcset='image/slider/tablet/work-tablet-' + index + '.png')
+                img(src='image/slider/phone/work-phone-' + index + '.png' alt=item.title)
     .slider__controls
         .slider__control.slider__control--prev
             each item, index in works

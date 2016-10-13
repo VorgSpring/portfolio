@@ -5,6 +5,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="js/plugins/picturefill.min.js"></script>
+	<script src="js/plugins/svgxuse.min.js" defer></script>
 	<title>Мои работы</title>
 </head>
 
@@ -16,19 +18,19 @@
 			<div class="social-buttons">
 				<a class="social-button social-button--vk" href="http://vk.com" target="_blank">
 					<span>vkontakte</span>
-					<svg width="32" height="18">
+					<svg>
 						<use xlink:href="image/sprite.svg#vk"></use>
 					</svg>
 				</a>
 				<a class="social-button social-button--git" href="http://github.com" target="_blank">
 					<span>github</span>
-					<svg width="26" height="22">
+					<svg>
 						<use xlink:href="image/sprite.svg#git"></use>
 					</svg>
 				</a>
 				<a class="social-button social-button--in" href="http://linkedin.com" target="_blank">
 					<span>linkedin</span>
-					<svg width="25" height="22">
+					<svg>
 						<use xlink:href="image/sprite.svg#in"></use>
 					</svg>
 				</a>
@@ -90,10 +92,30 @@
 				</div>
 			</div>
 			<div class="slider__images">
-				<img class="slider__image slider__image--work1" src="image/work-1.png" width="479" height="311" alt="Сайт школы онлайн Образования">
-				<img class="slider__image slider__image--work2" src="image/work-2.png" width="300" height="226" alt="Сайт itloft ">
-				<img class="slider__image slider__image--work3" src="image/work-3.png" width="300" height="225" alt="Портал видеоуроков">
-				<img class="slider__image slider__image--work4" src="image/work-2.png" width="300" height="226" alt="Сайт о йоге">
+				<picture class="slider__image slider__image--work1">
+					<source media="(min-width:1800px)" srcset="image/slider/big/work-big-1.png">
+						<source media="(min-width:1200px)" srcset="image/slider/desktop/work-desktop-1.png">
+							<source media="(min-width:768px)" srcset="image/slider/tablet/work-tablet-1.png">
+								<img src="image/slider/phone/work-phone-1.png" alt="Сайт школы онлайн Образования">
+				</picture>
+				<picture class="slider__image slider__image--work2">
+					<source media="(min-width:1800px)" srcset="image/slider/big/work-big-2.png">
+						<source media="(min-width:1200px)" srcset="image/slider/desktop/work-desktop-2.png">
+							<source media="(min-width:768px)" srcset="image/slider/tablet/work-tablet-2.png">
+								<img src="image/slider/phone/work-phone-2.png" alt="Сайт itloft ">
+				</picture>
+				<picture class="slider__image slider__image--work3">
+					<source media="(min-width:1800px)" srcset="image/slider/big/work-big-3.png">
+						<source media="(min-width:1200px)" srcset="image/slider/desktop/work-desktop-3.png">
+							<source media="(min-width:768px)" srcset="image/slider/tablet/work-tablet-3.png">
+								<img src="image/slider/phone/work-phone-3.png" alt="Портал видеоуроков">
+				</picture>
+				<picture class="slider__image slider__image--work4">
+					<source media="(min-width:1800px)" srcset="image/slider/big/work-big-4.png">
+						<source media="(min-width:1200px)" srcset="image/slider/desktop/work-desktop-4.png">
+							<source media="(min-width:768px)" srcset="image/slider/tablet/work-tablet-4.png">
+								<img src="image/slider/phone/work-phone-4.png" alt="Сайт о йоге">
+				</picture>
 			</div>
 			<div class="slider__controls">
 				<div class="slider__control slider__control--prev">
@@ -122,13 +144,19 @@
 			<h2 class="title title--big title--say">Что обо мне говорят</h2>
 			<div class="what-say__items">
 				<article class="what-say__item">
-					<img class="what-say__avatar" src="image/kovalchuk.jpg" alt="Ковальчук Дмитрий" width="77" height="77">
+					<picture class="what-say__avatar">
+						<source media="(min-width:768px)" srcset="image/kovalchuk.jpg">
+							<img src="image/kovalchuk-phone.jpg" alt="Ковальчук Дмитрий">
+					</picture>
 					<blockquote class="what-say__quote">Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!</blockquote>
 					<cite class="what-say__who-say"><span class="what-say__name">Ковальчук Дмитрий</span><span class="what-say__who">— основатель Loftschool</span></cite>
 				</article>
 				<article class="what-say__item">
-					<img class="what-say__avatar" src="image/zaharov.jpg" alt="Зар Захаров" width="77" height="77">
-					<blockquote class="what-say__quote">Этот код выдержет любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!</blockquote>
+					<picture class="what-say__avatar">
+						<source media="(min-width:768px)" srcset="image/zaharov.jpg">
+							<img src="image/zaharov-phone.jpg" alt="Зар Захаров">
+					</picture>
+					<blockquote class="what-say__quote">Этот код выдержет любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах!</blockquote>
 					<cite class="what-say__who-say"><span class="what-say__name">Зар Захаров</span><span class="what-say__who">— преподаватель</span></cite>
 				</article>
 			</div>
@@ -170,19 +198,19 @@
 				<div class="social-buttons social-buttons--footer">
 					<a class="social-button social-button--vk" href="http://vk.com" target="_blank">
 						<span>vkontakte</span>
-						<svg width="32" height="18">
+						<svg>
 							<use xlink:href="image/sprite.svg#vk"></use>
 						</svg>
 					</a>
 					<a class="social-button social-button--git" href="http://github.com" target="_blank">
 						<span>github</span>
-						<svg width="26" height="22">
+						<svg>
 							<use xlink:href="image/sprite.svg#git"></use>
 						</svg>
 					</a>
 					<a class="social-button social-button--in" href="http://linkedin.com" target="_blank">
 						<span>linkedin</span>
-						<svg width="25" height="22">
+						<svg>
 							<use xlink:href="image/sprite.svg#in"></use>
 						</svg>
 					</a>
@@ -193,7 +221,7 @@
 				<cite class="page-footer__quote-author">&ndash; Martin Golding</cite>
 			</div>
 		</div>
-		<p class="page-footer__author">© Владимир Астахов | создано с любовью в LoftSchool | 2016</p>
+		<p class="page-footer__author">© Владимир Астахов <b>|</b> Создано&nbsp;с&nbsp;любовью в LoftSchool <b>|</b> 2016</p>
 	</footer>
 </body>
 

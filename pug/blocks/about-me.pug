@@ -2,14 +2,17 @@ section.about-me
     .about-me__wrapper
         h1.title.title--big.title--about Обо мне
         picture.about-me__avatar
-            img(src='image/avatar-1200.jpg' alt='Это я!')
+            source(media='(min-width:1800px)' srcset='image/avatar-big-desktop.jpg')
+            source(media='(min-width:1200px)' srcset='image/avatar-desktop.jpg')
+            source(media='(min-width:768px)' srcset='image/avatar-tablet.jpg')
+            img(src='image/avatar-phone.jpg' alt='Это я!')
         article.about-me__description
             h3.title.title--small.title--me Кто я
             p.about-me__definition.
                 Я веб разработчик из Новосибирска. Мне 27 лет.
-                Я&nbsp;занимаюсь разработкой современных сайтови&nbsp;приложений.
-                Мне нравится делать интересныеи&nbsp;современные проекты.
+                Я&nbsp;занимаюсь разработкой современных сайтов и&nbsp;приложений.
+                Мне нравится делать интересные и&nbsp;современные проекты.
             p.about-me__definition.
                 Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
                 Чуть позже я освежу в нём свой&nbsp;контент.
-                А пока посмотрите,как&nbsp;тут&nbsp;всё&nbsp;классно&nbsp;и&nbsp;красиво!
+                А пока посмотрите, как&nbsp;тут&nbsp;всё&nbsp;классно&nbsp;и&nbsp;красиво!

@@ -53,7 +53,11 @@ textarea:invalid {
 
 ::placeholder {
   font-family: 'Roboto', 'Arial', sans-serif;
-  @include fonts(16px, 400, 20px, #5d5a55);
+  @include fonts(14px, 400, 24px, #5d5a55);
+
+  @media only screen and #{$desktop-widths} {
+    font-size: 16px;
+  }
 }
 
 :focus::placeholder {

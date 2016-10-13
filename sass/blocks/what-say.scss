@@ -1,37 +1,66 @@
 .what-say {
-  background: #f4f5f0 url('../image/background.png') no-repeat center bottom;
+  background: #fff url('../image/background-works-phone.jpg') no-repeat center 267px;
   background-size: cover;
-  padding-bottom: 340px;
+  padding-bottom: 449px;
 
   &__items {
-    font-size: 0;
-    margin: 0 auto 65px;
+    margin: 0 auto 33px;
+    max-width: 420px;
+    padding: 0 10px;
     text-align: center;
   }
 
   &__item {
-    @include fonts(16px, 400, 26px, #5d5a55);
+    @include fonts(14px, 400, 24px, $palette-font-secondary);
     font-style: italic;
-    display: inline-block;
-    width: 380px;
-    vertical-align: top;
-    margin-right: 20px;
+    margin-bottom: 31px;
 
-    &:nth-child(2n) {
-      margin-right: 0;
+    &:last-child {
+      margin-bottom: 0;
+
+      .what-say__quote {
+        padding-left: 0;
+        min-height: 72px;
+      }
+
+      .what-say__name {
+        text-indent: 0;
+      }
+
+      .what-say__who {
+        text-indent: -3px;
+      }
     }
+
   }
 
   &__avatar {
     display: block;
-    border-radius: 50%;
-    margin: 0 auto 17px;
+    width: 51px;
+    margin: 0 auto 11px;
+
+    img {
+      display: block;
+      border-radius: 50%;
+    }
   }
 
   &__quote {
-    text-align: left;
-    margin: 0 0 16px;
+    margin: 0 0 7px;
     padding-left: 1px;
+    text-align: left;
+    min-height: 96px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      background: url('../image/quotes.png');
+      top: -22px;
+      left: 0;
+      width: 75px;
+      height: 61px;
+    }
   }
 
   &__who-say {
@@ -39,15 +68,115 @@
   }
 
   &__name {
+    color: $palette-secondary;
     display: block;
-    color: #4e8839;
     font-weight: 700;
     line-height: 24px;
+    text-indent: 8px;
   }
 
   &__who {
+    color: $palette-font-primary;
     display: block;
-    color: #373e42;
     line-height: 24px;
+    text-indent: 5px;
+  }
+
+  @media only screen and #{$tablet-widths} {
+    background: #f4f5f0 url('../image/background-works-tablet.png') no-repeat center 241px;
+    padding-bottom: 390px;
+
+    &__items {
+      display: flex;
+      justify-content: space-around;
+      margin: 0 auto 44px;
+      max-width: 1000px;
+      padding: 0 23px;
+    }
+
+    &__item {
+      flex-basis: 348px;
+      margin-bottom: 0;
+      margin-right: 26px;
+
+      &:last-child {
+        margin-right: 0;
+
+        .what-say__quote {
+          padding-left: 0;
+        }
+
+        .what-say__name {
+          text-indent: 0;
+        }
+
+        .what-say__who {
+          text-indent: -3px;
+        }
+      }
+
+    }
+
+    &__avatar {
+      display: block;
+      width: 77px;
+      margin-bottom: 15px;
+    }
+
+    &__quote {
+      padding-left: 1px;
+      min-height: 72px;
+    }
+
+    &__name {
+      font-size: 16px;
+      text-indent: 2px;
+    }
+
+    &__who {
+      font-size: 16px;
+      text-indent: -2px;
+    }
+  }
+
+  @media only screen and #{$desktop-widths} {
+    background-color: #f4f5f0;
+    background-image:
+            url('../image/background-works-desktop.png'),
+            url('../image/lists.png');
+    background-repeat: no-repeat;
+    background-position: center 320px, center 88px;
+    padding-bottom: 338px;
+
+    &__items {
+      margin: 0 auto 65px;
+      max-width: 1200px;
+      padding: 0 210px;
+    }
+
+    &__item {
+      font-size: 16px;
+      line-height: 26px;
+      margin-right: 20px;
+      flex-basis: 380px;
+    }
+
+    &__avatar {
+      width: 77px;
+      margin-bottom: 15px;
+    }
+
+    &__quote {
+      margin-bottom: 16px;
+    }
+  }
+
+  @media only screen and #{$desktop-widths} {
+    background-color: #f4f5f0;
+    background-image:
+            url('../image/background-works-big.png'),
+            url('../image/lists.png');
+    background-repeat: no-repeat;
+    background-position: center 320px, center 88px
   }
 }

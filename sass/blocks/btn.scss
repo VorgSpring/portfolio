@@ -20,12 +20,11 @@
       border-right-width: 0;
     }
 
-    &--about {
-      padding-right: 1px;
-    }
-
+    &--works,
+    &--about,
     &--blog {
-      padding-right: 2px;
+      font-size: 14px;
+      padding: 4px 0 5px;
     }
 
     &--index {
@@ -49,6 +48,50 @@
 
     &:hover {
       background-color: $palette-primary;
+    }
+  }
+
+  @media only screen and #{$tablet-widths} {
+    &__item {
+      &--works,
+      &--about,
+      &--blog {
+        font-size: 16px;
+        padding: 2px 0 5px;
+      }
+
+      &--works {
+        padding-left: 4px;
+      }
+
+      &--about {
+        padding-right: 0;
+        padding-left: 3px;
+      }
+
+      &--blog {
+        padding-right: 0;
+      }
+    }
+  }
+
+  @media only screen and #{$desktop-widths} {
+    &__item {
+      &--works,
+      &--about,
+      &--blog {
+        font-size: 16px;
+        padding: 2px 0 6px;
+      }
+
+      &--about {
+        padding-right: 1px;
+      }
+
+      &--blog {
+        font-size: 16px;
+        padding-right: 2px;
+      }
     }
   }
 }

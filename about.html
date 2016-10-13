@@ -5,6 +5,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="js/plugins/picturefill.min.js"></script>
+	<script src="js/plugins/svgxuse.min.js" defer></script>
 	<title>Обо мне</title>
 </head>
 
@@ -16,19 +18,19 @@
 			<div class="social-buttons">
 				<a class="social-button social-button--vk" href="http://vk.com" target="_blank">
 					<span>vkontakte</span>
-					<svg width="32" height="18">
+					<svg>
 						<use xlink:href="image/sprite.svg#vk"></use>
 					</svg>
 				</a>
 				<a class="social-button social-button--git" href="http://github.com" target="_blank">
 					<span>github</span>
-					<svg width="26" height="22">
+					<svg>
 						<use xlink:href="image/sprite.svg#git"></use>
 					</svg>
 				</a>
 				<a class="social-button social-button--in" href="http://linkedin.com" target="_blank">
 					<span>linkedin</span>
-					<svg width="25" height="22">
+					<svg>
 						<use xlink:href="image/sprite.svg#in"></use>
 					</svg>
 				</a>
@@ -50,12 +52,15 @@
 				<div class="about-me__wrapper">
 					<h1 class="title title--big title--about">Обо мне</h1>
 					<picture class="about-me__avatar">
-						<img src="image/avatar-1200.jpg" alt="Это я!">
+						<source media="(min-width:1800px)" srcset="image/avatar-big-desktop.jpg">
+							<source media="(min-width:1200px)" srcset="image/avatar-desktop.jpg">
+								<source media="(min-width:768px)" srcset="image/avatar-tablet.jpg">
+									<img src="image/avatar-phone.jpg" alt="Это я!">
 					</picture>
 					<article class="about-me__description">
 						<h3 class="title title--small title--me">Кто я</h3>
-						<p class="about-me__definition">Я веб разработчик из Новосибирска. Мне 27 лет. Я&nbsp;занимаюсь разработкой современных сайтови&nbsp;приложений. Мне нравится делать интересныеи&nbsp;современные проекты.</p>
-						<p class="about-me__definition">Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой&nbsp;контент. А пока посмотрите,как&nbsp;тут&nbsp;всё&nbsp;классно&nbsp;и&nbsp;красиво!</p>
+						<p class="about-me__definition">Я веб разработчик из Новосибирска. Мне 27 лет. Я&nbsp;занимаюсь разработкой современных сайтов и&nbsp;приложений. Мне нравится делать интересные и&nbsp;современные проекты.</p>
+						<p class="about-me__definition">Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой&nbsp;контент. А пока посмотрите, как&nbsp;тут&nbsp;всё&nbsp;классно&nbsp;и&nbsp;красиво!</p>
 					</article>
 				</div>
 			</section>
@@ -117,24 +122,28 @@
 		<div class="contacts">
 			<h3 class="title title--small title--contacts">Контакты</h3>
 			<a class="contacts__item contacts__item--skype" href="skype:skype_kdn?chat">
-				<svg width="24" height="24">
+				<svg>
 					<use xlink:href="image/sprite.svg#skype"></use>
-				</svg><span>skype_kdn</span>
+				</svg>
+				<span>skype_kdn</span>
 			</a>
 			<a class="contacts__item contacts__item--email" href="mailto:astahov@gmail.com">
-				<svg width="23" height="16">
+				<svg>
 					<use xlink:href="image/sprite.svg#email"></use>
-				</svg><span>astahov@gmail.com</span>
+				</svg>
+				<span>astahov@gmail.com</span>
 			</a>
 			<a class="contacts__item contacts__item--phone" href="tel:+79312009324">
-				<svg width="17" height="21">
+				<svg>
 					<use xlink:href="image/sprite.svg#phone"></use>
-				</svg><span>+7 931 200 93 24</span>
+				</svg>
+				<span>+7 931 200 93 24</span>
 			</a>
 			<a class="contacts__item contacts__item--address">
-				<svg width="15" height="22">
+				<svg>
 					<use xlink:href="image/sprite.svg#marker"></use>
-				</svg><span>Новосибирск, ул. Инская, д.14</span>
+				</svg>
+				<span>Новосибирск, ул. Инская, д.14</span>
 			</a>
 		</div>
 	</main>
@@ -159,19 +168,19 @@
 				<div class="social-buttons social-buttons--footer">
 					<a class="social-button social-button--vk" href="http://vk.com" target="_blank">
 						<span>vkontakte</span>
-						<svg width="32" height="18">
+						<svg>
 							<use xlink:href="image/sprite.svg#vk"></use>
 						</svg>
 					</a>
 					<a class="social-button social-button--git" href="http://github.com" target="_blank">
 						<span>github</span>
-						<svg width="26" height="22">
+						<svg>
 							<use xlink:href="image/sprite.svg#git"></use>
 						</svg>
 					</a>
 					<a class="social-button social-button--in" href="http://linkedin.com" target="_blank">
 						<span>linkedin</span>
-						<svg width="25" height="22">
+						<svg>
 							<use xlink:href="image/sprite.svg#in"></use>
 						</svg>
 					</a>
@@ -182,7 +191,7 @@
 				<cite class="page-footer__quote-author">&ndash; Martin Golding</cite>
 			</div>
 		</div>
-		<p class="page-footer__author">© Владимир Астахов | создано с любовью в LoftSchool | 2016</p>
+		<p class="page-footer__author">© Владимир Астахов <b>|</b> Создано&nbsp;с&nbsp;любовью в LoftSchool <b>|</b> 2016</p>
 	</footer>
 </body>
 

@@ -1,7 +1,7 @@
 .authorization {
-  padding-top: 33px;
+  padding-top: 30px;
   text-align: center;
-  width: 380px;
+  width: 300px;
   background-color: $palette-background-welcome;
   border-radius: 5px;
 
@@ -21,28 +21,41 @@
   }
 
   &__enter {
-    margin: 0 20px 20px;
+    margin: 0 10px 20px 20px;
     display: flex;
     justify-content: center;
     flex-direction: row-reverse;
 
+    svg {
+      width: 15px;
+      height: 14px;
+      margin: 16px 8px 0 11px;
+    }
+
     &--last {
-      margin-bottom: 18px;
+      margin-bottom: 17px;
+
+      svg {
+        width: 17px;
+        height: 16px;
+      }
     }
   }
 
   &__login,
   &__password {
-    border-radius: 0 25px 25px 0;
     border: 1px solid #fff;
-    flex-basis: 87%;
-    padding: 12px 19px 13px;
+    border-radius: 0 25px 25px 0;
+    flex-basis: auto;
+    flex-grow: 1;
+    height: 45px;
+    padding: 10px 8px 15px 18px;
 
     &:focus {
-      border-color: #4e8839;
+      border-color: $palette-secondary;
 
       & + label {
-        fill: #4e8839;
+        fill: $palette-secondary;
       }
     }
 
@@ -61,15 +74,15 @@
     cursor: pointer;
 
     &--enter {
-      fill: #C4CBCD;
-      border-radius: 25px 0 0 25px;
-      flex-basis: 13%;
       background-color: #f0efe9;
-      padding: 13px 0 0 3px;
+      border-radius: 25px 0 0 25px;
+      fill: #c4cbcd;
+      flex-basis: 45px;
     }
 
     &--check {
-      padding-left: 31px;
+      padding-left: 34px;
+
       &::before{
         content: '';
         position: absolute;
@@ -79,7 +92,7 @@
         background-color: #fff;
         border-radius: 2px;
         top: -1px;
-        left: 1px;
+        left: 3px;
       }
 
       &::after {
@@ -91,7 +104,7 @@
         height: 7px;
         transform: rotate(-45deg);
         top: 4px;
-        left: 7px;
+        left: 8px;
       }
     }
 
@@ -115,7 +128,8 @@
   }
 
   &__checkout {
-    margin-bottom: 11px;
+    margin-bottom: 12px;
+    margin-left: 43px;
 
     &--last {
       margin-bottom: 38px;
@@ -125,12 +139,12 @@
       display: none;
 
       &:checked + label::before {
-        background-color: #6c9c5a;
-        border-color: #6c9c5a;
+        background-color: $palette-primary;
+        border-color: $palette-primary;
       }
 
       &:checked + label::after {
-        background-color: #6c9c5a;
+        background-color: $palette-primary;
       }
     }
   }
@@ -140,5 +154,97 @@
     margin-bottom: 5px;
     width: 100%;
     text-align: center;
+  }
+
+  @media only screen and #{$tablet-widths} {
+    width: 348px;
+    padding-top: 32px;
+
+    &__enter {
+      margin: 0 21px 20px;
+
+      &--last {
+        margin-bottom: 17px;
+      }
+    }
+
+    &__label {
+      &--check {
+        padding-left: 30px;
+
+        &::before{
+          left: 1px;
+        }
+
+        &::after {
+          top: 5px;
+          left: 6px;
+        }
+      }
+
+      &--radio {
+        margin-right: 18px;
+        padding-left: 47px;
+
+        &::after {
+          top: 0;
+          left: 17px;
+        }
+      }
+    }
+
+    &__checkout {
+      margin-bottom: 13px;
+      margin-left: 0;
+
+      &--last {
+        margin-bottom: 38px;
+      }
+    }
+
+    &__legend {
+      text-indent: -3px;
+    }
+  }
+
+  @media only screen and #{$desktop-widths} {
+    width: 380px;
+
+    &__enter {
+
+      svg {
+        margin: 16px 1px 0 0;
+      }
+
+      &--last {
+        margin-bottom: 19px;
+      }
+    }
+
+    &__login,
+    &__password {
+      padding-left: 16px;
+    }
+
+    &__label {
+      &--enter {
+
+      }
+
+      &--radio {
+        &::after {
+          left: 18px;
+          top: 1px;
+        }
+      }
+
+      &--checkout {
+        margin-bottom: 11px;
+      }
+    }
+
+    &__legend {
+      text-indent: -1px;
+    }
   }
 }

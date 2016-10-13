@@ -1,13 +1,23 @@
 .flipper {
   perspective: 1500;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -210px 0 0 -150px;
+  width: 300px;
+  height: 420px;
   transform: perspective(1500px);
+  transition: 0.6s;
   transform-style: preserve-3d;
 
-  &__container {
-    position: relative;
+  @media only screen and #{$tablet-widths} {
+    margin: -213px 0 0 -174px;
+    width: 348px;
+    height: 426px;
+  }
+
+  @media only screen and #{$desktop-widths} {
+    margin-left: -190px;
     width: 380px;
-    transform: perspective(1500px);
-    transition: 0.6s;
-    transform-style: preserve-3d;
   }
 }

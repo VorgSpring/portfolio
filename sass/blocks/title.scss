@@ -9,13 +9,14 @@
     content: '';
     position: absolute;
     left: 50%;
+    bottom: 0;
     transform: translateX(-50%);
-    width: 89px;
+    width: 56px;
     height: 3px;
   }
 
   &--big {
-    @include fonts(63px, 400, 56px, $palette-font-primary);
+    @include fonts(35px, 400, 42px, $palette-font-primary);
 
     &::after {
       background-color: $palette-font-primary;
@@ -23,128 +24,388 @@
   }
 
   &--small {
-    @include fonts(35px, 400, 41px, #566358);
+    @include fonts(21px, 400, 28px, #566358);
 
     &::after {
       background-color: #566358;
     }
   }
-  
+
   &--login {
     color: #fff;
-    margin-bottom: 52px;
+    font-size: 30px;
+    line-height: 36px;
+    margin-bottom: 31px;
+    padding-bottom: 23px;
     text-indent: 3px;
 
     &::after {
       background-color: #fff;
-      bottom: -21px;
-      margin-left: -3px;
+      width: 89px;
     }
   }
 
   &--works {
-    background: $palette-background-primary url('../image/works_header.svg') no-repeat center 0 / 505px 165px;
-    padding: 65px 0;
-    text-indent: -3px;
+    background: $palette-background-primary;
+    letter-spacing: 0.8px;
+    padding: 22px 0 31px;
+    text-indent: -4px;
+    word-spacing: 1px;
+    position: relative;
+    z-index: 10;
 
     &::after {
-      bottom: 35px;
-      margin-left: -3px;
+      bottom: 17px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 250px;
+      height: 75px;
+      background: url('../image/works_header.svg') no-repeat center 0 / 248px auto;
+      bottom: 23px;
+      left: 50%;
+      z-index: -1;
+      margin-left: -119px;
     }
   }
 
   &--slider {
-    margin-bottom: 48px;
-
-    &::after {
-      bottom: -25px;
-      margin-left: -1px;
-    }
+    margin-bottom: 14px;
+    padding: 28px 10px 17px
   }
 
   &--say {
-    background: url('../image/about_header.svg') no-repeat center 26px / 498px 175px;
-    line-height: 66px;
-    margin: 0 auto 42px;
-    padding: 58px 0 20px;
-    width: 500px;
-    text-indent: -4px;
-
-    &::after {
-      bottom: -13px;
-      margin-left: -3px;
-    }
+    background: url('../image/about_header.svg') no-repeat center 21px / 248px;
+    line-height: 42px;
+    margin: 0 auto 24px;
+    padding: 30px 0 22px;
+    width: 250px;
+    text-indent: -1px;
   }
 
   &--contact-me {
-    margin-bottom: 55px;
+    margin-bottom: 20px;
+    padding-bottom: 17px;
 
     &::after {
-      bottom: -24px;
-      margin-left: 1px;
+      margin-left: -1px;
+      width: 89px;
     }
   }
 
   &--about {
-    background: url("../image/about_header.svg") no-repeat center -6px;
-    background-size: 367px auto;
-    line-height: 66px;
-    margin-bottom: 40px;
-    padding: 40px 0 10px;
-    position: relative;
-    word-spacing: 6px;
-    z-index: 20;
-
-    &::after {
-      bottom: -5px;
-    }
+    background: url("../image/about_header.svg") no-repeat center 3px;
+    background-size: 200px auto;
+    margin-bottom: 18px;
+    padding: 22px 0 14px;
+    text-indent: 5px;
+    word-spacing: 3px;
   }
 
   &--me {
-    padding: 20px 0 12px;
-    text-indent: -10px;
+    padding: 0 0 17px;
     margin-bottom: 14px;
-
-    &::after {
-      bottom: -1px;
-      margin-left: -6px;
-    }
   }
 
   &--usefulness {
-    margin: 0 auto 38px;
-    padding: 12px 0;
-    text-indent: -2px;
-    width: 300px;
+    margin: 0 auto 11px;
+    padding: 24px 0 17px;
+    width: 180px;
 
     &::after {
-      bottom: -3px;
       margin-left: -1px;
     }
   }
 
   &--contacts {
-    padding: 30px 0 12px;
-    text-indent: 4px;
-    margin-bottom: 42px;
-
-    &::after {
-      bottom: -12px;
-      margin-left: 2px;
-    }
+    font-size: 35px;
+    line-height: 41px;
+    margin-bottom: 19px;
+    padding: 23px 0 14px;
+    text-indent: 2px;
   }
 
   &--blog {
     color: #fff;
-    letter-spacing: 1.5px;
-    margin-bottom: 55px;
-    padding-top: 1px;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
+    margin-bottom: 11px;
+    margin-top: -6px;
+    padding-bottom: 16px;
+    text-indent: 3px;
 
     &::after {
       background-color: #fff;
-      bottom: -30px;
-      margin-left: -3px;
+    }
+  }
+
+
+  @media only screen and #{$tablet-widths} {
+    &::after {
+      width: 89px;
+    }
+
+    &--big {
+      font-size: 49px;
+      line-height: 52px;
+    }
+
+    &--small {
+      font-size: 30px;
+      line-height: 36px;
+    }
+
+    &--login {
+      font-size: 35px;
+      line-height: 41px;
+      margin-bottom: 32px;
+      padding-bottom: 21px;
+      text-indent: 2px;
+    }
+
+    &--about {
+      background-size: 250px auto;
+      background-position: center 25px;
+      letter-spacing: 1px;
+      margin-bottom: 28px;
+      padding: 42px 0 15px;
+      text-indent: 5px;
+      word-spacing: 0;
+    }
+
+    &--me {
+      margin-bottom: 10px;
+    }
+
+    &--usefulness {
+      margin: 0 auto 13px;
+      padding: 42px 0 16px;
+      width: 230px;
+    }
+
+    &--contacts {
+      font-size: 35px;
+      line-height: 41px;
+      margin-bottom: 31px;
+      padding: 26px 0 15px;
+      text-indent: 0;
+
+      &::after {
+        margin-left: -1px;
+      }
+    }
+
+    &--say {
+      background-size: 400px auto;
+      background-position: 25px 16px;
+      padding: 39px 0 12px 2px;
+      margin-bottom: 36px;
+      width: 440px;
+      text-indent: 0;
+    }
+
+    &--works {
+      background: $palette-background-primary;
+      letter-spacing: -0.9px;
+      padding: 41px 0 43px;
+      position: relative;
+      text-indent: -1px;
+      word-spacing: 2px;
+      z-index: 10;
+
+      &::before {
+        width: 500px;
+        height: 125px;
+        background-size: 408px auto;
+        bottom: 23px;
+        margin-left: -250px;
+      }
+
+      &::after {
+        bottom: 28px;
+        margin-left: -11px;
+      }
+    }
+
+    &--slider {
+      margin-bottom: 13px;
+      padding: 43px 0 15px;
+    }
+
+    &--contact-me {
+      font-size: 35px;
+      line-height: 41px;
+      margin-bottom: 32px;
+      padding-bottom: 23px;
+    }
+  }
+
+  @media only screen and #{$desktop-widths} {
+    &::after {
+      width: 89px;
+      height: 3px;
+    }
+
+    &--big {
+      font-size: 63px;
+      line-height: 56px;
+    }
+
+    &--small {
+      font-size: 35px;
+      line-height: 41px;
+    }
+
+    &--login {
+      margin-bottom: 31px;
+      padding-bottom: 21px;
+      text-indent: 3px;
+
+      &::after {
+        margin-left: -3px;
+      }
+    }
+
+    &--works {
+      padding: 63px 0 65px;
+      text-indent: -5px;
+      letter-spacing: -0.4px;
+      word-spacing: 1px;
+
+      &::after {
+        bottom: 35px;
+        margin-left: -3px;
+      }
+
+      &::before {
+        background-size: 506px auto;
+        bottom: -12px;
+        height: 200px;
+        margin-left: -292px;
+        width: 600px;
+      }
+    }
+
+    &--slider {
+      padding: 0 2px 24px 0;
+      text-indent: 0;
+      width: 500px;
+      margin: 0 auto 21px;
+
+      &::after {
+        margin-left: -1px;
+      }
+    }
+
+    &--say {
+      line-height: 66px;
+      margin: 0 auto 31px;
+      padding: 58px 3px 32px 0;
+      width: 500px;
+      background-position: 4px 27px;
+      background-size: 500px auto;
+
+      &::after {
+        margin-left: -3px;
+      }
+    }
+
+    &--contact-me {
+      margin-bottom: 32px;
+      padding-bottom: 23px;
+
+      &::after {
+        margin-left: 1px;
+      }
+    }
+
+    &--about {
+      background-size: 367px auto;
+      background-position: center -8px;
+      padding: 44px 0 19px;
+      text-indent: 2px;
+      word-spacing: 2px;
+      margin-bottom: 35px;
+      z-index: 10;
+    }
+
+    &--me {
+      padding: 20px 0 12px;
+      text-indent: -10px;
+      margin-bottom: 14px;
+
+      &::after {
+        bottom: -1px;
+        margin-left: -6px;
+      }
+    }
+
+    &--usefulness {
+      margin: 0 auto 34px;
+      padding: 10px 13px 15px 0;
+      width: 300px;
+
+      &::after {
+        margin-left: -7px;
+      }
+    }
+
+    &--contacts {
+      margin-bottom: 31px;
+      padding: 30px 0 24px;
+      text-indent: 1px;
+
+      &::after {
+        margin-left: 2px;
+      }
+    }
+
+    &--blog {
+      color: #fff;
+      letter-spacing: 1.5px;
+      margin-bottom: 55px;
+      padding-top: 1px;
+
+      &::after {
+        background-color: #fff;
+        bottom: -30px;
+        margin-left: -3px;
+      }
+    }
+  }
+
+  @media only screen and #{$big-desktop-widths} {
+    &--about {
+      background-position: center 32px;
+      padding: 79px 0 29px;
+      position: absolute;
+      right: 480px;
+      top: -68px;
+      width: 374px;
+      z-index: 10;
+    }
+
+    &--me {
+      margin-bottom: 26px;
+      padding-bottom: 23px;
+    }
+
+    &--usefulness {
+      margin: 0 auto 34px;
+      padding: 10px 17px 25px 0;
+
+      &::after {
+        margin-left: -10px;
+      }
+    }
+
+    &--contacts {
+      padding-top: 28px;
+    }
+
+    &--slider {
+      padding: 0 0 24px;
     }
   }
 }

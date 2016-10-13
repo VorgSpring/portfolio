@@ -1,3 +1,8 @@
 .resume {
   display: flex;
+  flex-direction: column;
+
+  @media only screen and #{$desktop-widths} {
+    flex-direction: row;
+  }
 }

@@ -1,11 +1,11 @@
 .contact-me {
-  width: 380px;
   background: rgba(#fff, .15);
   border-radius: 5px;
   margin: 0 auto;
-  padding-top: 30px;
+  padding-top: 33px;
   position: relative;
   z-index: 10;
+  width: 299px;
 
   &::after {
     content: '';
@@ -20,7 +20,7 @@
   }
 
   &__input {
-    margin: 0 20px 21px;
+    margin: 0 20px 20px;
   }
 
   &__form {
@@ -30,16 +30,54 @@
   &__name,
   &__email,
   &__message {
-    width: 100%;
-    border-radius: 25px;
-    padding: 13px 20px;
-    margin-bottom: 20px;
+    @include fonts(14px, 400, 24px, $palette-font-primary);
     border: none;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    padding: 9px 18px 7px;
+    height: 40px;
+    width: 100%;
   }
 
   &__message {
     height: 140px;
     resize: none;
     margin-bottom: 0;
+    padding-top: 11px;
+  }
+
+  @media only screen and #{$tablet-widths} {
+    padding-top: 30px;
+    width: 348px;
+
+    &__name,
+    &__email,
+    &__message {
+      padding: 12px 18px 9px;
+      height: 45px;
+    }
+
+    &__message {
+      height: 140px;
+    }
+  }
+
+  @media only screen and #{$desktop-widths} {
+    width: 380px;
+
+    &__input {
+      margin-bottom: 21px;
+    }
+
+    &__name,
+    &__email,
+    &__message {
+      font-size: 16px;
+      padding: 11px 18px 10px;
+    }
+
+    &__message {
+      height: 140px;
+    }
   }
 }

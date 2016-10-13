@@ -1,37 +1,20 @@
 .page-header {
   flex: 0 0 auto;
-  background: #243833 url('../image/water.jpg') no-repeat center;
-  background-size: 100% auto;
-  padding: 15px 30px 217px;
+  background:
+          linear-gradient(rgba(#000, .5), transparent) no-repeat top center / 100% 30%,
+          #243833 url('../image/background-header-phone.jpg') no-repeat center;
   position: relative;
+  padding: 10px;
+  min-height: 556px;
 
-  &--blog {
-    padding-bottom: 53px;
-
-    .page-header__menu {
-      margin-bottom: 13px;
-    }
-
-    .page-header__arrow {
-      display: none;
-    }
-  }
-
-  &::before {
-    content: '';
-    @include doubleTriangle(100px, $palette-background-primary);
-  }
-
-  &--about {
-    &::before {
-      background: linear-gradient(to right top, #ebefe2 50%, transparent 50%) no-repeat 0 0,
-                  linear-gradient(to left top, #f4f5f0 50%, transparent 50%) no-repeat 100% 0;
-      background-size: 50% 100%;
-    }
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 76px;
   }
 
   &__arrow {
-    @include arrow(18px, 5px, -45deg, #fff, 73px);
+    @include arrow(18px, 5px, -45deg, #fff, 55px);
     opacity: .6;
 
     &:hover {
@@ -39,10 +22,82 @@
     }
   }
 
-  &__menu {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 84px;
-    min-height: 54px;
+  &::before {
+    content: '';
+    @include doubleTriangle(25px, $palette-background-primary);
+  }
+
+  &--about {
+    &::before {
+      background:
+              linear-gradient(to right top, $palette-background-about 50%, transparent 50%) no-repeat 0 0,
+              linear-gradient(to left top, $palette-background-about 50%, transparent 50%) no-repeat 100% 0;
+      background-size: 50% 100%;
+    }
+  }
+
+
+  @media only screen and #{$tablet-widths} {
+    background:
+            linear-gradient(rgba(#000, .5), transparent) no-repeat top center / 100% 30%,
+            #243833 url('../image/background-header-tablet.jpg') no-repeat center;
+    padding: 30px;
+    min-height: 504px;
+
+    &__menu {
+      margin-bottom: 51px;
+    }
+
+    &__arrow {
+      bottom: 52px;
+    }
+
+    &::before {
+      height: 65px;
+    }
+  }
+
+
+  @media only screen and #{$desktop-widths} {
+    background:
+            linear-gradient(rgba(#000, .5), transparent) no-repeat top center / 100% 30%,
+            #243833 url('../image/background-header-desktop.jpg') no-repeat center;
+    min-height: 601px;
+
+    &__menu {
+      margin-bottom: 85px;
+    }
+
+    &__arrow {
+      bottom: 76px;
+    }
+
+    &::before {
+      height: 106px;
+      bottom: -1px;
+    }
+
+    &--about {
+      &::before {
+        background:
+                linear-gradient(to right top, $palette-background-about 50%, transparent 50%) no-repeat 0 0,
+                linear-gradient(to left top, $palette-background-about-secondary 50%, transparent 50%) no-repeat 100% 0;
+        background-size: 50% 100%;
+      }
+    }
+  }
+
+  @media only screen and #{$big-desktop-widths} {
+    background:
+            linear-gradient(rgba(#000, .5), transparent) no-repeat top center / 100% 30%,
+            #243833 url('../image/water.jpg') no-repeat center / 100% auto;
+
+    &__menu {
+      margin-bottom: 90px;
+    }
+
+    &::before {
+      height: 157px;
+    }
   }
 }

@@ -1,4 +1,19 @@
 .map {
-  height: 972px;
-  background: url('../image/background-map.jpg') no-repeat center bottom;
+  height: 1143px;
+  background: url('../image/background-map-phone.jpg') no-repeat top right;
+
+  @media only screen and #{$tablet-widths} {
+    height: 906px;
+    background: url('../image/background-map-tablet.jpg') no-repeat top right;
+  }
+
+  @media only screen and #{$desktop-widths} {
+    height: 973px;
+    background: url('../image/background-map-desktop.jpg') no-repeat top right;
+  }
+
+  @media only screen and #{$big-desktop-widths} {
+    height: 1110px;
+    background: url('../image/background-map-desktop.jpg') no-repeat top right / cover;
+  }
 }
