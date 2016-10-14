@@ -241,6 +241,16 @@
     }
   }
 
+  &--blog {
+    margin-top: -2px;
+    padding-bottom: 15px;
+    text-indent: 0;
+
+    &::after {
+      margin-left: -4px;
+    }
+  }
+
   @media only screen and #{$desktop-widths} {
     &::after {
       width: 89px;
@@ -362,14 +372,13 @@
     }
 
     &--blog {
-      color: #fff;
       letter-spacing: 1.5px;
-      margin-bottom: 55px;
+      margin-bottom: 24px;
       padding-top: 1px;
+      padding-bottom: 30px;
+      margin-top: 0;
 
       &::after {
-        background-color: #fff;
-        bottom: -30px;
         margin-left: -3px;
       }
     }
@@ -406,6 +415,12 @@
 
     &--slider {
       padding: 0 0 24px;
+    }
+
+
+    &--blog {
+      margin-bottom: 23px;
+      padding-top: 2px;
     }
   }
 }

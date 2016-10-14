@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   min-width: 320px;
+  overflow-x: hidden;
+  transition: margin-left 1s;
 
   &__switcher {
     display: none;

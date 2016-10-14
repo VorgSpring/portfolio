@@ -6,6 +6,7 @@
   position: relative;
   padding: 10px;
   min-height: 556px;
+  min-width: 320px;
 
   &__menu {
     display: flex;
@@ -43,6 +44,7 @@
             #243833 url('../image/background-header-tablet.jpg') no-repeat center;
     padding: 30px;
     min-height: 504px;
+    min-width: 768px;
 
     &__menu {
       margin-bottom: 51px;
@@ -85,6 +87,18 @@
         background-size: 50% 100%;
       }
     }
+
+    &--blog {
+      min-height: 437px;
+
+      .page-header__arrow {
+        bottom: 26px;
+      }
+
+      .page-header__menu {
+        margin-bottom: 14px;
+      }
+    }
   }
 
   @media only screen and #{$big-desktop-widths} {
@@ -98,6 +112,12 @@
 
     &::before {
       height: 157px;
+    }
+
+    &--blog {
+      .page-header__menu {
+        margin-bottom: 19px;
+      }
     }
   }
 }

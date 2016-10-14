@@ -1,13 +1,21 @@
-extends template/layout-index.pug
 include blocks/authorization.pug
+include template/mixins.pug
 
-block header
-    header.index__header
-        = '\n'
-        label(for='switcher-index').index__authorization Авторизоваться
+doctype html
+html
+    include template/head.pug
+        title Личный сайт
+    body
+        .index__wrapper
+            input(type='checkbox' name='switcher-index' id='switcher-index').index__switcher
+            header.index__header
+                = '\n'
+                label(for='switcher-index').index__authorization Авторизоваться
 
-block content
-    main.page-main
-        .flipper
-            +authorization
-            include blocks/welcome.pug
+            main.page-main
+                .flipper
+                    +authorization
+                    include blocks/welcome.pug
+
+            footer.page-footer.page-footer--index
+                +authorName('index')

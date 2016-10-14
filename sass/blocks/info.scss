@@ -71,6 +71,11 @@
     &__description {
       font-size: 16px;
       text-indent: 0;
+
+      &--blog {
+        font-size: 14px;
+        text-indent: -1px;
+      }
     }
   }
 
@@ -83,6 +88,13 @@
       .info__description {
         text-indent: -2px;
       }
+    }
+
+    &__description {
+       &--blog {
+         font-size: 16px;
+         text-indent: -1px;
+       }
     }
   }
 }

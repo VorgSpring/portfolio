@@ -2,6 +2,8 @@ include ../template/variables.pug
 
 .publication
     aside.publication__navigation
+        = '\n'
+        span.publication__navigation-button
         ul.publication__navigation-items
             each item in publication
                 if item.active
