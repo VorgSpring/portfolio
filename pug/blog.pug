@@ -4,7 +4,6 @@ include blocks/footer.pug
 
 block title
     title Мой блог
-    script(src='js/blog.js' defer)
 
 block header
     +header('page-header--blog', true)
@@ -15,3 +14,6 @@ block content
 
 block footer
     +footer(true)
+
+block script
+    script(src='js/blog.js')

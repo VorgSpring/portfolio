@@ -1,0 +1,34 @@
+'use strict';
+
+let inputName = document.querySelector('.contact-me__name'),
+    inputEmail = document.querySelector('.contact-me__email'),
+    inputMessage = document.querySelector('.contact-me__message'),
+    formContact = document.querySelector('.contact-me__form'),
+    validation = require('./modules/validation');
+
+formContact.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (validation(inputName, 'contact-me__name--invalid') &&
+        validation(inputEmail, 'contact-me__email--invalid') &&
+        validation(inputMessage, 'contact-me__message--invalid')) {
+        event.target.submit();
+    }
+});
+
+inputName.addEventListener('focus', (event) => {
+    if (event.target.classList.contains('contact-me__name--invalid')) {
+        event.target.classList.remove('contact-me__name--invalid');
+    }
+});
+
+inputEmail.addEventListener('focus', (event) => {
+    if (event.target.classList.contains('contact-me__email--invalid')) {
+        event.target.classList.remove('contact-me__email--invalid');
+    }
+});
+
+inputMessage.addEventListener('focus', (event) => {
+    if (event.target.classList.contains('contact-me__message--invalid')) {
+        event.target.classList.remove('contact-me__message--invalid');
+    }
+});

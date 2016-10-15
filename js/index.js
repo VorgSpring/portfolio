@@ -44,26 +44,55 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(2);
+	module.exports = __webpack_require__(3);
 
 
 /***/ },
 /* 1 */,
-/* 2 */
+/* 2 */,
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var inputLogin = document.querySelector('.authorization__login'),
+	    inputPassword = document.querySelector('.authorization__password'),
+	    formLogin = document.querySelector('.authorization__form'),
+	    validation = __webpack_require__(4);
+
+	formLogin.addEventListener('submit', function (event) {
+	    event.preventDefault();
+	    if (validation(inputLogin, 'authorization__login--invalid') && validation(inputPassword, 'authorization__password--invalid')) {
+	        event.target.submit();
+	    }
+	});
+
+	inputLogin.addEventListener('focus', function (event) {
+	    if (event.target.classList.contains('authorization__login--invalid')) {
+	        event.target.classList.remove('authorization__login--invalid');
+	    }
+	});
+
+	inputPassword.addEventListener('focus', function (event) {
+	    if (event.target.classList.contains('authorization__login--invalid')) {
+	        event.target.classList.remove('authorization__login--invalid');
+	    }
+	});
+
+/***/ },
+/* 4 */
 /***/ function(module, exports) {
 
 	'use strict';
 
-	var publicationButton = document.querySelector('.publication__navigation-button');
-
-	var publicationNavigation = document.querySelector('.publication__navigation');
-
-	var blogWrapper = document.querySelector('.wrapper');
-
-	publicationButton.addEventListener('click', function () {
-	    publicationNavigation.classList.toggle('shifted');
-	    blogWrapper.classList.toggle('shifted');
-	});
+	module.exports = function (inputNode, classError) {
+	    if (inputNode.value === '') {
+	        inputNode.classList.add(classError);
+	        return false;
+	    } else {
+	        return true;
+	    }
+	};
 
 /***/ }
 /******/ ]);

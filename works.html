@@ -164,9 +164,9 @@
 				<h4 class="title title--small title--contact-me">Связаться со мной</h4>
 				<form class="contact-me__form" action="#" method="POST" name="contact">
 					<div class="contact-me__input">
-						<input class="contact-me__name" type="text" name="name" placeholder="Имя">
-						<input class="contact-me__email" type="email" name="email" placeholder="Email">
-						<textarea class="contact-me__message" name="message" placeholder="Ваше сообщение"></textarea>
+						<input class="contact-me__name" type="text" name="name" placeholder="Имя"><span class="contact-me__error contact-me__error--name">Вы не ввели имя</span>
+						<input class="contact-me__email" type="email" name="email" placeholder="Email"><span class="contact-me__error contact-me__error--email">Вы не ввели почту</span>
+						<textarea class="contact-me__message" name="message" placeholder="Ваше сообщение"></textarea><span class="contact-me__error contact-me__error--message">Вы не ввели текст</span>
 					</div>
 					<div class="btn">
 						<button class="btn__item btn__item--submit" type="submit">Отправить</button>
@@ -223,6 +223,7 @@
 		</div>
 		<p class="page-footer__author">© Владимир Астахов <b>|</b> Создано&nbsp;с&nbsp;любовью в LoftSchool <b>|</b> 2016</p>
 	</footer>
+	<script src="js/works.js"></script>
 </body>
 
 </html>

@@ -3,8 +3,11 @@ section.contact-me
     form(action='#' method='POST' name='contact').contact-me__form
         .contact-me__input
             input(type='text' name='name' placeholder='Имя').contact-me__name
+            span.contact-me__error.contact-me__error--name Вы не ввели имя
             input(type='email' name='email' placeholder='Email').contact-me__email
+            span.contact-me__error.contact-me__error--email Вы не ввели почту
             textarea(name='message' placeholder='Ваше сообщение').contact-me__message
+            span.contact-me__error.contact-me__error--message Вы не ввели текст
         .btn
             button(type='submit').btn__item.btn__item--submit Отправить
             button(type='reset').btn__item.btn__item--rezet Очистить

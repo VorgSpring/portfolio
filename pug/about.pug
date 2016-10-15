@@ -4,6 +4,7 @@ include blocks/footer.pug
 
 block title
     title Обо мне
+    script(src='https://maps.google.com/maps/api/js?sensor=true')
 
 block header
     +header('page-header--about')
@@ -18,3 +19,6 @@ block content
 
 block footer
     +footer(true)
+
+block script
+    script(src='js/about.js')

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v4.2.0 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -2010,6 +2011,7 @@ textarea:invalid {
   -webkit-box-direction: reverse;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
+  position: relative;
 }
 
 .authorization__enter svg {
@@ -2037,6 +2039,7 @@ textarea:invalid {
   flex-grow: 1;
   height: 45px;
   padding: 10px 8px 15px 18px;
+  position: relative;
 }
 
 .authorization__login:focus, .authorization__password:focus {
@@ -2053,6 +2056,43 @@ textarea:invalid {
 
 .authorization__login--invalid + label, .authorization__password--invalid + label {
   fill: #e44845;
+}
+
+.authorization__login--invalid + label::after, .authorization__login--invalid + label::before, .authorization__password--invalid + label::after, .authorization__password--invalid + label::before {
+  position: absolute;
+}
+
+.authorization__login--invalid + label::after, .authorization__password--invalid + label::after {
+  background-color: #e44845;
+  border-radius: 9px;
+  bottom: -50px;
+  left: 45px;
+  padding: 7px 0 10px;
+  text-align: center;
+  width: 173px;
+  z-index: 10;
+}
+
+.authorization__login--invalid + label::before, .authorization__password--invalid + label::before {
+  content: '';
+  border-color: transparent transparent #e44845 #e44845;
+  -o-border-image: none;
+  border-image: none;
+  border-style: solid;
+  border-width: 10px;
+  bottom: -27px;
+  left: 120px;
+  -webkit-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.authorization__login--invalid + label::after {
+  content: 'Вы не ввели логин';
+}
+
+.authorization__password--invalid + label::after {
+  content: 'Вы не ввели пароль';
 }
 
 .authorization__label {
@@ -2867,11 +2907,59 @@ textarea:invalid {
   width: 100%;
 }
 
+.contact-me__name--invalid, .contact-me__email--invalid, .contact-me__message--invalid {
+  box-shadow: inset 0 0 0 1px #e44845;
+}
+
+.contact-me__name--invalid + span, .contact-me__email--invalid + span, .contact-me__message--invalid + span {
+  display: block;
+}
+
 .contact-me__message {
   height: 140px;
   resize: none;
   margin-bottom: 0;
   padding-top: 11px;
+}
+
+.contact-me__error {
+  display: none;
+  position: absolute;
+  color: #fff;
+  background-color: #e44845;
+  border-radius: 9px;
+  left: 45px;
+  padding: 7px 0 10px;
+  text-align: center;
+  width: 173px;
+  z-index: 10;
+}
+
+.contact-me__error--name {
+  top: 147px;
+}
+
+.contact-me__error--email {
+  top: 208px;
+}
+
+.contact-me__error--message {
+  bottom: 21px;
+}
+
+.contact-me__error::before {
+  content: '';
+  position: absolute;
+  border-color: transparent transparent #e44845 #e44845;
+  -o-border-image: none;
+  border-image: none;
+  border-style: solid;
+  border-width: 10px;
+  bottom: 18px;
+  left: 70px;
+  -webkit-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
 }
 
 @media only screen and (min-width: 768px) {
@@ -2885,6 +2973,12 @@ textarea:invalid {
   }
   .contact-me__message {
     height: 140px;
+  }
+  .contact-me__error--name {
+    top: 181px;
+  }
+  .contact-me__error--email {
+    top: 247px;
   }
 }
 

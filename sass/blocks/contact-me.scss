@@ -37,6 +37,14 @@
     padding: 9px 18px 7px;
     height: 40px;
     width: 100%;
+
+    &--invalid {
+      box-shadow: inset 0 0 0 1px #e44845;
+
+      & + span {
+        display: block;
+      }
+    }
   }
 
   &__message {
@@ -44,6 +52,43 @@
     resize: none;
     margin-bottom: 0;
     padding-top: 11px;
+  }
+
+  &__error {
+    display: none;
+    position: absolute;
+    color: #fff;
+    background-color: #e44845;
+    border-radius: 9px;
+    left: 45px;
+    padding: 7px 0 10px;
+    text-align: center;
+    width: 173px;
+    z-index: 10;
+
+    &--name {
+      top: 147px;
+    }
+
+    &--email {
+      top: 208px;
+    }
+
+    &--message {
+      bottom: 21px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      border-color: transparent transparent #e44845 #e44845;
+      border-image: none;
+      border-style: solid;
+      border-width: 10px;
+      bottom: 18px;
+      left: 70px;
+      transform: rotate(135deg);
+    }
   }
 
   @media only screen and #{$tablet-widths} {
@@ -59,6 +104,16 @@
 
     &__message {
       height: 140px;
+    }
+
+    &__error {
+      &--name {
+        top: 181px;
+      }
+
+      &--email {
+        top: 247px;
+      }
     }
   }
 

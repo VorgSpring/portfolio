@@ -44,26 +44,14 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(2);
+	module.exports = __webpack_require__(1);
 
 
 /***/ },
-/* 1 */,
-/* 2 */
+/* 1 */
 /***/ function(module, exports) {
 
 	'use strict';
-
-	var publicationButton = document.querySelector('.publication__navigation-button');
-
-	var publicationNavigation = document.querySelector('.publication__navigation');
-
-	var blogWrapper = document.querySelector('.wrapper');
-
-	publicationButton.addEventListener('click', function () {
-	    publicationNavigation.classList.toggle('shifted');
-	    blogWrapper.classList.toggle('shifted');
-	});
 
 /***/ }
 /******/ ]);

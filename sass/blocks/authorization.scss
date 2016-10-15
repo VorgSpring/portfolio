@@ -25,6 +25,7 @@
     display: flex;
     justify-content: center;
     flex-direction: row-reverse;
+    position: relative;
 
     svg {
       width: 15px;
@@ -50,6 +51,7 @@
     flex-grow: 1;
     height: 45px;
     padding: 10px 8px 15px 18px;
+    position: relative;
 
     &:focus {
       border-color: $palette-secondary;
@@ -64,9 +66,57 @@
 
       & + label {
         fill: #e44845;
+
+        &::after,
+        &::before {
+          position: absolute;
+        }
+
+        &::after {
+          background-color: #e44845;
+          border-radius: 9px;
+          bottom: -50px;
+          left: 45px;
+          padding: 7px 0 10px;
+          text-align: center;
+          width: 173px;
+          z-index: 10;
+        }
+
+        &::before {
+          content: '';
+          border-color: transparent transparent #e44845 #e44845;
+          border-image: none;
+          border-style: solid;
+          border-width: 10px;
+          bottom: -27px;
+          left: 120px;
+          transform: rotate(135deg);
+        }
       }
     }
   }
+
+  &__login {
+    &--invalid {
+      & + label {
+        &::after {
+          content: 'Вы не ввели логин';
+        }
+      }
+    }
+  }
+
+  &__password {
+    &--invalid {
+      & + label {
+        &::after {
+          content: 'Вы не ввели пароль';
+        }
+      }
+    }
+  }
+
 
   &__label {
     @include fonts(16px, 400, 24px, #fff);
