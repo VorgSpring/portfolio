@@ -1,5 +1,8 @@
 'use strict';
 
+// Модуль предзагрузки
+require('./modules/preloader/preloader')();
+
 let inputName = document.querySelector('.contact-me__name'),
     inputEmail = document.querySelector('.contact-me__email'),
     inputMessage = document.querySelector('.contact-me__message'),

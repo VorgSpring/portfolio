@@ -1,5 +1,8 @@
 'use strict';
 
+// Модуль предзагрузки
+require('./modules/preloader/preloader')();
+
 let inputLogin = document.querySelector('.authorization__login'),
     inputPassword = document.querySelector('.authorization__password'),
     formLogin = document.querySelector('.authorization__form'),
@@ -24,3 +27,5 @@ inputPassword.addEventListener('focus', (event) => {
         event.target.classList.remove('authorization__login--invalid');
     }
 });
+
+

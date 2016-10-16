@@ -1,0 +1,27 @@
+.wave {
+  fill: #fff;
+
+  &__item {
+    animation: wave 1.5s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+    stroke-dasharray: 100px;
+    stroke-dashoffset: 100px;
+
+    &--second {
+      animation-delay: .2s;
+    }
+
+    &--third {
+      animation-delay: .6s;
+    }
+  }
+}
+
+@keyframes wave {
+  from {
+    stroke-dashoffset: 100px;
+  }
+
+  to{
+    stroke-dashoffset: -100px;
+  }
+}

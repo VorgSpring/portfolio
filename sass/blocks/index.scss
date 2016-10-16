@@ -3,19 +3,22 @@
     height: 100%;
     min-height: 568px;
     min-width: 320px;
-    background: #243833 url('../image/water.jpg') no-repeat center;
-    background-size: cover;
+    background: #5f7b48;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     position: relative;
+    overflow: hidden;
   }
 
   &__header {
     flex: 0 0 auto;
     padding-top: 10px;
     align-self: center;
+    z-index: 10;
   }
 
   &__authorization {

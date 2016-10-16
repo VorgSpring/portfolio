@@ -60,16 +60,7 @@
               left: -14px;
               top: -17px;
             }
-        }
-      }
-    }
-  }
-
-
-  @media only screen and #{$tablet-widths} {
-    &:checked ~ .page-header {
-      .burger {
-
+          }
         }
       }
     }

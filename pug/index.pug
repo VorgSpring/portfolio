@@ -6,7 +6,10 @@ html
     include template/head.pug
         title Личный сайт
     body
+        include blocks/preloader.pug
         .index__wrapper
+            .Background
+                canvas.Background-canvas
             input(type='checkbox' name='switcher-index' id='switcher-index').index__switcher
             header.index__header
                 = '\n'
@@ -21,3 +24,4 @@ html
                 +authorName('index')
 
         script(src='js/index.js')
+        script(src='js/water.js')

@@ -1,0 +1,28 @@
+.preloader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: url('../image/preloader-bg.jpg') no-repeat center / cover;
+
+  &__container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  & + div[class$='wrapper'] {
+    visibility: collapse;
+  }
+
+  &--hidden {
+    display: none;
+
+    & + div[class$='wrapper'] {
+      visibility: visible;
+    }
+  }
+}

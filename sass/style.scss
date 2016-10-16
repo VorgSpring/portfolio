@@ -3,7 +3,10 @@
 @import "global/font";
 @import "global/variables";
 @import "global/mainstream";
+@import "blocks/background";
 @import "blocks/wrapper";
+@import "blocks/preloader";
+@import "blocks/wave";
 
 @import "blocks/flipper";
 @import "blocks/info";
@@ -12,6 +15,7 @@
 @import "blocks/burger";
 @import "blocks/title";
 @import "blocks/overlay";
+@import "blocks/invalid";
 
 @import "blocks/page-header";
 @import "blocks/index";

@@ -1,5 +1,9 @@
 'use strict';
 
+// Модуль предзагрузки
+require('./modules/preloader/preloader')();
+
+
 let publicationButton = document.querySelector('.publication__navigation-button');
 
 let publicationNavigation = document.querySelector('.publication__navigation');
