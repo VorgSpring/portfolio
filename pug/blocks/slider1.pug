@@ -1,0 +1,30 @@
+//section.slider
+        //    each item, index in works
+        //        input(type='radio' name='switcher' id='switcher' + index checked=item.checked).slider__switcher
+        //    .slider__descriptions
+        //        each item, index in works
+        //            div(class='slider__description slider__description--work' + index)
+        //                h4.title.title--small.title--slider= item.title
+        //                ul.slider__technologies
+        //                    each technologies in item.technologies
+        //                        li.slider__technologies-item= technologies
+        //                = '\n'
+        //                a(href=item.link).slider__btn Посмотреть сайт
+        //    .slider__images
+        //        each item, index in works
+        //            picture(class='slider__image slider__image--work' + index)
+        //                source(media='(min-width:1800px)' srcset='image/slider/big/work-big-' + index + '.png')
+        //                source(media='(min-width:1200px)' srcset='image/slider/desktop/work-desktop-' + index + '.png')
+        //                source(media='(min-width:768px)' srcset='image/slider/tablet/work-tablet-' + index + '.png')
+        //                img(src='image/slider/phone/work-phone-' + index + '.png' alt=item.title)
+        //    .slider__controls
+        //        .slider__control.slider__control--prev
+        //            each item, index in works
+        //                = '\n'
+        //                label(for='switcher' + index).slider__control-item
+        //                div(class='slider__control-image slider__control-image--work' + index)
+        //        .slider__control.slider__control--next
+        //            each item, index in works
+        //                = '\n'
+        //                label(for='switcher' + index).slider__control-item
+        //                div(class='slider__control-image slider__control-image--work' + index)

@@ -31,6 +31,9 @@ module.exports = () => {
        utilities.loadImage(item, () => {
            percentsTotal++;
            setPercents(images.length, percentsTotal);
-       }) 
+       }, () => {
+           percentsTotal++;
+           setPercents(images.length, percentsTotal);
+       })
     })
 };

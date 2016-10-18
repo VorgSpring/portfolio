@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(8);
+	module.exports = __webpack_require__(14);
 
 
 /***/ },
@@ -84,6 +84,9 @@
 	    images.forEach(function (item) {
 	        // Загружаем имеющиеся изображения
 	        utilities.loadImage(item, function () {
+	            percentsTotal++;
+	            setPercents(images.length, percentsTotal);
+	        }, function () {
 	            percentsTotal++;
 	            setPercents(images.length, percentsTotal);
 	        });
@@ -158,31 +161,79 @@
 	    /**
 	     * Загрузка изображения
 	     * @param {string} src
-	     * @param {function} callback
+	     * @param {function} callbackLoaded
+	     * @param {function} callbackError
 	     */
-	    loadImage: function loadImage(src, callback) {
+	    loadImage: function loadImage(src, callbackLoaded, callbackError) {
 	        var uploadImage = new Image();
 	        var imageLoadTimeout = setTimeout(function () {
 	            uploadImage.src = '';
+	            uploadImage.onerror = null;
+	            uploadImage.onload = null;
+	            callbackError();
 	        }, this.LOAD_TIMEOUT);
 
 	        // Обработчик загрузки
 	        uploadImage.onload = function () {
 	            uploadImage.onerror = null;
 	            clearTimeout(imageLoadTimeout);
-	            callback();
+	            callbackLoaded();
 	        };
 
 	        // Обработчик ошибки
 	        uploadImage.onerror = function () {
 	            uploadImage.onload = null;
 	            clearTimeout(imageLoadTimeout);
+	            callbackError();
 	        };
 
 	        uploadImage.src = src;
 	    },
 	    removeInvalidClass: function removeInvalidClass(event) {
 	        if (event.target.classList.contains('invalid')) event.target.classList.remove('invalid');
+	    },
+
+
+	    /**
+	     * Оптимизирует callback, чтобы функция вызывалась не чаще, чем раз в time интервал времени
+	     * @param {function} callback
+	     * @param {number} time
+	     * @return {function}
+	     */
+	    throttle: function throttle(callback, time) {
+	        var _this = this,
+	            _arguments = arguments;
+
+	        var state = null;
+	        var COOLDOWN = 1;
+
+	        return function () {
+	            if (state) {
+	                return;
+	            }
+	            callback.apply(_this, _arguments);
+	            state = COOLDOWN;
+	            setTimeout(function () {
+	                state = null;
+	            }, time);
+	        };
+	    },
+
+
+	    /**
+	     * Создаёт DOM элемент
+	     * @param {string} tagName
+	     * @param {string, boolean} className
+	     * @param {string} textContent
+	     * @return {HTMLElement}
+	     */
+	    getElement: function getElement(tagName, className, textContent) {
+	        var element = document.createElement(tagName);
+	        if (className) {
+	            element.classList.add(className);
+	        }
+	        element.textContent = textContent;
+	        return element;
 	    }
 	};
 
@@ -233,7 +284,13 @@
 
 /***/ },
 /* 7 */,
-/* 8 */
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -245,7 +302,7 @@
 	var inputLogin = document.querySelector('.authorization__login'),
 	    inputPassword = document.querySelector('.authorization__password'),
 	    formLogin = document.querySelector('.authorization__form'),
-	    validation = __webpack_require__(9);
+	    validation = __webpack_require__(15);
 
 	formLogin.addEventListener('submit', function (event) {
 	    event.preventDefault();
@@ -267,7 +324,7 @@
 	});
 
 /***/ },
-/* 9 */
+/* 15 */
 /***/ function(module, exports) {
 
 	'use strict';

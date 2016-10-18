@@ -1,18 +1,17 @@
-include ../template/variables.pug
-
 .publication
     aside.publication__navigation
         = '\n'
         span.publication__navigation-button
         ul.publication__navigation-items
-            each item in publication
-                if item.active
-                    li.publication__navigation-item.publication__navigation-item--active= item.title
-                else
-                    li.publication__navigation-item= item.title
     section.publication__items
-        each item in publication
-                .publication__item
-                    h2.publication__title!= item.title
-                    time.publication__date= item.date
-                    .publication__content!= item.content
+
+
+    template#template-navigation
+        li.publication__navigation-item
+            a(href='#')
+
+    template#template-publication
+        .publication__item
+            h2.publication__title
+            time.publication__date
+            .publication__content

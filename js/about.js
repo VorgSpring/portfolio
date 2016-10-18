@@ -57,6 +57,28 @@
 
 	__webpack_require__(2)();
 
+	var myMap = document.querySelector(".map");
+
+	var load = __webpack_require__(7);
+
+	load(myMap, '../map.json', function (data) {
+	    var styles = data;
+
+	    var styledMap = new google.maps.StyledMapType(styles, { name: "Styled Map" });
+
+	    var mapOptions = {
+	        zoom: 17,
+	        center: new google.maps.LatLng(55.765405, 37.689795),
+	        mapTypeControlOptions: {
+	            mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+	        }
+	    };
+	    var map = new google.maps.Map(myMap, mapOptions);
+
+	    map.mapTypes.set('map_style', styledMap);
+	    map.setMapTypeId('map_style');
+	});
+
 /***/ },
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
@@ -93,6 +115,9 @@
 	    images.forEach(function (item) {
 	        // Загружаем имеющиеся изображения
 	        utilities.loadImage(item, function () {
+	            percentsTotal++;
+	            setPercents(images.length, percentsTotal);
+	        }, function () {
 	            percentsTotal++;
 	            setPercents(images.length, percentsTotal);
 	        });
@@ -167,31 +192,79 @@
 	    /**
 	     * Загрузка изображения
 	     * @param {string} src
-	     * @param {function} callback
+	     * @param {function} callbackLoaded
+	     * @param {function} callbackError
 	     */
-	    loadImage: function loadImage(src, callback) {
+	    loadImage: function loadImage(src, callbackLoaded, callbackError) {
 	        var uploadImage = new Image();
 	        var imageLoadTimeout = setTimeout(function () {
 	            uploadImage.src = '';
+	            uploadImage.onerror = null;
+	            uploadImage.onload = null;
+	            callbackError();
 	        }, this.LOAD_TIMEOUT);
 
 	        // Обработчик загрузки
 	        uploadImage.onload = function () {
 	            uploadImage.onerror = null;
 	            clearTimeout(imageLoadTimeout);
-	            callback();
+	            callbackLoaded();
 	        };
 
 	        // Обработчик ошибки
 	        uploadImage.onerror = function () {
 	            uploadImage.onload = null;
 	            clearTimeout(imageLoadTimeout);
+	            callbackError();
 	        };
 
 	        uploadImage.src = src;
 	    },
 	    removeInvalidClass: function removeInvalidClass(event) {
 	        if (event.target.classList.contains('invalid')) event.target.classList.remove('invalid');
+	    },
+
+
+	    /**
+	     * Оптимизирует callback, чтобы функция вызывалась не чаще, чем раз в time интервал времени
+	     * @param {function} callback
+	     * @param {number} time
+	     * @return {function}
+	     */
+	    throttle: function throttle(callback, time) {
+	        var _this = this,
+	            _arguments = arguments;
+
+	        var state = null;
+	        var COOLDOWN = 1;
+
+	        return function () {
+	            if (state) {
+	                return;
+	            }
+	            callback.apply(_this, _arguments);
+	            state = COOLDOWN;
+	            setTimeout(function () {
+	                state = null;
+	            }, time);
+	        };
+	    },
+
+
+	    /**
+	     * Создаёт DOM элемент
+	     * @param {string} tagName
+	     * @param {string, boolean} className
+	     * @param {string} textContent
+	     * @return {HTMLElement}
+	     */
+	    getElement: function getElement(tagName, className, textContent) {
+	        var element = document.createElement(tagName);
+	        if (className) {
+	            element.classList.add(className);
+	        }
+	        element.textContent = textContent;
+	        return element;
 	    }
 	};
 
@@ -239,6 +312,68 @@
 
 	    return images;
 	};
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	'use strict';
+	/**
+	 * Допустимое время загрузки
+	 * @constant {number}
+	 */
+
+	var LOAD_TIMEOUT = 10000;
+
+	/**
+	 * Действие при неудачной загрузке списка
+	 * @param {HTMLElement} container
+	 */
+	var toFailedLoadXHR = function toFailedLoadXHR(container) {
+	    container.classList.remove('loading');
+	    container.classList.add('error');
+	};
+
+	/**
+	 * Получает список по XMLHttpRequest
+	 * @param {HTMLElement} container
+	 * @param {string} url
+	 * @param {function(Array.<Object>)} callback
+	 */
+	var load = function load(container, url, callback) {
+	    container.classList.add('loading');
+	    var xhr = new XMLHttpRequest();
+	    var xhrLoadTimeout = setTimeout(function () {
+	        toFailedLoadXHR(container);
+	    }, LOAD_TIMEOUT);
+
+	    /**
+	     * Обработчик загрузки
+	     * @param {ProgressEvent} event
+	     */
+	    xhr.onload = function (event) {
+	        xhr.onerror = null;
+	        var loadedData = JSON.parse(event.target.response);
+	        callback(loadedData);
+	    };
+
+	    // Обработчик пост загрузки
+	    xhr.onloadend = function () {
+	        clearTimeout(xhrLoadTimeout);
+	        container.classList.remove('loading');
+	    };
+
+	    // Обработчик ошибки
+	    xhr.onerror = function () {
+	        xhr.onload = null;
+	        toFailedLoadXHR(container);
+	    };
+
+	    xhr.open('GET', url);
+	    xhr.send();
+	};
+
+	module.exports = load;
 
 /***/ }
 /******/ ]);

@@ -2,15 +2,52 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
+  position: relative;
+
+  &--error {
+    &::after {
+      content: 'Слайдер времмено не доступен :(';
+      @include fonts(30px, 500, 30px, #e44845);
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 40;
+    }
+
+    &::before {
+      content: '';
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(#ccc, .8);
+      position: absolute;
+      z-index: 30;
+    }
+  }
 
   &__descriptions {
     flex-basis: 220px;
     position: relative;
     background-color: $palette-background-about;
-  }
+    text-align: center;
 
-  &__description {
-    display: none;
+    div {
+      display: inline-block;
+      margin-right: 5px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    span {
+      display: inline-block;
+      opacity: 0;
+      @include showWithScaleAndOpacity();
+    }
   }
 
   &__technologies {
@@ -59,15 +96,17 @@
     order: -1;
     flex-basis: 256px;
     background-color: #e1e4d7;
+    overflow: hidden;
   }
 
   &__image {
-    display: none;
     padding-top: 48px;
 
     img {
       display: block;
       margin: 0 auto;
+      opacity: 0;
+      @include showWithOpacity();
     }
   }
 
@@ -80,54 +119,47 @@
   &__control {
     flex-basis: 50%;
     position: relative;
+    cursor: pointer;
 
     &--prev {
       background-color: rgba(#b0b7aa, .7);
 
-      label {
-        &::after {
-          content: '';
-          @include arrow(30px, 10px, -45deg, rgba(#fff, .8), 38px);
-          transition: bottom .2s;
-        }
-
-        &:hover::after {
-          bottom: 30px;
-        }
+      &::after {
+        content: '';
+        @include arrow(30px, 10px, -45deg, rgba(#fff, .8), 38px);
+        transition: bottom .2s;
       }
 
-      div {
-        top: 100%;
+      .slider__control-image--current {
+        @include showPrev();
+      }
+
+      .slider__control-image--secondary {
+        @include showNext();
+        animation-direction: reverse;
       }
     }
 
     &--next {
       background-color: rgba(#93998d, .7);
 
-      label {
-        &::after {
-          content: '';
-          @include arrow(30px, 10px, 135deg, rgba(#fff, .8), 24px);
-          transition: bottom .2s;
-        }
-
-        &:hover::after {
-          bottom: 30px;
-        }
+      &::after {
+        content: '';
+        @include arrow(30px, 10px, 135deg, rgba(#fff, .8), 24px);
+        transition: bottom .2s;
       }
 
-      div {
-        top: -100%;
+      .slider__control-image--current {
+        @include showNext();
+      }
+
+      .slider__control-image--secondary {
+        @include showPrev();
+        animation-direction: reverse;
       }
     }
 
-    &-item {
-      display: none;
-      cursor: pointer;
-      width: 50%;
-      height: 100%;
-      margin: 0 auto;
-    }
+
 
     &-image {
       position: absolute;
@@ -138,123 +170,14 @@
       transition-duration: .5s;
       transition-property: top;
       transition-timing-function: linear;
+      overflow: hidden;
 
-      &--work1 {
-        background: url('../image/slider/work-phone-label-1.png') no-repeat center;
-      }
-
-      &--work2 {
-        background: url('../image/slider/work-phone-label-2.png') no-repeat center;
-      }
-
-      &--work3 {
-        background: url('../image/slider/work-phone-label-3.png') no-repeat center;
-      }
-
-      &--work4 {
-        background: url('../image/slider/work-phone-label-4.png') no-repeat center;
+      img {
+        display: block;
+        margin: 0 auto;
       }
     }
   }
-
-
-  &__switcher {
-    display: none;
-
-    &[id$='1']:checked ~ .slider__descriptions .slider__description--work1,
-    &[id$='1']:checked ~ .slider__images .slider__image--work1,
-    &[id$='1']:checked ~ .slider__controls .slider__control--prev label[for$='4'],
-    &[id$='1']:checked ~ .slider__controls .slider__control--next label[for$='2']{
-      display: block;
-    }
-
-    &[id$='1']:checked ~ .slider__controls .slider__control {
-      &--prev {
-        .slider__control-image--work4 {
-          @include showPrev();
-          top: 0;
-        }
-      }
-
-      &--next {
-        .slider__control-image--work2 {
-          @include showNext();
-          top: 0;
-        }
-      }
-    }
-
-    &[id$='2']:checked ~ .slider__descriptions .slider__description--work2,
-    &[id$='2']:checked ~ .slider__images .slider__image--work2,
-    &[id$='2']:checked ~ .slider__controls .slider__control--prev label[for$='1'],
-    &[id$='2']:checked ~ .slider__controls .slider__control--next label[for$='3']{
-      display: block;
-    }
-
-    &[id$='2']:checked ~ .slider__controls .slider__control {
-      &--prev {
-        .slider__control-image--work1 {
-          @include showPrev();
-          top: 0;
-        }
-      }
-
-      &--next {
-        .slider__control-image--work3 {
-          @include showNext();
-          top: 0;
-        }
-      }
-    }
-
-    &[id$='3']:checked ~ .slider__descriptions .slider__description--work3,
-    &[id$='3']:checked ~ .slider__images .slider__image--work3,
-    &[id$='3']:checked ~ .slider__controls .slider__control--prev label[for$='2'],
-    &[id$='3']:checked ~ .slider__controls .slider__control--next label[for$='4']{
-      display: block;
-    }
-
-    &[id$='3']:checked ~ .slider__controls .slider__control {
-      &--prev {
-        .slider__control-image--work2 {
-          @include showPrev();
-          top: 0;
-
-        }
-      }
-
-      &--next {
-        .slider__control-image--work4 {
-          @include showNext();
-          top: 0;
-        }
-      }
-    }
-
-    &[id$='4']:checked ~ .slider__descriptions .slider__description--work4,
-    &[id$='4']:checked ~ .slider__images .slider__image--work4,
-    &[id$='4']:checked ~ .slider__controls .slider__control--prev label[for$='3'],
-    &[id$='4']:checked ~ .slider__controls .slider__control--next label[for$='1']{
-      display: block;
-    }
-
-    &[id$='4']:checked ~ .slider__controls .slider__control {
-      &--prev {
-        .slider__control-image--work3 {
-          @include showPrev();
-          top: 0;
-        }
-      }
-
-      &--next {
-        .slider__control-image--work1 {
-          @include showNext();
-          top: 0;
-        }
-      }
-    }
-  }
-
 
   @media only screen and #{$tablet-widths} {
     &__descriptions {
@@ -290,44 +213,14 @@
 
     &__control {
       &--prev {
-        label {
-          &::after {
-            bottom: 105px;
-          }
-
-          &:hover::after {
-            bottom: 95px;
-          }
+        &::after {
+          bottom: 105px;
         }
       }
 
       &--next {
-        label {
-          &::after {
-            bottom: 91px;
-          }
-
-          &:hover::after {
-            bottom: 101px;
-          }
-        }
-      }
-
-      &-image {
-        &--work1 {
-          background: url('../image/slider/work-label-1.png') no-repeat center;
-        }
-
-        &--work2 {
-          background: url('../image/slider/work-label-2.png') no-repeat center;
-        }
-
-        &--work3 {
-          background: url('../image/slider/work-label-3.png') no-repeat center;
-        }
-
-        &--work4 {
-          background: url('../image/slider/work-label-4.png') no-repeat center;
+        &::after {
+          bottom: 91px;
         }
       }
     }
@@ -379,24 +272,6 @@
 
     &__image {
       padding-top: 64px;
-    }
-
-    &__control-image {
-      &--work1 {
-        background: url('../image/slider/work-big-label-1.png') no-repeat center;
-      }
-
-      &--work2 {
-        background: url('../image/slider/work-big-label-2.png') no-repeat center;
-      }
-
-      &--work3 {
-        background: url('../image/slider/work-big-label-3.png') no-repeat center;
-      }
-
-      &--work4 {
-        background: url('../image/slider/work-big-label-4.png') no-repeat center;
-      }
     }
   }
 }

@@ -3,15 +3,11 @@
 // Модуль предзагрузки
 require('./modules/preloader/preloader')();
 
+let blog = require('./modules/blog/blogConstructor');
 
-let publicationButton = document.querySelector('.publication__navigation-button');
+let load = require('./modules/load');
 
-let publicationNavigation = document.querySelector('.publication__navigation');
-
-let blogWrapper = document.querySelector('.wrapper');
-
-
-publicationButton.addEventListener('click', () => {
-    publicationNavigation.classList.toggle('shifted');
-    blogWrapper.classList.toggle('shifted');
+load(document.body, '../blog.json', (data) => {
+    blog.init(data);
 });
+

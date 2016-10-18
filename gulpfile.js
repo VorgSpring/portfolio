@@ -73,7 +73,7 @@ gulp.task('webpack', () => {
         .pipe(named())
         .pipe(webpack({
             watch:   false,
-            //devtool: 'source-map',
+            // devtool: 'source-map',
             module:  {
                 loaders: [{
                     test:    /\.js$/,

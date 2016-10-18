@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(7);
+	module.exports = __webpack_require__(8);
 
 
 /***/ },
@@ -84,6 +84,9 @@
 	    images.forEach(function (item) {
 	        // Загружаем имеющиеся изображения
 	        utilities.loadImage(item, function () {
+	            percentsTotal++;
+	            setPercents(images.length, percentsTotal);
+	        }, function () {
 	            percentsTotal++;
 	            setPercents(images.length, percentsTotal);
 	        });
@@ -158,31 +161,79 @@
 	    /**
 	     * Загрузка изображения
 	     * @param {string} src
-	     * @param {function} callback
+	     * @param {function} callbackLoaded
+	     * @param {function} callbackError
 	     */
-	    loadImage: function loadImage(src, callback) {
+	    loadImage: function loadImage(src, callbackLoaded, callbackError) {
 	        var uploadImage = new Image();
 	        var imageLoadTimeout = setTimeout(function () {
 	            uploadImage.src = '';
+	            uploadImage.onerror = null;
+	            uploadImage.onload = null;
+	            callbackError();
 	        }, this.LOAD_TIMEOUT);
 
 	        // Обработчик загрузки
 	        uploadImage.onload = function () {
 	            uploadImage.onerror = null;
 	            clearTimeout(imageLoadTimeout);
-	            callback();
+	            callbackLoaded();
 	        };
 
 	        // Обработчик ошибки
 	        uploadImage.onerror = function () {
 	            uploadImage.onload = null;
 	            clearTimeout(imageLoadTimeout);
+	            callbackError();
 	        };
 
 	        uploadImage.src = src;
 	    },
 	    removeInvalidClass: function removeInvalidClass(event) {
 	        if (event.target.classList.contains('invalid')) event.target.classList.remove('invalid');
+	    },
+
+
+	    /**
+	     * Оптимизирует callback, чтобы функция вызывалась не чаще, чем раз в time интервал времени
+	     * @param {function} callback
+	     * @param {number} time
+	     * @return {function}
+	     */
+	    throttle: function throttle(callback, time) {
+	        var _this = this,
+	            _arguments = arguments;
+
+	        var state = null;
+	        var COOLDOWN = 1;
+
+	        return function () {
+	            if (state) {
+	                return;
+	            }
+	            callback.apply(_this, _arguments);
+	            state = COOLDOWN;
+	            setTimeout(function () {
+	                state = null;
+	            }, time);
+	        };
+	    },
+
+
+	    /**
+	     * Создаёт DOM элемент
+	     * @param {string} tagName
+	     * @param {string, boolean} className
+	     * @param {string} textContent
+	     * @return {HTMLElement}
+	     */
+	    getElement: function getElement(tagName, className, textContent) {
+	        var element = document.createElement(tagName);
+	        if (className) {
+	            element.classList.add(className);
+	        }
+	        element.textContent = textContent;
+	        return element;
 	    }
 	};
 
@@ -233,6 +284,68 @@
 
 /***/ },
 /* 7 */
+/***/ function(module, exports) {
+
+	'use strict';
+	/**
+	 * Допустимое время загрузки
+	 * @constant {number}
+	 */
+
+	var LOAD_TIMEOUT = 10000;
+
+	/**
+	 * Действие при неудачной загрузке списка
+	 * @param {HTMLElement} container
+	 */
+	var toFailedLoadXHR = function toFailedLoadXHR(container) {
+	    container.classList.remove('loading');
+	    container.classList.add('error');
+	};
+
+	/**
+	 * Получает список по XMLHttpRequest
+	 * @param {HTMLElement} container
+	 * @param {string} url
+	 * @param {function(Array.<Object>)} callback
+	 */
+	var load = function load(container, url, callback) {
+	    container.classList.add('loading');
+	    var xhr = new XMLHttpRequest();
+	    var xhrLoadTimeout = setTimeout(function () {
+	        toFailedLoadXHR(container);
+	    }, LOAD_TIMEOUT);
+
+	    /**
+	     * Обработчик загрузки
+	     * @param {ProgressEvent} event
+	     */
+	    xhr.onload = function (event) {
+	        xhr.onerror = null;
+	        var loadedData = JSON.parse(event.target.response);
+	        callback(loadedData);
+	    };
+
+	    // Обработчик пост загрузки
+	    xhr.onloadend = function () {
+	        clearTimeout(xhrLoadTimeout);
+	        container.classList.remove('loading');
+	    };
+
+	    // Обработчик ошибки
+	    xhr.onerror = function () {
+	        xhr.onload = null;
+	        toFailedLoadXHR(container);
+	    };
+
+	    xhr.open('GET', url);
+	    xhr.send();
+	};
+
+	module.exports = load;
+
+/***/ },
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -241,16 +354,363 @@
 
 	__webpack_require__(2)();
 
-	var publicationButton = document.querySelector('.publication__navigation-button');
+	var blog = __webpack_require__(9);
 
-	var publicationNavigation = document.querySelector('.publication__navigation');
+	var load = __webpack_require__(7);
 
-	var blogWrapper = document.querySelector('.wrapper');
-
-	publicationButton.addEventListener('click', function () {
-	    publicationNavigation.classList.toggle('shifted');
-	    blogWrapper.classList.toggle('shifted');
+	load(document.body, '../blog.json', function (data) {
+	    blog.init(data);
 	});
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	// Общие функции
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var utilities = __webpack_require__(5);
+
+	/**
+	 * Создаёт объект navigation на основе шаблона reviews-template
+	 * @return {Object} element
+	 */
+	var getNavigation = __webpack_require__(10);
+
+	/**
+	 * Создание DOM-разметки в navigation
+	 * @param {HTMLElement} element
+	 * @param {Object} data
+	 */
+	var fillNavigation = __webpack_require__(11);
+
+	/**
+	 * Создаёт объект publication на основе шаблона reviews-template
+	 * @return {Object} element
+	 */
+	var getPublication = __webpack_require__(12);
+
+	/**
+	 * Создание DOM-разметки в publication
+	 * @param {HTMLElement} element
+	 * @param {Object} data
+	 */
+	var fillPublication = __webpack_require__(13);
+
+	/**
+	 * Время через которое выполняется функция
+	 * @constant {number}
+	 */
+	var THROTTLE_DELAY = 100;
+
+	/**
+	 * Конструктор блога
+	 * @constructor
+	 */
+
+	var Blog = function () {
+	  function Blog() {
+	    _classCallCheck(this, Blog);
+
+	    /**
+	     * Контейнер блога
+	     * @type {HTMLElement}
+	     */
+	    this.wrapper = document.querySelector('.wrapper');
+
+	    /**
+	     * Блок статей
+	     * @type {Object}
+	     */
+	    this.publication = {
+
+	      /**
+	       * Контейнер статей
+	       * @type {HTMLElement}
+	       */
+	      container: document.querySelector('.publication__items'),
+
+	      /**
+	       * Статьи
+	       * @type {Array}
+	       */
+	      items: []
+	    };
+
+	    /**
+	     * Блок навигации
+	     * @type {Object}
+	     */
+	    this.navigation = {
+
+	      /**
+	       * Контейнер навигации по блогу
+	       * @type {HTMLElement}
+	       */
+	      container: document.querySelector('.publication__navigation'),
+
+	      /**
+	       * Контейнер элементов навигации
+	       * @type {HTMLElement}
+	       */
+	      list: document.querySelector('.publication__navigation-items'),
+
+	      /**
+	       * Кнопка открытия навигации
+	       * Видна только на мобильной и планшетной версии сайта
+	       * @type {HTMLElement}
+	       */
+	      button: document.querySelector('.publication__navigation-button'),
+
+	      /**
+	       * Элементы навигации
+	       * @type {Array}
+	       */
+	      items: []
+	    };
+	  }
+
+	  /**
+	   * Инициализация блога
+	   * @param {Object} data
+	   */
+
+
+	  _createClass(Blog, [{
+	    key: 'init',
+	    value: function init(data) {
+	      // Сохраняем данные с сервера
+	      this.data = data;
+	      // Отрисовываем блог
+	      this.render();
+	      // Подсвечиваем пункт в навигации, когда статья отображается на странице
+	      this.toAddActiveNavigation();
+	      // Обработчик клика по кнопке открытия навигации
+	      this.navigation.button.addEventListener('click', this.onClick.bind(this));
+	      // Обработчик scroll
+	      window.addEventListener('scroll', utilities.throttle(this.onScroll.bind(this), THROTTLE_DELAY));
+	    }
+
+	    /**
+	     * Фунция отрисовки блога
+	     */
+
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this = this;
+
+	      this.data.forEach(function (item) {
+	        // Создаем объект publication
+	        var publication = getPublication();
+
+	        fillPublication(publication, item);
+
+	        _this.publication.items.push(publication);
+
+	        _this.publication.container.appendChild(publication);
+
+	        // Создаем объект navigation
+	        var navigation = getNavigation();
+
+	        fillNavigation(navigation, item);
+
+	        _this.navigation.items.push(navigation);
+
+	        _this.navigation.list.appendChild(navigation);
+	      });
+	    }
+
+	    /**
+	     * Обработчик scroll, оптимизирован на выполнение не чаще чем в 0.1 сек
+	     */
+
+	  }, {
+	    key: 'onScroll',
+	    value: function onScroll() {
+	      this.toAddActiveNavigation();
+	      this.toFixNavigation();
+	    }
+
+	    /**
+	     * Устанавливает фиксированную позицию блоку с навигацией, если он находится на верху страницы
+	     */
+
+	  }, {
+	    key: 'toFixNavigation',
+	    value: function toFixNavigation() {
+	      if (this.navigation.container.getBoundingClientRect().top <= 50) {
+	        this.navigation.list.classList.add('publication__navigation-items--fixed');
+	      } else {
+	        this.navigation.list.classList.remove('publication__navigation-items--fixed');
+	      }
+	    }
+
+	    /**
+	     * Подсвечивает пункт в навигации, когда статья отображается на странице
+	     */
+
+	  }, {
+	    key: 'toAddActiveNavigation',
+	    value: function toAddActiveNavigation() {
+	      var _this2 = this;
+
+	      this.publication.items.forEach(function (item, index) {
+	        if (item.getBoundingClientRect().top < document.documentElement.clientHeight / 2) {
+	          var activeItem = document.querySelector('.publication__navigation-item--active');
+	          if (activeItem) activeItem.classList.remove('publication__navigation-item--active');
+	          _this2.navigation.items[index].classList.add('publication__navigation-item--active');
+	        }
+	      });
+	    }
+
+	    /**
+	     * Добавляет или убирает сдвиг у навигации и контейнера на блоге
+	     */
+
+	  }, {
+	    key: 'onClick',
+	    value: function onClick() {
+	      this.navigation.container.classList.toggle('shifted');
+	      this.wrapper.classList.toggle('shifted');
+	    }
+	  }]);
+
+	  return Blog;
+	}();
+
+	module.exports = new Blog();
+
+/***/ },
+/* 10 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Шаблон для блока с навигацией
+	 * @type {HTMLElement}
+	 */
+
+	var templateElement = document.querySelector('#template-navigation');
+
+	/**
+	 * content элемента templateElement
+	 * @type {HTMLElement}
+	 */
+	var elementToClone = void 0;
+
+	// Если браузер не поддерживает тег 'template'
+	if ('content' in templateElement) {
+	  elementToClone = templateElement.content.querySelector('.publication__navigation-item');
+	} else {
+	  elementToClone = templateElement.querySelector('.publication__navigation-item');
+	}
+
+	/**
+	 * Создаёт объект element на основе шаблона templateElement
+	 * @return {HTMLElement} element
+	 */
+	var getElement = function getElement() {
+	  // Клонируем шаблонный элемент
+	  var element = elementToClone.cloneNode(true);
+	  element.navigationItem = element.querySelector('a');
+	  return element;
+	};
+
+	module.exports = getElement;
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Создание DOM-разметки в element
+	 * @param {HTMLElement} element
+	 * @param {Object} data
+	 */
+
+	var fill = function fill(element, data) {
+	  element.navigationItem.textContent = data.title;
+	  element.navigationItem.href = '#' + data.id;
+	};
+
+	module.exports = fill;
+
+/***/ },
+/* 12 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Шаблон для блока с публикацией
+	 * @type {HTMLElement}
+	 */
+
+	var templateElement = document.querySelector('#template-publication');
+
+	/**
+	 * content элемента templateElement
+	 * @type {HTMLElement}
+	 */
+	var elementToClone = void 0;
+
+	// Если браузер не поддерживает тег 'template'
+	if ('content' in templateElement) {
+	  elementToClone = templateElement.content.querySelector('.publication__item');
+	} else {
+	  elementToClone = templateElement.querySelector('.publication__item');
+	}
+
+	/**
+	 * Создаёт объект element на основе шаблона templateElement
+	 * @return {HTMLElement} element
+	 */
+	var getElement = function getElement() {
+	  // Клонируем шаблонный элемент
+	  var element = elementToClone.cloneNode(true);
+	  element.publicationTitle = element.querySelector('.publication__title');
+	  element.publicationDate = element.querySelector('.publication__date');
+	  element.content = element.querySelector('.publication__content');
+	  return element;
+	};
+
+	module.exports = getElement;
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	// Общие функции
+
+	var utilities = __webpack_require__(5);
+
+	/**
+	 * Создание DOM-разметки в element
+	 * @param {HTMLElement} element
+	 * @param {Object} data
+	 */
+	var fill = function fill(element, data) {
+	    element.setAttribute('id', data.id);
+	    element.publicationTitle.textContent = data.title;
+	    element.publicationDate.textContent = data.date;
+	    data.content.forEach(function (item) {
+	        var paragraph = utilities.getElement('p', false, item);
+	        element.content.appendChild(paragraph);
+	    });
+	};
+
+	module.exports = fill;
 
 /***/ }
 /******/ ]);
