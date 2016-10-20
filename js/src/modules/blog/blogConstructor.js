@@ -33,7 +33,7 @@ let fillPublication = require('./publication/fill');
  * Время через которое выполняется функция
  * @constant {number}
  */
-let THROTTLE_DELAY = 100;
+const THROTTLE_DELAY = 100;
 
 /**
  * Конструктор блога
@@ -46,6 +46,12 @@ class Blog {
          * @type {HTMLElement}
          */
         this.wrapper = document.querySelector('.wrapper');
+
+        /**
+         * Header блога
+         * @type {HTMLElement}
+         */
+        this.header = document.querySelector('.page-header--blog');
 
         /**
          * Блок статей
@@ -110,39 +116,41 @@ class Blog {
         this.render();
         // Подсвечиваем пункт в навигации, когда статья отображается на странице
         this.toAddActiveNavigation();
+        // Устанавливаем позицию кнопке открытия навигации
+        this.toFixButtonNavigation();
         // Обработчик клика по кнопке открытия навигации
         this.navigation.button.addEventListener('click', this.onClick.bind(this));
-        // Обработчик scroll
+        // Обработчик scroll, оптимизирован на выполнение не чаще чем в 0.1 сек
         window.addEventListener('scroll', utilities.throttle(this.onScroll.bind(this), THROTTLE_DELAY));
+        // Обработчик scroll, устанавливает позицию кнопке открытия навигации, не оптимизирован, чтобы кнопка не "прыгала"
+        window.addEventListener('scroll', this.toFixButtonNavigation.bind(this));
     }
 
     /**
      * Фунция отрисовки блога
      */
     render() {
-        this.data.forEach((item) => {
+        this.data.forEach((item, index) => {
             // Создаем объект publication
             let publication = getPublication();
-
             fillPublication(publication, item);
-
             this.publication.items.push(publication);
-
             this.publication.container.appendChild(publication);
 
             // Создаем объект navigation
             let navigation = getNavigation();
-
             fillNavigation(navigation, item);
-
+            // Первому элементу навигации присваиваем статус "active"
+            if(index === 0) {
+                navigation.classList.add('publication__navigation-item--active');
+            }
             this.navigation.items.push(navigation);
-
             this.navigation.list.appendChild(navigation);
         })
     }
 
     /**
-     * Обработчик scroll, оптимизирован на выполнение не чаще чем в 0.1 сек
+     * Обработчик scroll
      */
     onScroll() {
         this.toAddActiveNavigation();
@@ -158,6 +166,20 @@ class Blog {
 
         } else {
             this.navigation.list.classList.remove('publication__navigation-items--fixed');
+        }
+    }
+
+    /**
+     * Устанавливает позицию кнопке открытия навигации
+     */
+    toFixButtonNavigation() {
+        let headerTop = this.header.getBoundingClientRect().bottom;
+        let buttonTop = this.navigation.button.getBoundingClientRect().top;
+        if( buttonTop < headerTop) {
+            this.navigation.button.style.top = `${headerTop}px`;
+        } else if (buttonTop > headerTop &&
+            buttonTop >= document.documentElement.clientHeight / 2){
+            this.navigation.button.style.top = '50%';
         }
     }
 
@@ -179,7 +201,6 @@ class Blog {
      * Добавляет или убирает сдвиг у навигации и контейнера на блоге
      */
     onClick() {
-        this.navigation.container.classList.toggle('shifted');
         this.wrapper.classList.toggle('shifted');
     }
 }

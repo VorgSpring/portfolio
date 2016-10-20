@@ -13,7 +13,7 @@
     top: 0;
     width: 284px;
     z-index: 40;
-    transition: margin-left 1s;
+    transition: transform 1s;
 
     &-button {
       position: absolute;
@@ -26,6 +26,10 @@
       background-color: $palette-primary;
       cursor: pointer;
       z-index: -1;
+
+      &--first {
+        top: 70%;
+      }
     }
 
 
@@ -241,6 +245,12 @@
         padding: 0 0 0 30px;
         position: static;
         transform: none;
+
+        &--fixed {
+          position: fixed;
+          top: 50px;
+          width: 300px;
+        }
       }
 
       &-item {

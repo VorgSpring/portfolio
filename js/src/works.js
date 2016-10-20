@@ -1,8 +1,19 @@
 'use strict';
+// Модуль корректного отображения тега "picture"
+require('picturefill');
+// Модуль корректной вставки изображений из svg спрайта
+require('svgxuse');
+
+/**
+ * URL списока слайдов
+ * @constant {number}
+ */
+const SLIDER_ITEMS = '../blog.json';
 
 // Модуль предзагрузки
 require('./modules/preloader/preloader')();
 
+// Получает список слайдов по XMLHttpRequest
 let load = require('./modules/load');
 
 let inputName = document.querySelector('.contact-me__name'),
@@ -40,6 +51,6 @@ inputMessage.addEventListener('focus', (event) => {
     }
 });
 
-load(sliderContainer, '../works.json', (data) => {
+load(sliderContainer, SLIDER_ITEMS, (data) => {
     slider.init(data);
 });

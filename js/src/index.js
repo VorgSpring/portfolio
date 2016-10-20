@@ -1,4 +1,8 @@
 'use strict';
+// Модуль корректного отображения тега "picture"
+require('picturefill');
+// Модуль корректной вставки изображений из svg спрайта
+require('svgxuse');
 
 // Модуль предзагрузки
 require('./modules/preloader/preloader')();

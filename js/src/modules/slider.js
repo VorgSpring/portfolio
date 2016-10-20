@@ -144,7 +144,7 @@ class Slider {
                 // Каждую букву оборачиваем в контейнер
                 let char = utilities.getElement('span', 'slider__char', item[i]);
                 // Задаем задержку анимации
-                char.style = `animation-delay: ${counter*0.01}s`;
+                char.style.cssText += `animation-delay: ${counter*0.01}s`;
                 // Вставляем буквы в слова
                 word.appendChild(char);
             }

@@ -95,7 +95,12 @@ $big-desktop-widths: (min-width: 1800px);
 }
 
 .shifted {
-  margin-left: 284px;
+  padding-left: 284px;
+
+  aside {
+    transform: none;
+    padding-left: 0;
+  }
 }
 
 @keyframes showWithScale {
