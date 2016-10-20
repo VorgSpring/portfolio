@@ -2206,7 +2206,7 @@
 	 * URL списока слайдов
 	 * @constant {number}
 	 */
-	var SLIDER_ITEMS = '../blog.json';
+	var SLIDER_ITEMS = '../works.json';
 
 	// Модуль предзагрузки
 	__webpack_require__(5)();

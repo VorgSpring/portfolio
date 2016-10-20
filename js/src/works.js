@@ -8,7 +8,7 @@ require('svgxuse');
  * URL списока слайдов
  * @constant {number}
  */
-const SLIDER_ITEMS = '../blog.json';
+const SLIDER_ITEMS = '../works.json';
 
 // Модуль предзагрузки
 require('./modules/preloader/preloader')();
