@@ -3,9 +3,9 @@ include social-buttons.pug
 
 mixin footer(flag)
     include ../template/variables.pug
-    footer.page-footer
+    footer#footer.page-footer
         if !flag
-            .page-footer__arrow
+            a(href='#header').page-footer__arrow
         .page-footer__wrapper
             p.page-footer__description.
                 Этот сайт я сделал в рамках обучения
